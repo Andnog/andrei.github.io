@@ -1,17 +1,17 @@
 ---
 # Display name
-title: 吳健雄
+title: Andrei N
 
 # Name pronunciation (optional)
-name_pronunciation: Chien Shiung Wu
+name_pronunciation: ''
 
 # Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
+first_name: Andrei
+last_name: Noguera Gil
 
 # Status emoji
 status:
-  icon: ☕️
+  icon: 🚀
 
 # Is this the primary user of the site?
 superuser: true
@@ -20,92 +20,128 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Chief Scientist
+role: Data Scientist
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: OpenAI
-    url: https://openai.com/
+  - name: Tienda Pago
+    url: https://tiendapago.com/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
-  - icon: at-symbol
-    url: 'mailto:your-email@example.com'
-    label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/GetResearchDev
-  - icon: brands/instagram
-    url: https://www.instagram.com/
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/Andnog
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
-  - icon: academicons/google-scholar
-    url: https://scholar.google.com/
-  - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://www.linkedin.com/in/andrei-ng/
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Artificial Intelligence and Machine Learning
+  - Software Engineering and System Design
+  - Emerging Technologies and Innovation
+  - Data-Driven Solutions and Optimization
+  - Automation and Process Improvement
+  - Cloud Computing and Scalable Architectures
+  - Big Data Analytics and Insights
 
 education:
   - area: PhD Artificial Intelligence
-    institution: Stanford University
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+    institution: Universidad Panamericana
+    date_start: 2023-07-01
+    date_end: 2027-07-01
     summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
+      PhD student in Artificial Intelligence with a focus on developing intelligent agents using reinforcement learning in urban simulations. Research aims to optimize decision-making processes in complex and dynamic environments.
     button:
-      text: 'Read Thesis'
-      url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.8/4.0
-
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      GPA: 3.4/4.0
-      
-      Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
-    company_url: ''
-    company_logo: ''
+      text: ''
+      url: ''
+  - area: Data Science Master
+    institution: Universidad Panamericana
     date_start: 2021-01-01
+    date_end: 2022-05-20
+    summary: |
+      Master’s in Data Science focused on business, technology, and data science fundamentals. Final project implemented a cloud-based, data-driven solution to optimize workplace processes using advanced analytics.
+
+      **Core Skills:**
+      - Data science and advanced analytics
+      - Cloud solutions and implementation
+      - Business intelligence and decision-making
+
+      **Technical Proficiencies:**
+      - Python
+      - Machine learning and predictive modeling
+      - Data visualization and reporting
+      - Cloud implemenation solutions
+
+  - area: Engineering in Information Technologies and Intelligent Systems
+    institution: Universidad Panamericana
+    date_start: 2015-01-01
+    date_end: 2019-05-20
+    summary: |
+      Bachelor’s degree in Engineering in Information Technologies and Intelligent Systems, focused on software engineering, networks, operating systems, software design, business strategy, security, and machine learning. The program provided practical skills in developing secure, efficient software solutions and applying machine learning techniques to real-world challenges.
+
+      **Core Skills:**
+      - Software engineering, system design, and architecture
+      - Network security and infrastructure
+      - Machine learning and AI applications
+      - Business IT strategy and processes
+
+      **Technical Proficiencies:**
+      - C/C++, Java, C#, Python
+      - HTML, CSS, JavaScript
+      - Database management and security techniques
+
+work:
+  - position: Data Scientist
+    company_name: Tienda Pago
+    company_url: 'https://tiendapago.com/'
+    company_logo: ''
+    date_start: 2021-12-01
     date_end: ''
     summary: |2-
-      Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
-    company_url: ''
+      Responsible for designing, developing, and deploying machine learning models to drive business value through data-driven insights.
+
+      **Key Responsibilities:**
+      - Build and implement ML models to solve complex problems.
+      - Analyze large datasets and extract insights.
+      - Fine-tune models for performance and accuracy.
+      - Deploy and monitor ML models in production.
+      - Collaborate with teams to integrate solutions into products.
+      - Communicate findings and create clear documentation.
+  
+  - position: Software Development Engineer
+    company_name: Tienda Pago
+    company_url: 'https://tiendapago.com/'
     company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+    date_start: 2019-08-01
+    date_end: 2021-12-01
     summary: |
-      Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      Responsible for designing, building, and maintaining scalable software solutions that meet business and user needs.
+
+      **Key Responsibilities:**
+      - Develop and implement software applications and systems.
+      - Collaborate with cross-functional teams to design efficient solutions.
+      - Write clean, maintainable, and scalable code.
+      - Debug and optimize existing software for performance and reliability.
+      - Participate in code reviews and ensure best practices.
+      - Integrate APIs and third-party services.
+      - Ensure security and data integrity in all solutions.
+
+  - position: Software Developer Intern
+    company_name: Universidad Panamericana
+    company_url: 'https://up.edu.mx/'
+    company_logo: ''
+    date_start: 2019-08-01
+    date_end: 2021-12-01
+    summary: |
+      Responsible responsible for assisting in the development and testing of software solutions while gaining hands-on experience in coding, Operative Systems administration and database management.
+
+      **Key Responsibilities:**
+      - Assist in creating software solutions for internal services.
+      - Debug and troubleshoot issues in existing applications.
+      - Learn and apply best practices in software development.
+      - Support in integrating APIs and third-party services.
+      - Participate in Operative System administration tasks and database management.
+      - Help maintain documentation for systems, code, and processes.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -143,11 +179,9 @@ skills:
 
 languages:
   - name: English
+    percent: 80
+  - name: Spanish
     percent: 100
-  - name: Chinese
-    percent: 75
-  - name: Portuguese
-    percent: 25
 
 # Awards.
 #   Add/remove as many awards below as you like.
