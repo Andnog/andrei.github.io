@@ -5,7 +5,7 @@ cms_exclude: true
 # View.
 view: card
 
-awards:
+resume-certificates:
   - title: Neural Networks and Deep Learning
     url: https://www.coursera.org/learn/neural-networks-deep-learning
     date: '2023-11-25'
