@@ -1,9 +1,5 @@
 ---
 title: Certificates
-cms_exclude: true
-
-# View.
-view: card
 
 resume-certificates:
   - title: Neural Networks and Deep Learning
