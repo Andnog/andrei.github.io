@@ -148,34 +148,54 @@ work:
 skills:
   - name: Technical Skills
     items:
-      - name: Python
+      - name: Programming Languages, Software Development, APIs
         description: ''
         percent: 80
         icon: code-bracket
-      - name: Data Science
+      - name: Data Science, Machine Learning, Artificial Intelligence, Gen AI
         description: ''
         percent: 100
         icon: chart-bar
-      - name: SQL
+      - name: Databases:\ SQL & NoSQL
         description: ''
         percent: 40
         icon: circle-stack
+      - name: Version Control:\ Git, GitHub
+        description: ''
+        percent: 40
+        icon: hero/clipboard-document-list
+      - name: Operative Systems:\ Windows & Linux administration
+        description: ''
+        percent: 40
+        icon: hero/computer-desktop
+      - name: Cloud Platforms:\ AWS, Azure, Google Cloud
+        description: ''
+        percent: 40
+        icon: hero/cloud
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking
+      - name: Drone
         description: ''
         percent: 60
-        icon: person-simple-walk
-      - name: Cats
+        icon: hero/camera
+      - name: Videogames
         description: ''
         percent: 100
-        icon: cat
-      - name: Photography
+        icon: hero/globe-americas
+      - name: Sports
         description: ''
         percent: 80
-        icon: camera
+        icon: hero/trophy
+      - name: Programming
+        description: ''
+        percent: 80
+        icon: hero/command-line
+      - name: Hikking
+        description: ''
+        percent: 80
+        icon: person-simple-walk
 
 languages:
   - name: English
@@ -187,34 +207,36 @@ languages:
 #   Add/remove as many awards below as you like.
 #   Only `title`, `awarder`, and `date` are required.
 #   Begin multi-line `summary` with YAML's `|` or `|2-` multi-line prefix and indent 2 spaces below.
-awards:
-  - title: Neural Networks and Deep Learning
-    url: https://www.coursera.org/learn/neural-networks-deep-learning
-    date: '2023-11-25'
-    awarder: Coursera
-    icon: coursera
-    summary: |
-      I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
-  - title: Blockchain Fundamentals
-    url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
-    date: '2023-07-01'
-    awarder: edX
-    icon: edx
-    summary: |
-      Learned:
-      - Synthesize your own blockchain solutions
-      - Gain an in-depth understanding of the specific mechanics of Bitcoin
-      - Understand Bitcoin’s real-life applications and learn how to attack and destroy Bitcoin, Ethereum, smart contracts and Dapps, and alternatives to Bitcoin’s Proof-of-Work consensus algorithm
-  - title: 'Object-Oriented Programming in R'
-    url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
-    certificate_url: https://www.datacamp.com
-    date: '2023-01-21'
-    awarder: datacamp
-    icon: datacamp
-    summary: |
-      Object-oriented programming (OOP) lets you specify relationships between functions and the objects that they can act on, helping you manage complexity in your code. This is an intermediate level course, providing an introduction to OOP, using the S3 and R6 systems. S3 is a great day-to-day R programming tool that simplifies some of the functions that you write. R6 is especially useful for industry-specific analyses, working with web APIs, and building GUIs.
+# awards:
+#   - title: Neural Networks and Deep Learning
+#     url: https://www.coursera.org/learn/neural-networks-deep-learning
+#     date: '2023-11-25'
+#     awarder: Coursera
+#     icon: coursera
+#     summary: |
+#       I studied the foundational concept of neural networks and deep learning. By the end, I was familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications.
+#   - title: Blockchain Fundamentals
+#     url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
+#     date: '2023-07-01'
+#     awarder: edX
+#     icon: edx
+#     summary: |
+#       Learned:
+#       - Synthesize your own blockchain solutions
+#       - Gain an in-depth understanding of the specific mechanics of Bitcoin
+#       - Understand Bitcoin’s real-life applications and learn how to attack and destroy Bitcoin, Ethereum, smart contracts and Dapps, and alternatives to Bitcoin’s Proof-of-Work consensus algorithm
+#   - title: 'Object-Oriented Programming in R'
+#     url: https://www.datacamp.com/courses/object-oriented-programming-with-s3-and-r6-in-r
+#     certificate_url: https://www.datacamp.com
+#     date: '2023-01-21'
+#     awarder: datacamp
+#     icon: datacamp
+#     summary: |
+#       Object-oriented programming (OOP) lets you specify relationships between functions and the objects that they can act on, helping you manage complexity in your code. This is an intermediate level course, providing an introduction to OOP, using the S3 and R6 systems. S3 is a great day-to-day R programming tool that simplifies some of the functions that you write. R6 is especially useful for industry-specific analyses, working with web APIs, and building GUIs.
 ---
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I’m a passionate technologist, currently pursuing a PhD in Artificial Intelligence, with a Master’s in Data Science and a background in Information Technology. My experience as a Software Engineer allows me to bridge the gap between cutting-edge AI research and real-world implementation. I’m deeply committed to exploring innovative solutions in AI, machine learning, and data science, while continually pushing the boundaries of technology.
+
+I thrive in fast-paced environments and am highly active in new initiatives, hackathons, and competitions, constantly learning and contributing to exciting projects. My goal is to leverage my skills and expertise to create impactful AI-driven solutions that shape the future of technology.
