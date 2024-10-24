@@ -1,5 +1,5 @@
 ---
-title: 'Certifications'
+title: 'Certificates'
 date: 2024-10-24
 type: landing
 
@@ -9,9 +9,9 @@ design:
 
 # Page sections
 sections:
-  - block: resume-certification
+  - block: resume-certificates
     content:
-      title: Certifications
+      title: Certificates
     design:
       view: article-grid
       fill_image: false

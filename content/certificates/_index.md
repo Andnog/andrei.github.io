@@ -1,5 +1,5 @@
 ---
-title: Certifications
+title: Certificates
 cms_exclude: true
 
 # View.

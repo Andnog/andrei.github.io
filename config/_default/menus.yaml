@@ -16,8 +16,8 @@ main:
   - name: Papers
     url: /#papers
     weight: 11
-  - name: Cetfications
-    url: cetfications/
+  - name: Certificates
+    url: certificates/
     weight: 12
   - name: Skills & Tech
     url: skills/
