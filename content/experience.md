@@ -28,4 +28,11 @@ sections:
     content:
       title: Languages
       username: admin
+  # - block: resume-awards
+  #   content:
+  #     title: Certificatesss
+  #   design:
+  #     view: article-grid
+  #     fill_image: false
+  #     columns: 3
 ---

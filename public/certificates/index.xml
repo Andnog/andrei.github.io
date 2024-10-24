@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certificates | Andrei Noguera</title>
+    <link>http://localhost:1313/certificates/</link>
+      <atom:link href="http://localhost:1313/certificates/index.xml" rel="self" type="application/rss+xml" />
+    <description>Certificates</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language>
+    <image>
+      <url>http://localhost:1313/media/icon_hu7729264130191091259.png</url>
+      <title>Certificates</title>
+      <link>http://localhost:1313/certificates/</link>
+    </image>
+    
+    <item>
+      <title>Certificates</title>
+      <link>http://localhost:1313/certificates/_index.old/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/certificates/_index.old/</guid>
+      <description>&lt;p&gt;Welcome to my Certificates section. Here are the certifications I have earned:&lt;/p&gt;
+&lt;h2 id=&#34;professional-certifications&#34;&gt;Professional Certifications&lt;/h2&gt;
+&lt;h3 id=&#34;1-hugo-certified-developer&#34;&gt;1. Hugo Certified Developer&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Issuer:&lt;/strong&gt; Hugo Academy&lt;br&gt;
+&lt;strong&gt;Date:&lt;/strong&gt; April 20, 2024&lt;br&gt;
+&lt;strong&gt;Description:&lt;/strong&gt; Certification for advanced Hugo site development.&lt;br&gt;
+
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

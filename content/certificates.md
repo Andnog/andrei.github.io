@@ -9,11 +9,7 @@ design:
 
 # Page sections
 sections:
-  - block: resume-certificates
+  - block: resume-awards
     content:
       title: Certificates
-    design:
-      view: article-grid
-      fill_image: false
-      columns: 3
 ---
