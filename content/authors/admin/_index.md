@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Andrei N
+title: Andrei Noguera
 
 # Name pronunciation (optional)
 name_pronunciation: ''
