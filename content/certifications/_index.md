@@ -1,5 +1,5 @@
 ---
-title: Awards
+title: Certifications
 cms_exclude: true
 
 # View.

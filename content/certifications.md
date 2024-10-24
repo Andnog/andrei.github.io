@@ -1,6 +1,6 @@
 ---
-title: 'Awards'
-date: 2024-05-19
+title: 'Certifications'
+date: 2024-10-24
 type: landing
 
 design:
@@ -9,9 +9,9 @@ design:
 
 # Page sections
 sections:
-  - block: resume-awards
+  - block: resume-certification
     content:
-      title: Awards
+      title: Certifications
     design:
       view: article-grid
       fill_image: false
