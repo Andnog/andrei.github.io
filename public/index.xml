@@ -167,7 +167,9 @@
       <link>http://localhost:1313/project/pandas/</link>
       <pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/project/pandas/</guid>
-      <description>&lt;p&gt;Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Flexible dadassadsadsadsankbsakjndskjndskjnsadkjnkj powerful data analysis / manipulation library for Python, providing labeled data structures.&lt;/p&gt;
+&lt;p&gt;asmndklmslad&lt;/p&gt;
+&lt;p&gt;sakdjnlsad&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -315,7 +317,7 @@
 
 
 
-&lt;div id=&#34;chart-798123546&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-213645798&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -333,7 +335,7 @@
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-798123546&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-213645798&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
