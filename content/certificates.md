@@ -12,4 +12,5 @@ sections:
   - block: resume-awards
     content:
       title: Certificates
+      username: andrei
 ---
