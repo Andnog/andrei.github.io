@@ -1,6 +1,6 @@
 ---
 title: 'Experience'
-date: 2023-10-24
+date: 2024-10-24
 type: landing
 
 design:
@@ -18,11 +18,4 @@ sections:
       date_format: 'January 2006'
       # Education or Experience section first?
       is_education_first: false
-  # - block: resume-awards
-  #   content:
-  #     title: Certificatesss
-  #   design:
-  #     view: article-grid
-  #     fill_image: false
-  #     columns: 3
 ---

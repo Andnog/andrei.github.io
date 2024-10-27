@@ -36,13 +36,13 @@ profiles:
     url: https://www.linkedin.com/in/andrei-ng/
 
 interests:
-  - Artificial Intelligence and Machine Learning
-  - Software Engineering and System Design
-  - Emerging Technologies and Innovation
-  - Data-Driven Solutions and Optimization
-  - Automation and Process Improvement
-  - Cloud Computing and Scalable Architectures
-  - Big Data Analytics and Insights
+  - 🤖 Artificial Intelligence & Machine Learning
+  - 💻 Software Engineering & System Design
+  - 🚀 Emerging Technologies & Innovation
+  - 📊 Data-Driven Optimization
+  - ⚙️ Automation & Process Improvement
+  - ☁️ Cloud Computing & Scalable Architectures
+  - 📈 Big Data Analytics
 
 education:
   - area: PhD Artificial Intelligence
@@ -141,8 +141,150 @@ work:
       - Help maintain documentation for systems, code, and processes.
 
 freelance:
-  - position: Data Scientist
-    company_name: Tienda Pago
+  - name: Developed a Website to Facilitate Labor Conciliation
+    company_name: CONACENTROS
+    company_url: 'https://www.gob.mx/cfcrl'
+    date_start: 2023-10-01
+    date_end: 2024-09-01
+    summary: |2-
+      Responsible for designing and implementing a comprehensive web platform to labor conciliation processes for workers and employers as Tech Leader.
+
+      **Key Responsibilities:**
+      - Led the technology team in developing core features.
+      - Implemented Landing Page, CMS, Chatbot, Indemnization Calculator, and appointment booking system.
+      - Designed and managed system architecture and cloud platform
+      - Utilized Laravel, Statamic, BotMan, MySQL, and Power BI for development and data visualization.
+      - Ensured seamless integration of tools to enhance conflict resolution efficiency.
+
+  - name: "Consulting Project: Optimizing Sports Performance Through AI Analytics"
+    company_name: Axeleratum
+    company_url: ''
+    date_start: 2021-01-01
+    date_end: 2022-03-01
+    summary: |2-
+      Collaborated with Axeleratum to develop AI-driven analytics that enhance sports performance and generate valuable indicators.
+
+      **Key Responsibilities:**
+      - Analyzed data sources to assess athlete performance.
+      - Developed data science models to identify areas for improvement.
+      - Created indicators for monitoring and enhancing athlete development.
+      - Initiated data-driven projects to optimize training and game processes.
+
+  - name: 'MICAI Conference: AI Research Presentation'
+    company_name: Mexican International Conference on Artificial Intelligence (MICAI)
+    company_url: ''
+    date_start: 2021-09-01
+    date_end: 2021-09-01
+    summary: |2-
+      Published and presented the paper "Sentiment Analysis on Twitter about COVID-19 Vaccination in Mexico" at the MICAI.
+
+      **Key Responsibilities:**
+      - Filtered and prepared data extraction using snscrape.
+      - Developed Machine Learning models for sentiment analysis.
+      - Validated and selected top-performing models.
+      - Authored and presented the research paper at the conference.
+
+  - name: Analytics Integration for E-Commerce
+    company_name: Private Customer
+    company_url: ''
+    date_start: 2021-07-01
+    date_end: 2021-10-01
+    summary: |2-
+      Developed integrations between WooCommerce and data analysis platforms, implementing real-time fraud notification systems using AWS webhooks.
+
+      **Key Responsibilities:**
+      - Connected WooCommerce with Octoboard and the database for comprehensive reporting.
+      - Integrated Slack with AWS webhooks to enable real-time fraud charge notifications.
+      - Configured WooCommerce settings to support seamless data flow and analytics.
+      - Ensured secure and efficient data transmission across multiple platforms.
+
+  - name: 'Dataton: Anti-Corruption Solutions'
+    company_name: Plataforma Digital Nacional
+    company_url: ''
+    date_start: 2019-12-01
+    date_end: 2019-12-01
+    summary: |2-
+      Participated in the Datatón de Anticorrupción organized by Plataforma Digital Nacional, developing data analysis and anti-corruption detection proposals.
+
+      **Key Responsibilities:**
+      - Analyzed data using a graph-based database.
+      - Developed proposals for corruption detection solutions.
+
+  - name: "Hackathon CDMX: Innovative Technology Solutions"
+    company_name: Gobierno de CDMX
+    company_url: ''
+    date_start: 2019-10-01
+    date_end: 2019-10-01
+    summary: |2-
+      Led a team to develop an Intelligent Tourism Android app using AI, **achieving a finalist position among 20 teams out of 500**. The app provided an interactive and engaging way to explore museums and tourist areas through data science
+
+      **Key Responsibilities:**
+      - Led the team in creating an AI-driven tourism solution.
+      - Implemented AI strategy for personalized tour recommendations.
+      - Integrated interactive maps and user-friendly interfaces in MarvelApp.
+      - Developed a prototype (POC) using Android.
+
+  - name: "Data Jam: Kellogg’s Product Distribution"
+    company_name: Software Guru
+    company_url: ''
+    date_start: 2019-10-01
+    date_end: 2019-10-01
+    summary: |2-
+      Achieved 1st place in Kellogg’s Data Jam by developing data-driven solutions to optimize product distribution routes.
+
+      **Key Responsibilities:**
+      - Analyzed INEGI data to identify distribution patterns and inefficiencies.
+      - Prepared and visualized data for impactful presentations.
+
+  - name: "Consulting Project: Optimizing Entertainment Operations"
+    company_name: OCESA
+    company_url: ''
+    date_start: 2019-07-01
+    date_end: 2019-09-01
+    summary: |2-
+      Participated in a Data Science project for OCESA through University Panamericana Consultancy, optimizing product distribution.
+
+      **Key Responsibilities:**
+      - Analyzed data and conducted EDA to uncover insights.
+      - Created visualizations with graphics and plots for presentations.
+      - Developed proposals for client presentations.
+
+  - name: Data Science Group Member at PanterasUP
+    company_name: Universidad Panamericana
+    company_url: ''
+    date_start: 2019-07-01
+    date_end: 2020-08-01
+    summary: |2-
+      Contributed to the PanterasUP Data Science Group at University Panamericana, supporting students in learning and applying data science and AI, and facilitating participation in competitions.
+
+      **Key Responsibilities:**
+      - Mentored and led team members in data science projects.
+      - Participated in events and competitions.
+
+  - name: "Scale Aircraft Project: Payload Targeting"
+    company_name: SAE Aerodesign
+    company_url: ''
+    date_start: 2016-01-01
+    date_end: 2017-12-01
+    summary: |2-
+      Participated in an international competition, designing and building a 2m x 3m gasoline-powered scale aircraft to drop payloads at 30m distance and height. Achieved 10th place in 2016 and 6th place in 2017.
+
+      **Key Responsibilities:**
+      - Assisted in constructing the scale aircraft.
+      - Generated reports and performed necessary calculations.
+      - Led the team during the second year of participation.
+
+  - name: "Participated in Solutions Competition with a Mobile App"
+    company_name: TuApp Latam
+    company_url: ''
+    date_start: 2016-09-01
+    date_end: 2016-09-01
+    summary: |2-
+      Participated in a Latin American competition, developing a ride-sharing mobile app to enhance mobility and reduce emissions. Ranked among the top 50 out of 150 projects.
+
+      **Key Responsibilities:**
+      - Supported mobile app development.
+      - Created design materials.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
