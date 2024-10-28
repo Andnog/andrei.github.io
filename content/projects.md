@@ -12,7 +12,7 @@ sections:
   - block: collection
     content:
       title: Selected Projects
-      text: I enjoy making things. Here are a selection of projects that I have worked on over the years.
+      text: "Explore my GitHub repositories and pages: featuring tutorials, personal projects, and ongoing developments in data science, machine learning, and software development. I am continuously uploading new projects to demonstrate my skills and growth. SECTION IN PROGRESS"
       filters:
         folders:
           - project
