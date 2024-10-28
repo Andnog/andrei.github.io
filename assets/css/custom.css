@@ -1,0 +1,42 @@
+/* Fixed, scrollable sidebar on large screens */
+@media (min-width: 767px) {
+    .sidebar {
+        width: 200px;
+        position: fixed;
+        top: 2rem; /* Add space from the top */
+        right: 10px;
+        margin-top: 3rem;
+        background-color: #1f1f1f58;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-y: auto;
+        max-height: calc(100vh - 2rem); /* Account for top space */
+        scrollbar-width: thin;
+        scrollbar-color: #555 #2d2d2d;
+        z-index: 10;
+    }
+}
+
+/* Sidebar scrollbar customization */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+/* Menu list styles */
+.menu-list li a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.menu-list li a:hover {
+    color: #ffffff;
+}

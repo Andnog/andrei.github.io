@@ -2,6 +2,7 @@
 title: 'Experience'
 date: 2024-10-24
 type: landing
+toc: true
 
 design:
   spacing: '2rem'

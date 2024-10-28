@@ -65,6 +65,9 @@
   
 
   
+    
+    <link href="/css/custom.min.a372b3037f7c19e07373bde4f38348c56afe2f6eb2cb3d6130cdd5e55aa308b0.css" rel="stylesheet" />
+  
 
   <script>
      
@@ -409,7 +412,6 @@
         
       
     
-  
   
   
   
@@ -960,6 +962,14 @@
   >Github
     </a>
               
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/research/"
+    
+  >Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico
+    </a>
+              
             </li></ul>
       </div></li>
     </ul>
@@ -1098,7 +1108,7 @@
 
 
 
-<div id="chart-179538624" class="chart"></div>
+<div id="chart-862415379" class="chart"></div>
 <script>
   async function fetchChartJSON() {
     console.debug('Hugo Blox fetching chart JSON...')
@@ -1116,7 +1126,7 @@
 
       fetchChartJSON().then(chart => {
         console.debug('Plotting chart...')
-        window.Plotly.newPlot('chart-179538624', chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot('chart-862415379', chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

@@ -16,6 +16,40 @@
 {{ $person := $person_page.Params }}
 {{ $is_education_first := $block.design.is_education_first | default false }}
 
+<!-- Sidebar Container -->
+<div class="sidebar hidden md:block">
+  <h2 class="text-md font-bold mb-1 text-white">On this page</h2>
+  <hr class="mb-4">
+  <ul class="menu-list space-y-2">
+    <li><a href="#experience" class="hover:text-gray-300">Experience</a></li>
+    <li><a href="#education" class="hover:text-gray-300">Education</a></li>
+    <li><a href="#freelance" class="hover:text-gray-300">Projects & Freelance</a></li>
+  </ul>
+</div>
+
+<!-- Mobile Toggle Button -->
+<div class="md:hidden fixed bottom-4 right-4 z-20">
+  <button id="mobileMenuToggle" class="p-3 bg-gray-900 text-white rounded-full shadow-lg focus:outline-none">
+      Sections
+  </button>
+</div>
+
+<!-- Mobile Sidebar (collapsible menu for small screens) -->
+<div id="mobileSidebar" class="hidden fixed inset-0 bg-gray-900 bg-opacity-80 z-30 p-6">
+  <div class="bg-gray-800 p-4 rounded-lg text-white">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-md font-bold mb-1 text-white">On this page</h2>
+      <button id="closeMobileSidebar" class="text-gray-400 text-lg">&times;</button>
+    </div>
+    <hr class="mb-4">
+    <ul class="space-y-2">
+        <li><a href="#experience" class="hover:text-gray-300" class="hover:text-gray-300 block" onclick="toggleMobileSidebar()">Experience</a></li>
+        <li><a href="#education" class="hover:text-gray-300" class="hover:text-gray-300 block" onclick="toggleMobileSidebar()">Education</a></li>
+        <li><a href="#freelance" class="hover:text-gray-300" class="hover:text-gray-300 block" onclick="toggleMobileSidebar()">Projects & Freelance</a></li>
+    </ul>
+  </div>
+</div>
+
 <div class="flex flex-col items-center max-w-prose mx-auto">
 
 <!-- Need Gap >= 3 when flex-row due to negative margin on cols (-start-3) -->
@@ -23,7 +57,7 @@
 
 {{ if $person.work }}
 <div class="w-full">
-  <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "experience" | default "Experience" }}</h3>
+  <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white" id="experience">{{ i18n "experience" | default "Experience" }}</h3>
   <ol class="relative border-s border-gray-200 dark:border-gray-700">
     {{ range $idx, $key := $person.work }}
     <li class="mb-10 ms-6">
@@ -61,7 +95,7 @@
 
 {{ if $person.education }}
 <div class="w-full">
-  <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "education" }}</h3>
+  <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white" id="education">{{ i18n "education" }}</h3>
     <ol class="relative border-s border-gray-200 dark:border-gray-700">
       {{ range $idx, $key := $person.education }}
       <li class="mb-10 ms-6">
@@ -100,7 +134,7 @@
 
 {{ if $person.freelance }}
 <div class="w-full">
-  <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">{{ i18n "projects & freelance" | default "Projects & Freelance" }}</h3>
+  <h3 class="mb-6 text-3xl font-bold text-gray-900 dark:text-white" id="freelance">{{ i18n "projects & freelance" | default "Projects & Freelance" }}</h3>
   <ol class="relative border-s border-gray-200 dark:border-gray-700">
     {{ range $idx, $key := $person.freelance }}
     <li class="mb-10 ms-6">
@@ -147,3 +181,17 @@
 </div>
 
 </div>
+
+<script>
+  // Toggle mobile sidebar
+  const mobileSidebar = document.getElementById("mobileSidebar");
+  const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+  const closeMobileSidebar = document.getElementById("closeMobileSidebar");
+
+  function toggleMobileSidebar() {
+      mobileSidebar.classList.toggle("hidden");
+  }
+
+  mobileMenuToggle.addEventListener("click", toggleMobileSidebar);
+  closeMobileSidebar.addEventListener("click", toggleMobileSidebar);
+</script>
