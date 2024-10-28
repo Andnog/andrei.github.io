@@ -93,7 +93,7 @@ work:
     company_url: 'https://tiendapago.com/'
     company_logo: 'https://tiendapago.com/_astro/header-logo.CO-fChkg_ZMEKPV.svg'
     date_start: 2021-12-01
-    date_end: ''
+    date_end: ""
     summary: |2-
       Responsible for designing, developing, and deploying machine learning models to drive business value through data-driven insights.
 
@@ -152,9 +152,23 @@ freelance:
       **Key Responsibilities:**
       - Led the technology team in developing core features.
       - Implemented Landing Page, CMS, Chatbot, Indemnization Calculator, and appointment booking system.
-      - Designed and managed system architecture and cloud platform
+      - Designed and managed system architecture and cloud platform.
       - Utilized Laravel, Statamic, BotMan, MySQL, and Power BI for development and data visualization.
       - Ensured seamless integration of tools to enhance conflict resolution efficiency.
+
+  - name: "Data Science Master’s Jury Committee Member"
+    company_name: Universidad Panamericana
+    company_url: 'up.edu.mx'
+    date_start: 2022-04-01
+    date_end: ""
+    summary: |2-
+      Served as a jury member for Master's students' graduation projects in Data Science, evaluating proposals, technical execution, and the value of implemented solutions.
+
+      **Key Responsibilities:**
+      - Assessed students' ability to identify and address value-generating problems.
+      - Reviewed project implementations to ensure effective and valuable solutions.
+      - Evaluated technical proficiency and quality of project execution.
+      - Provided constructive feedback on implementation and presentation.
 
   - name: "Consulting Project: Optimizing Sports Performance Through AI Analytics"
     company_name: Axeleratum

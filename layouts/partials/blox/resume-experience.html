@@ -148,14 +148,20 @@
       <span class="block mb-2 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">{{.company_name}}</span>
       <time class="block mb-3 text-sm font-normal leading-none text-gray-500 dark:text-gray-300">
         {{ $start := (time .date_start).Format "2006-01-02" }}
-        {{ $end := (time .date_end).Format "2006-01-02" }}
         {{ if .date_start}}
-          {{ (time .date_start) | time.Format ($block.design.date_format | default "January 2006") }} 
-            {{ if ne $start $end }}
-                –
-            {{ end }} 
+        {{ (time .date_start) | time.Format ($block.design.date_format | default "January 2006") }} 
+        {{ if not .date_end }}
+          –
+        {{ else }}
+          {{ $end := (time .date_end).Format "2006-01-02" }}
+          {{ if ne $start $end }}
+            –
+          {{ end }} 
+        {{ end }} 
+        
         {{ end }}
         {{ if .date_end }}
+          {{ $end := (time .date_end).Format "2006-01-02" }}
             {{ if ne $start $end }}
                 {{ (time .date_end) | time.Format ($block.design.date_format | default "January 2006") }}
             {{ end }}
