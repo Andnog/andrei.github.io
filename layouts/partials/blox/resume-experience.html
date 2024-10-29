@@ -17,35 +17,35 @@
 {{ $is_education_first := $block.design.is_education_first | default false }}
 
 <!-- Sidebar Container -->
-<div class="sidebar hidden md:block">
-  <h2 class="text-md font-bold mb-1 text-white">On this page</h2>
+<div class="sidebar hidden md:block dark:backgronud_dark border-gray-900">
+  <h2 class="text-md font-bold mb-1 dark:text-white">On this page</h2>
   <hr class="mb-4">
   <ul class="menu-list space-y-2">
-    <li><a href="#experience" class="hover:text-gray-300">Experience</a></li>
-    <li><a href="#education" class="hover:text-gray-300">Education</a></li>
-    <li><a href="#freelance" class="hover:text-gray-300">Projects & Freelance</a></li>
+    <li><a href="#experience" class="hover:text-gray-300 dark:text-white text-gray-800">Experience</a></li>
+    <li><a href="#education" class="hover:text-gray-300 dark:text-white text-gray-800">Education</a></li>
+    <li><a href="#freelance" class="hover:text-gray-300 dark:text-white text-gray-800">Projects & Freelance</a></li>
   </ul>
 </div>
 
 <!-- Mobile Toggle Button -->
 <div class="md:hidden fixed bottom-4 right-4 z-20">
-  <button id="mobileMenuToggle" class="p-3 bg-gray-900 text-white rounded-full shadow-lg focus:outline-none">
+  <button id="mobileMenuToggle" class="p-3 bg-gray-white dark:bg-gray-900 dark:text-white rounded-full shadow-lg focus:outline-none">
       Sections
   </button>
 </div>
 
 <!-- Mobile Sidebar (collapsible menu for small screens) -->
-<div id="mobileSidebar" class="hidden fixed inset-0 bg-gray-900 bg-opacity-80 z-30 p-6">
+<div id="mobileSidebar" class="hidden fixed inset-0 dark:bg-gray-900 bg-opacity-80 z-30 p-6 text-black dark:text-primary-300">
   <div class="bg-gray-800 p-4 rounded-lg text-white">
     <div class="flex items-center justify-between mb-4">
-      <h2 class="text-md font-bold mb-1 text-white">On this page</h2>
+      <h2 class="text-md font-bold mb-1 dark:text-white">On this page</h2>
       <button id="closeMobileSidebar" class="text-gray-400 text-lg">&times;</button>
     </div>
     <hr class="mb-4">
     <ul class="space-y-2">
-        <li><a href="#experience" class="hover:text-gray-300" class="hover:text-gray-300 block" onclick="toggleMobileSidebar()">Experience</a></li>
-        <li><a href="#education" class="hover:text-gray-300" class="hover:text-gray-300 block" onclick="toggleMobileSidebar()">Education</a></li>
-        <li><a href="#freelance" class="hover:text-gray-300" class="hover:text-gray-300 block" onclick="toggleMobileSidebar()">Projects & Freelance</a></li>
+        <li><a href="#experience" class="hover:text-gray-300 dark::text-gray-300 block" onclick="toggleMobileSidebar()">Experience</a></li>
+        <li><a href="#education" class="hover:text-gray-300 dark::text-gray-300 block" onclick="toggleMobileSidebar()">Education</a></li>
+        <li><a href="#freelance" class="hover:text-gray-300 dark::text-gray-300 block" onclick="toggleMobileSidebar()">Projects & Freelance</a></li>
     </ul>
   </div>
 </div>
