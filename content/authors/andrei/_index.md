@@ -73,7 +73,7 @@ skills:
         percent: 85
         icon: computer-desktop
       - name: Databases
-        description: DynamoDB, Big Table, CosmosDB, MySQL, SQLServer        
+        description: SQL Server, MySQL, MongoDB, CosmosDB, DynamoDB, Neo4J, Big Table      
         percent: 80
         icon: circle-stack
       - name: Machine Learning
@@ -84,35 +84,50 @@ skills:
     color: '#134B70'
     color_border: '#134B70'
     items:
-      - name: Laravel        
+      - name: Scikit-learn
         percent: 90
-        icon: devicon/laravel
-      - name: Statamic (CMS)        
+        icon: devicon/scikitlearn
+      - name: Pytorch
+        percent: 80
+        icon: devicon/pytorch
+      - name: TensorFlow
+        percent: 70
+        icon: devicon/tensorflow
+      - name: Statamic (CMS)
         percent: 85
         icon: devicon/laravel
-      - name: Angular        
+      - name: Angular
         percent: 80
         icon: devicon/angular
-      - name: Django        
+      - name: Django
         percent: 65
         icon: devicon/python
-      - name: Flask        
+      - name: Flask
         percent: 65
         icon: devicon/flask
-      - name: .Net & .Core        
+      - name: .Net & .Core
         percent: 80
         icon: devicon/dotnetcore
   - name: Software & Tools
     items:
+      - name: Operative Systems
+        description: Linux, Windows, MacOS
+        icon: devicon/linux
+      - name: Data Science
+        description: Pandas, NumPy, Seaborn, SciPy
+        icon: devicon/pypi
       - name: LLMs
         description: ChatGPT, Claude, Gemini
         icon: chat-bubble-bottom-center-text
+      - name: Gen Image AI
+        description: DALL·E, Mid Journey, Flux
+        icon: devicon/gimp
       - name: VS Code
         icon: devicon/vscode
       - name: Postman
         icon: devicon/postman
       - name: Jupyter Notebooks
-        icon: devicon/python
+        icon: devicon/jupyter
       - name: Github
         icon: devicon/github
       - name: Git

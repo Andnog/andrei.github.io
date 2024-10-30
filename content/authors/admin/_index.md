@@ -311,19 +311,19 @@ skills:
         icon: chart-bar
       - name: "API: REST, WCF, SOAP"
         icon: chart-bar
-      - name: "Data Science: Pandas, NumPy, Seaborn, Scipy"
+      - name: "Data Science: Pandas, NumPy, Seaborn, SciPy"
         icon: circle-stack
       - name: "Machine Learning: Scikit-learn, TensorFlow, PyTorch"
         icon: code-bracket-square
       - name: "Artificial Intelligence: Neural Networks, Natural Language Processing, Deep Learning"
         icon: cpu-chip
-      - name: "Generative AI (Gen AI): ChatGPT, Claude, Gemini, DALL·E, Mid Journey"
+      - name: "Generative AI (Gen AI): ChatGPT, Claude, Gemini, DALL·E, Mid Journey, Flux"
         icon: beaker
-      - name: "Databases: SQL Server, MySQL, MongoDB, CosmosDB, DynamoDB, Neo4J"
+      - name: "Databases: SQL Server, MySQL, MongoDB, CosmosDB, DynamoDB, Neo4J, Big Table"
         icon: circle-stack
       - name: 'Version Control: Git, GitHub, Bitbucket, Azure DevOps'
         icon: hero/clipboard-document-list
-      - name: "Operative Systems: Windows, Linux"
+      - name: "Operative Systems: Linux, Windows, MacOS"
         icon: hero/computer-desktop
       - name: "Cloud Platforms: AWS, Azure, GCP, DigitalOcean"
         icon: hero/cloud
