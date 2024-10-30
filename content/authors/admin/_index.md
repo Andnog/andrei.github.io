@@ -366,3 +366,7 @@ languages:
 I’m a passionate technologist, currently pursuing a PhD in Artificial Intelligence, with a Master’s in Data Science and a background in Information Technology. My experience as a Software Engineer allows me to bridge the gap between cutting-edge AI research and real-world implementation. I’m deeply committed to exploring innovative solutions in AI, machine learning, and data science, while continually pushing the boundaries of technology.
 
 I thrive in fast-paced environments and am highly active in new initiatives, hackathons, and competitions, constantly learning and contributing to exciting projects. My goal is to leverage my skills and expertise to create impactful AI-driven solutions that shape the future of technology.
+
+<div class="text-center p-0 m-0">
+ <h2 class="p-0 m-2"> <i> "With sufficient time and commitment, the impossible becomes achievable" </i> </h2>
+</div>
