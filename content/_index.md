@@ -30,10 +30,15 @@ sections:
           size: cover
           position: center
           parallax: false
-  - block: resume-skills
+  - block: resume-skills-V3
     content:
       title: Summary of Skills & Hobbies
       username: admin
+    design:
+      show_skill_percentage: false
+  - block: resume-skills
+    content:
+      username: skills_hobbies
     design:
       show_skill_percentage: false
   - block: resume-languages

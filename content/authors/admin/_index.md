@@ -305,54 +305,30 @@ freelance:
 skills:
   - name: Technical Skills
     items:
-      - name: Programming Languages, Software Development, API
-        description: ''
-        percent: 80
+      - name: "Programming Languages: Python, Java, C++, JavaScript, PHP"
         icon: code-bracket
-      - name: Data Science, Machine Learning, Artificial Intelligence, Gen AI
-        description: ''
-        percent: 100
+      - name: "Software Development: Agile Methodologies, Patterns Design, CD/DI, Testing"
         icon: chart-bar
-      - name: "Databases: SQL, NoSQL"
-        description: ''
-        percent: 40
+      - name: "API: REST, WCF, SOAP"
+        icon: chart-bar
+      - name: "Data Science: Pandas, NumPy, Seaborn, Scipy"
         icon: circle-stack
-      - name: 'Version Control: Git, GitHub'
-        description: ''
-        percent: 40
+      - name: "Machine Learning: Scikit-learn, TensorFlow, PyTorch"
+        icon: code-bracket-square
+      - name: "Artificial Intelligence: Neural Networks, Natural Language Processing, Deep Learning"
+        icon: cpu-chip
+      - name: "Generative AI (Gen AI): ChatGPT, Claude, Gemini, DALL·E, Mid Journey"
+        icon: beaker
+      - name: "Databases: SQL Server, MySQL, MongoDB, CosmosDB, DynamoDB, Neo4J"
+        icon: circle-stack
+      - name: 'Version Control: Git, GitHub, Bitbucket, Azure DevOps'
         icon: hero/clipboard-document-list
       - name: "Operative Systems: Windows, Linux"
-        description: ''
-        percent: 40
         icon: hero/computer-desktop
-      - name: "Cloud Platforms: AWS, Azure, GCP, Digital Ocean"
-        description: ''
-        percent: 40
+      - name: "Cloud Platforms: AWS, Azure, GCP, DigitalOcean"
         icon: hero/cloud
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
-    items:
-      - name: Drone
-        description: ''
-        percent: 60
-        icon: hero/camera
-      - name: Videogames
-        description: ''
-        percent: 100
-        icon: hero/globe-americas
-      - name: Sports
-        description: ''
-        percent: 80
-        icon: hero/trophy
-      - name: Programming
-        description: ''
-        percent: 80
-        icon: hero/command-line
-      - name: Hikking
-        description: ''
-        percent: 80
-        icon: person-simple-walk
+      - name: "Security: OAuth, JWT, SSL/TLS, SSL"
+        icon: hero/lock-closed
 
 languages:
   - name: English
