@@ -1,0 +1,2174 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: November 10, 2024 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.2.0" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Andrei Noguera" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Guide to Prompt Engineering: Crafting Effective Prompts for AI Models" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/llm/prompt-engineering/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+    
+    <link href="/css/custom.min.a189712781fe4799b593aeb2d548d8a9e9b8152ef74fdf3e602906e9f7b8b662.css" rel="stylesheet" />
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu2973964795487018635.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu13746399112698998448.png" />
+
+  <link rel="canonical" href="http://localhost:1313/llm/prompt-engineering/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Andrei Noguera" />
+  <meta property="og:url" content="http://localhost:1313/llm/prompt-engineering/" />
+  <meta property="og:title" content="Prompt Engineering | Andrei Noguera" />
+  <meta property="og:description" content="Guide to Prompt Engineering: Crafting Effective Prompts for AI Models" /><meta property="og:image" content="http://localhost:1313/llm/prompt-engineering/featured.jpg" />
+    <meta property="twitter:image" content="http://localhost:1313/llm/prompt-engineering/featured.jpg" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2024-04-01T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2024-04-01T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  <title>Prompt Engineering | Andrei Noguera</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let element = document.getElementById('search');
+    let trigger = document.getElementById('search_toggle');
+
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        element.classList.toggle('hidden');
+        element.querySelector("input").value = ""
+        element.querySelector("input").focus()
+
+        if (!element.classList.contains('hidden')) {
+          let clear_trigger = document.querySelector('.pagefind-ui__search-clear');
+
+          if (clear_trigger && !clear_trigger.hasAttribute('listenerOnClick')) {
+            clear_trigger.setAttribute('listenerOnClick', 'true');
+
+            clear_trigger.addEventListener('click', () => {
+              element.classList.toggle('hidden');
+            });
+          }
+        }
+
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.js"
+    integrity=""
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+      
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+    
+  
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="Andrei Noguera">
+        Andrei N
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Bio</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/experience/"
+        >Experience</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/certificates/"
+        >Certificates</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/skills/"
+        >Skills &amp; Tools</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/projects/"
+        >Projects</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/teaching/"
+        >Tutorials</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+      <button
+        aria-label="search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        id="search_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+      </button>
+      
+
+      
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+
+<div id="search" class="hidden p-3"></div>
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      <div class="mx-auto flex max-w-screen-xl">
+  
+
+  
+  <div class="hb-sidebar-mobile-menu fixed inset-0 z-10 bg-white dark:bg-black/80 hidden"></div>
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:sticky">
+  
+  <div class="px-4 pt-4 lg:hidden">
+    
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/"
+    
+  >Recent &amp; Upcoming Talks
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/example/"
+    
+  >Example Talk
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/github/"
+    
+  >Github
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/research/"
+    
+  >Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/certificates/"
+    
+  >Certificates
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/experience/"
+    
+  >Experience
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/skills/"
+    
+  >Skills and Tools
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/"
+    
+  >Reinforcement_learnings
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/python/"
+    
+  >Basic RL in python
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/intro/"
+    
+  >Foundations and Key Concepts
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/projects/"
+    
+  >Projects
+    </a></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/"
+    
+  >Llms
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/azure-open-ai/"
+    
+  >Introduction to Azure OpenAI
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/llm/prompt-engineering/"
+    
+  >Prompt Engineering
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#-general-description"
+                class="hb-docs-link"
+              >📝 General Description</a>
+            </li>
+          <li>
+              <a
+                href="#-what-is-a-prompt"
+                class="hb-docs-link"
+              >🤔 What is a Prompt?</a>
+            </li>
+          <li>
+              <a
+                href="#-tips"
+                class="hb-docs-link"
+              >💼 Tips</a>
+            </li>
+          <li>
+              <a
+                href="#-common-errors-of-prompts"
+                class="hb-docs-link"
+              >⚠️ Common Errors of prompts</a>
+            </li>
+          <li>
+              <a
+                href="#-use-case-examples"
+                class="hb-docs-link"
+              >🔗 Use case examples</a>
+            </li>
+          <li>
+              <a
+                href="#-prompt-engineering-techniques"
+                class="hb-docs-link"
+              >💡 Prompt Engineering Techniques</a>
+            </li>
+          <li>
+              <a
+                href="#-knowledge-generation--knowledge-integration"
+                class="hb-docs-link"
+              >🧠 Knowledge Generation &amp;amp; Knowledge Integration</a>
+            </li>
+          <li>
+              <a
+                href="#-resources"
+                class="hb-docs-link"
+              >📘 Resources</a>
+            </li>
+          </ul>
+  
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Blog
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/get-started/"
+    
+  >🎉 Easily create your own simple yet highly customizable blog
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/second-brain/"
+    
+  >🧠 Sharpen your thinking with a second brain
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/data-visualization/"
+    
+  >📈 Communicate your results effectively with the best data visualizations
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/teach-courses/"
+    
+  >👩🏼‍🏫 Teach academic courses
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/project-management/"
+    
+  >✅ Manage your projects
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/"
+    
+  >Publications
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/preprint/"
+    
+  >An example preprint / working paper
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/journal-article/"
+    
+  >An example journal article
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/conference-paper/"
+    
+  >An example conference paper
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/admin/"
+    
+  >
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/"
+    
+  >Tutorials
+    </a></li>
+    </ul>
+
+    <ul class="flex flex-col gap-1 max-lg:hidden">
+        
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/azure-open-ai/"
+    
+  >Introduction to Azure OpenAI
+    </a></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/llm/prompt-engineering/"
+    
+  >Prompt Engineering
+    </a></li>
+        
+      </ul>
+    </div>
+
+</aside>
+  
+
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-general-description">📝 General Description</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-what-is-a-prompt">🤔 What is a Prompt?</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-structure">🛠️ Structure</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-some-limitations">🚫 Some limitations</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-tips">💼 Tips</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-common-errors-of-prompts">⚠️ Common Errors of prompts</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-use-case-examples">🔗 Use case examples</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-text-summarization">📚 Text Summarization</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-information-extraction">🔍 Information Extraction</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-question-answering">❓ Question Answering</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-text-classification">🎭 Text Classification</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-conversation">💬 Conversation</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-code-generation">💻 Code Generation</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-prompt-engineering-techniques">💡 Prompt Engineering Techniques</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-zero-shot-one-shot--few-shot">🎲 Zero-shot, One-shot &amp; Few-Shot</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-chain-of-thought">🔗 Chain of thought</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-zero-shot-chain-of-thought">🔗 Zero Shot Chain of Thought</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-knowledge-generation--knowledge-integration">🧠 Knowledge Generation &amp; Knowledge Integration</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-knowledge-generation">🗃️ Knowledge Generation</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-knowledge-integration">📑 Knowledge Integration</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-resources">📘 Resources</a>
+      </li></ul>
+
+  
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="flex w-full min-w-0 min-h-[calc(100vh-var(--navbar-height))] justify-center break-words pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="prose prose-slate lg:prose-xl dark:prose-invert w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+      <div class="mb-1">
+        <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400">
+      <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
+        <a href="http://localhost:1313/llm/">Llms</a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m8.25 4.5l7.5 7.5l-7.5 7.5"/></svg><div class="whitespace-nowrap font-medium text-gray-700 dark:text-gray-100">Prompt Engineering</div>
+</div>
+
+      </div>
+
+      <div class="content text-base">
+        <h1>Prompt Engineering</h1>
+        <h2 id="-general-description">📝 General Description</h2>
+<p>Welcome to the Prompt Engineering Tutorial, where we delve into the art and science of crafting effective prompts for language models. Whether you&rsquo;re a novice or an experienced user, this tutorial will equip you with the skills to optimize your interactions with models like GPT-3.5 through thoughtful and strategic prompt engineering.</p>
+<p><a href="https://github.com/Andnog/LLM-Tutorials/blob/main/1.1%20Prompt%20Engineering.ipynb" target="_blank" rel="noopener">📘 Complete notebook tutorial</a></p>
+<hr>
+<h2 id="-what-is-a-prompt">🤔 What is a Prompt?</h2>
+<p>In the context of a Large Language Model (LLM), a &ldquo;prompt&rdquo; refers to the input given to the model to generate a response. The prompt is a specific set of instructions or a query that is presented to the language model to elicit a desired output. The way a prompt is formulated can significantly influence the nature and quality of the generated response.</p>
+<p>For example, when using a language model like GPT-3, you might input a prompt like &ldquo;Write a poem about the moon&rdquo; to get the model to generate a poem on that topic. The prompt essentially guides the model&rsquo;s language generation process by providing context and instructions.</p>
+<p>It&rsquo;s important to note that crafting effective prompts can be crucial for obtaining the desired results from a language model. Experimenting with different phrasings and instructions can help users achieve more accurate or creative responses.</p>
+<h3 id="-structure">🛠️ Structure</h3>
+<p>A prompt structure for a language model typically includes:</p>
+<ol>
+<li>
+<p><strong>Introduction</strong>: Begin with a clear and concise introduction that sets the context for the language model. This can include any relevant background information or specific details that help the model understand the task.</p>
+</li>
+<li>
+<p><strong>Instruction or Query</strong>: Clearly state the instruction or query that you want the model to address. Be specific and provide any necessary details to guide the model&rsquo;s response.</p>
+</li>
+<li>
+<p><strong>Additional Context (if needed)</strong>: Depending on the complexity of the task, you may need to provide additional context to help the model better understand the nuances of the prompt.</p>
+</li>
+<li>
+<p><strong>Example Input (if applicable)</strong>: If your prompt involves a specific example or scenario, you can include that in this section to give the model a concrete reference point.</p>
+</li>
+<li>
+<p><strong>Desired Output (optional)</strong>: If you have specific expectations for the output or want the model to follow certain guidelines, you can mention them in this section.</p>
+</li>
+</ol>
+<p>Here&rsquo;s an example prompt structure for generating a creative story:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Introduction:
+</span></span><span class="line"><span class="cl">You are a storyteller with a penchant for fantasy settings and magical elements. 
+</span></span><span class="line"><span class="cl">You are looking to create a captivating short story.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Instruction:
+</span></span><span class="line"><span class="cl">Write a short story (approximately 500 words) set in a medieval fantasy world. 
+</span></span><span class="line"><span class="cl">The protagonist is a young sorcerer who discovers a long-lost, powerful artifact 
+</span></span><span class="line"><span class="cl">hidden in an enchanted forest. The artifact has the ability to manipulate time. 
+</span></span><span class="line"><span class="cl">Explore the protagonist&#39;s journey, the challenges faced, and the consequences of 
+</span></span><span class="line"><span class="cl">wielding such a magical item.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Additional Context:
+</span></span><span class="line"><span class="cl">Consider incorporating mythical creatures, unexpected twists, and vivid descriptions 
+</span></span><span class="line"><span class="cl">to enhance the fantasy atmosphere.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Desired Output:
+</span></span><span class="line"><span class="cl">Craft a narrative that balances suspense and wonder, with a focus on character 
+</span></span><span class="line"><span class="cl">development and world-building.
+</span></span></code></pre></div><h3 id="-some-limitations">🚫 Some limitations</h3>
+<ol>
+<li>
+<p><strong>Sensitivity to Phrasing</strong>: Language models can be sensitive to slight changes in phrasing. A small modification in the prompt may lead to significantly different responses.</p>
+</li>
+<li>
+<p><strong>Lack of Common Sense Understanding</strong>: Models may lack a deep understanding of common sense reasoning, and their responses can sometimes be inconsistent or fail to demonstrate a clear understanding of real-world knowledge.</p>
+</li>
+<li>
+<p><strong>Over-Reliance on Training Data</strong>: The output generated by the model is based on patterns learned from its training data. If the training data is biased or limited, the model may produce biased or inaccurate responses.</p>
+</li>
+<li>
+<p><strong>Tendency to Guess User Intent</strong>: Language models may guess the user&rsquo;s intent if the prompt is ambiguous or unclear. This can result in responses that are not aligned with the user&rsquo;s actual expectations.</p>
+</li>
+<li>
+<p><strong>Inability to Ask Clarifying Questions</strong>: Models typically do not have the ability to ask clarifying questions to better understand ambiguous or incomplete prompts. They must rely solely on the information provided.</p>
+</li>
+<li>
+<p><strong>Limited Context Window</strong>: Most language models have a limited context window, which means they may not consider the entire prompt history when generating responses. This can result in responses that do not take into account the full context of the conversation.</p>
+</li>
+<li>
+<p><strong>Inability to Provide Real-Time Information</strong>: Language models are not equipped to provide real-time information or updates, as they do not have access to the internet or the latest data beyond their training cutoff.</p>
+</li>
+<li>
+<p><strong>Difficulty Handling Uncommon Scenarios</strong>: Models may struggle to handle prompts related to rare or highly specific scenarios, as these situations may not be well-represented in their training data.</p>
+</li>
+<li>
+<p><strong>Tendency to Generate Plausible but Incorrect Information</strong>: Language models may generate responses that sound plausible but are factually incorrect. Users should exercise caution and verify information obtained from models.</p>
+</li>
+<li>
+<p><strong>Sensitivity to Bias in Training Data</strong>: If the training data contains biases, the model may inadvertently perpetuate or amplify those biases in its responses.</p>
+</li>
+</ol>
+<p><em>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="currentColor"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+  </span> Example:</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">AzureOpenAI</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">client</span> <span class="o">=</span> <span class="n">AzureOpenAI</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;AZURE_OPENAI_KEY&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">api_version</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;api_version&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">azure_endpoint</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;AZURE_OPENAI_ENDPOINT&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">task</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">Introduction:
+</span></span></span><span class="line"><span class="cl"><span class="s2">You are a storyteller with a penchant for fantasy settings and magical elements. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">You are looking to create a captivating short story.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Instruction:
+</span></span></span><span class="line"><span class="cl"><span class="s2">Write a short story (approximately 500 words) set in a medieval fantasy world. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">The protagonist is a young sorcerer who discovers a long-lost, powerful artifact 
+</span></span></span><span class="line"><span class="cl"><span class="s2">hidden in an enchanted forest. The artifact has the ability to manipulate time. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">Explore the protagonist&#39;s journey, the challenges faced, and the consequences 
+</span></span></span><span class="line"><span class="cl"><span class="s2">of wielding such a magical item.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Additional Context:
+</span></span></span><span class="line"><span class="cl"><span class="s2">Consider incorporating mythical creatures, unexpected twists, and vivid 
+</span></span></span><span class="line"><span class="cl"><span class="s2">descriptions to enhance the fantasy atmosphere.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Desired Output:
+</span></span></span><span class="line"><span class="cl"><span class="s2">Craft a narrative that balances suspense and wonder, with a focus on 
+</span></span></span><span class="line"><span class="cl"><span class="s2">character development and world-building.
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;model_name&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;system&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">task</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;ChatGPT Response:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+ChatGPT Response:
+In the heart of the Enchanted Forest, there lived a young sorcerer. His name was Arin and his magic was weak, unlike his peers. The other sorcerers looked down on him, and he yearned to prove himself to them. <br><br>
+One day, while wandering through the thick forest, Arin stumbled upon a cave. At the end of it, he found a dusty old book. As he flipped through its pages, a gust of wind swept through the cave and tossed the pages awry. As he hastily gathered the scattered sheets, a few pages fluttered away, and one of them caught his eye. It was the map of a place that was long-forgotten, hidden in the forest.
+On a whim, Arin followed the map to a crumbling ruin. The air was heavy with magic, but it felt different than any other sorcery he had felt before. He ventured into the structure, and as he made his way through the maze of chambers, he stumbled upon a room with a concealed door. Arin pushed the door, and it creaked open with a deafening sound that echoed through the ruins. <br><br>
+In the center of the chamber stood a pedestal, and on top of it rested a sphere of glass, with golden gears intricately carved within. Arin approached it, and as he gazed into its core, he saw visions of a world that he had never seen before. <br><br>
+As he reached out to touch the sphere, the world around him froze, and he felt a sudden drop in temperature. Arin was puzzled as he looked at his hands, noticing that they had aged ten years in a matter of seconds. It was then that he realized the true nature of the artifact - it could manipulate time Arin was excited to show his newfound power to his fellow sorcerers, but upon leaving the forest, he realized that something was wrong. The once lush and vibrant forest was desolate and barren, and the creatures that once roamed the land had disappeared  <br><br>
+Over time, Arin's power began to consume him. He became obsessed with manipulating time, causing irreversible harm to the world around him. The harsh winters grew longer, and the searing summers grew hotter. The skies grew darker, and the sunsets became nonexistent. <br><br>
+The sorcerers soon learned of what Arin had done, and an enraged mob descended upon him, seeking to take away the artifact. In a desperate attempt to escape, he used the artifact one last time, causing the world to warp and twist around him until he was lost in a world that was a reflection of his inner turmoil. <br><br>
+Arin realized too late that his obsession with power had blinded him, and now he was nothing but a prisoner in a world of his own making. <br><br>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">response_str</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Total words: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">response_str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Total words: 455
+</blockquote>
+<hr>
+<h2 id="-tips">💼 Tips</h2>
+<ol>
+<li><strong>Start Simple</strong>: It is advisable to begin with simple instructions to validate that the model can generate what is needed. Gradually add elements and context to achieve increasingly accurate results. This is useful when dealing with a large task that can be broken down into simpler subtasks.</li>
+</ol>
+<blockquote>
+<p>Examples</p>
+<ul>
+<li>&ldquo;Generate a brief description of a cat.&rdquo;</li>
+<li>&ldquo;Write a one-sentence summary of the advantages of renewable energy.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><strong>Specificity</strong>: Be very specific in the instruction given to the model. The more detail provided, the better the results generated. Details should be relevant and contribute to the task at hand, always considering the limitation of the amount of input text.</li>
+</ol>
+<blockquote>
+<p>Examples</p>
+<ul>
+<li>Instead of: &ldquo;Describe a landscape.&rdquo;</li>
+<li>Use: &ldquo;Provide a detailed description of a serene mountain landscape at dawn, highlighting the colors of the sky and the sounds of nature.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><strong>Avoid Ambiguities</strong>: It is important to avoid ambiguities when wording prompts. Some elements may be subjective between what the user considers and what the model interprets (e.g., using &ldquo;brief/lengthy,&rdquo; &ldquo;few/many&rdquo;). It is better to specify to the maximum extent possible (e.g., using numerical values) what is meant by these elements.</li>
+</ol>
+<blockquote>
+<p>Examples</p>
+<ul>
+<li>Instead of: &ldquo;Write a lengthy paragraph about your favorite hobby.&rdquo;</li>
+<li>Use: &ldquo;Compose a paragraph with at least 150 words detailing the reasons why you enjoy gardening, including the specific activities and the sense of satisfaction it brings.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li><strong>Reaffirm</strong>: It is useful, at the end of prompts, to ask the model if it understood what needs to be done. This compels the model to begin its response with a textual confirmation of the task, ensuring that it is doing what is asked and allowing for the detection of any need for additional precision.</li>
+</ol>
+<blockquote>
+<p>Examples</p>
+<ul>
+<li>&ldquo;Explain the process of photosynthesis in plants. Did you understand the task? Please start your response by confirming your understanding.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li><strong>Target Audience</strong>: In cases where possible, indicate a target audience to ensure greater precision in how the result should be generated (e.g., to explain to a child, a university student, an expert in the field).</li>
+</ol>
+<blockquote>
+<p>Examples</p>
+<ul>
+<li>&ldquo;Clarify the concept of black holes as if explaining it to a curious 10-year-old. Use simple language and analogies.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li><strong>Provide Examples</strong>: Providing examples in the prompt of how the desired result should be is very effective in obtaining responses tailored to specific formats.</li>
+</ol>
+<blockquote>
+<p>Examples</p>
+<ul>
+<li>&ldquo;Imagine you are writing a dialogue between two characters discussing a recent scientific discovery. Begin the conversation with a line similar to: &lsquo;Wow, did you hear about the groundbreaking discovery that&hellip;?&rsquo;&rdquo;</li>
+</ul>
+</blockquote>
+<p><em>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="currentColor"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+  </span> Example:</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">run_promt</span><span class="p">(</span><span class="n">prompt_text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">client</span> <span class="o">=</span> <span class="n">AzureOpenAI</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;AZURE_OPENAI_KEY&#34;</span><span class="p">),</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">api_version</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;api_version&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">azure_endpoint</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;AZURE_OPENAI_ENDPOINT&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;model_name&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;system&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">prompt_text</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## Start Simple</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="s2">&#34;Generate a short description of a cupcake.&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+A cupcake is a bite-sized cake that's typically baked in a paper or foil liner and topped with frosting. It is moist, fluffy, and bursting with flavors that would satisfy one's sweet tooth. The cake batter can be flavored with vanilla, chocolate, lemon, or other variants, and the frosting can be decorated with sprinkles, fruits, or even nutella.
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## Specificity</span>
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Describe a bustling city street during a rainstorm, focusing on the 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    reflections of neon lights on wet pavement and the distant rumble of thunder.
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+The rain was coming down in sheets, filling the air with a constant patter and making the pavement glisten. Neon lights from the storefronts above cast vibrant colors onto the slick surface, creating a magical swirl of greens, blues, and pinks. A couple hurried along, red and orange reflections darting across their slick raincoats like dancing fireflies. Across the street, a group of friends huddled under the awning of a coffee shop, their chatter mixing with the distant rumble of thunder. Drops of rain pelted the street, bouncing back up in shimmering sprays that glittered in the surrounding lights. In the distance, the rumble of thunder grew louder, echoing through the city streets and adding an ominous edge to the already electric atmosphere. Despite the commotion, people continued to bustle about, huddled beneath umbrellas or simply braving the wet onslaught without protection. As the storm raged on, the neon lights continued their mesmerizing dance, casting ghostly images of the crowded street onto the slick pavement below.
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## Avoid Ambiguities</span>
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Write a paragraph of at least 100 words explaining the steps 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    involved in brewing your favorite type of coffee, highlighting 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    the specific equipment and the unique aroma it produces
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+My favorite type of coffee is a pour-over which involves using a single-origin, light roast coffee. Firstly, I boil water in a kettle and then grind the beans using a hand grinder to a medium-fine consistency. With the help of a Gooseneck kettle, I wet the filter, allowing the coffee maker to sit on top of my cup. I then pour the ground coffee into the filter, ensuring it is evenly spread. Pouring hot water, I slowly bloom the ground coffee, waiting around 30 seconds before pouring the rest of the water in a circular motion. Brewing the coffee this way helps achieve a rich flavor and smooth consistency. The specific equipment I use help to control the flow and the temperature of water, allowing me to make adjustments for the best possible cup of coffee. The aroma produced by the coffee is unique to its light roast flavor profile, offering notes of blueberries, caramel, and chocolate, creating an irresistible scent.
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## Reaffirm</span>
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Explain the water cycle in nature. Please confirm that you 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    understand the task by starting your response with a summary 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    of the key stages in the water cycle.
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+<p>The key stages in the water cycle are as follows:<br></p>
+<ol>
+<li>
+<p>Evaporation: Heat from the sun causes water from rivers, lakes, oceans, and other sources to evaporate and turn into water vapor. <br></p>
+</li>
+<li>
+<p>Condensation: Water vapor rises into the atmosphere and cools, causing it to condense into tiny droplets that form clouds. <br></p>
+</li>
+<li>
+<p>Precipitation: When the clouds become too full of water, the droplets combine and fall to the ground as precipitation, which can include rain, snow, hail, or sleet. <br></p>
+</li>
+<li>
+<p>Infiltration: Precipitation that falls to the ground can be absorbed by the soil, and some of it may seep down into underground aquifers. <br></p>
+</li>
+<li>
+<p>Runoff: In areas with impermeable surfaces like concrete or pavement, precipitation may flow over the surface and into rivers, lakes, or oceans, creating runoff. <br>
+The water cycle is a continuous process that helps to redistribute water around the world and is essential for the survival of all living things.</p>
+</li>
+</ol>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## Target Audience</span>
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Elaborate on the concept of gravity as if you were teaching it 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    to a group of elementary school students. Use simple language 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    and relatable examples
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Gravity is a force that pulls things towards each other. It keeps everything on the ground and makes things like apples fall from trees. <br>
+<p>Imagine playing with a ball outside. If you throw the ball up into the air, it will come back down because of gravity. If there was no gravity, the ball would just float away into space! <br></p>
+<p>Gravity also helps keep us on the ground. When we jump, gravity pulls us back down to the ground. <br></p>
+<p>Even the big things in space like planets and stars have gravity. That’s why the Earth stays in orbit around the sun and the moon stays in orbit around the Earth. <br></p>
+<p>So, gravity is a force that pulls things together and helps keep us on Earth. Cool, right?</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## Provide Examples</span>
+</span></span><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Create a dialogue between two characters discussing the discovery of a new planet. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Start the conversation with a line like:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#39;Hey, did you catch the news about the fascinating new planet scientists found?
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Character 1: Hey, did you catch the news about the fascinating new planet scientists found? <br>
+<p>Character 2: No, I haven&rsquo;t heard about it. What&rsquo;s so fascinating about it? <br></p>
+<p>Character 1: Apparently, it&rsquo;s the first planet they&rsquo;ve discovered that&rsquo;s similar in size to Earth and is orbiting in the habitable zone of its star. <br></p>
+<p>Character 2: Wow, that sounds incredible. Is there any chance that there could be life on it? <br></p>
+<p>Character 1: It&rsquo;s definitely a possibility. Scientists are already speculating that this planet could have liquid water and even a breathable atmosphere. It&rsquo;s exciting to think about the possibility of contacting intelligent life. <br></p>
+<p>Character 2: I&rsquo;m curious, how did scientists even discover this planet? <br></p>
+<p>Character 1: They used NASA&rsquo;s Kepler telescope to detect the planet passing in front of its star. That&rsquo;s how they were able to calculate its size and position. <br></p>
+<p>Character 2: It&rsquo;s mind-blowing how technology can uncover things we couldn&rsquo;t even imagine before. Do you think this discovery will encourage further exploration of space? <br></p>
+<p>Character 1: Absolutely, I think it will ignite a new wave of interest in space exploration. Who knows what other planets could be out there waiting to be discovered?</p>
+</blockquote>
+<hr>
+<h2 id="-common-errors-of-prompts">⚠️ Common Errors of prompts</h2>
+<ol>
+<li><strong>Too Long or Complicated</strong>:
+<ul>
+<li>&ldquo;Avoid unnecessary length, changes in the request&rsquo;s meaning, and redundancies that do not contribute to the specificity of the prompt. This makes it difficult to identify the specific instruction we are providing.&rdquo;</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Example</p>
+<ul>
+<li>Instead of: &ldquo;Please generate a detailed explanation of the history, benefits, and potential drawbacks of various renewable energy sources, including solar, wind, hydro, and geothermal power.&rdquo;</li>
+<li>Use: &ldquo;Provide a concise summary of the advantages and disadvantages of solar energy.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><strong>Slang or Ambiguity</strong>:
+<ul>
+<li>&ldquo;Unless strictly necessary, refrain from using words or expressions exclusive to a particular country, region, or a very specific niche of the population. The more natural the input language, the better the result is likely to be.&rdquo;</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Example</p>
+<ul>
+<li>Instead of: &ldquo;Write a rad story about a dude and his sick ride.&rdquo;</li>
+<li>Use: &ldquo;Create a narrative about a man and his impressive car.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><strong>Model Limitations</strong>:
+<ul>
+<li>&ldquo;Failure to consider the limitations of the models can lead to errors, whether in the content of the response or issues such as biases or outdated information.&rdquo;</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Example</p>
+<ul>
+<li>Instead of: &ldquo;What will be the precise impact of technology on society in 2050?&rdquo;</li>
+<li>Use: &ldquo;Considering the limitations of current models, provide a speculative overview of potential technological advancements and their societal impact in 2050.&rdquo;</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li><strong>Assumptions</strong>:
+<ul>
+<li>&ldquo;Related to specificity, the prompt should contain all necessary information to prevent the model from having to assume input data that we are not providing.&rdquo;</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>Example</p>
+<ul>
+<li>Instead of: &ldquo;Discuss the benefits of a healthy lifestyle.&rdquo;</li>
+<li>Use: &ldquo;Enumerate the advantages of maintaining a healthy lifestyle, including aspects such as physical activity, balanced nutrition, and mental well-being.&rdquo;</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="-use-case-examples">🔗 Use case examples</h2>
+<h3 id="-text-summarization">📚 Text Summarization</h3>
+<p>One of the standard tasks in natural language generation is text summarization. Text summarization can include many different flavors and domains. In fact, one of the most promising applications of language models is the ability to summarize articles and concepts into quick and easy-to-read summaries. Let&rsquo;s try a basic summarization task using prompts.</p>
+<p>Let&rsquo;s say you are interested to learn about antibiotics, you could try a prompt like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Explain antibiotics
+</span></span></span><span class="line"><span class="cl"><span class="s2">    A:
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Antibiotics are a type of medication used to treat bacterial infections caused by harmful bacteria. They work by killing or stopping the growth of these bacteria, thus stopping the infection. Antibiotics are only effective against bacterial infections, and are not effective against viral infections like the common cold. Some common antibiotics include penicillin, amoxicillin, and tetracycline. Antibiotics should always be prescribed by a doctor, and taken as directed to prevent the development of antibiotic-resistant bacteria.
+</blockquote>
+<p>The &ldquo;A:&rdquo; is an explicit prompt format that you use in question answering. You used it here to tell the model that there is an answer expected further. In this example, it&rsquo;s not clear how this is useful vs not using it but we will leave it that for later examples. Let&rsquo;s just assume that this is too much information and you want to summarize it further. In fact, you can instruct the model to summarize into one sentence like so:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Antibiotics are a type of medication used to treat bacterial infections. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    They work by either killing the bacteria or preventing them from reproducing, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    allowing the body’s immune system to fight off the infection. Antibiotics are 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    usually taken orally in the form of pills, capsules, or liquid solutions, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    or sometimes administered intravenously. They are not effective against viral 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    infections, and using them inappropriately can lead to antibiotic resistance.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Explain the above in one sentence:
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Antibiotics are medications used to kill or prevent the reproduction of bacteria, but they are not effective against viral infections and overuse can lead to antibiotic resistance.
+</blockquote>
+<p>Without paying too much attention to the accuracy of the output above, which is something we will touch on in a later guide, the model tried to summarize the paragraph in one sentence. You can get clever with the instructions but we will leave that for a later chapter. Feel free to pause here and experiment to see if you get better results.</p>
+<h3 id="-information-extraction">🔍 Information Extraction</h3>
+<p>The essence of this approach lies in the creation of prompts—carefully crafted instructions that communicate to the model what information is sought and how it should be extracted. These prompts specify the entities, relationships, or attributes of interest, providing a framework for the model to navigate through textual data and identify relevant pieces of information.</p>
+<p>Here is an example of a prompt that extracts information from a given paragraph.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Author-contribution statements and acknowledgements in research papers 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    should state clearly and specifically whether, and to what extent, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    the authors used AI technologies such as ChatGPT in the preparation of 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    their manuscript and analysis. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    They should also indicate which LLMs were used. This will alert editors 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    and reviewers to scrutinize manuscripts more carefully for potential biases, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    inaccuracies and improper source crediting. Likewise, scientific journals 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    should be transparent about their use of LLMs, for example when selecting 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    submitted manuscripts.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Mention the large language model based product mentioned in the paragraph above:
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+ChatGPT.
+</blockquote>
+<h3 id="-question-answering">❓ Question Answering</h3>
+<p>The process involves formulating clear and context-rich prompts that specify the expected format of responses. These prompts leverage the model&rsquo;s understanding to decipher complex queries and generate accurate answers. The success of Question Answering in a prompt context relies on the effectiveness of instructions, ensuring models comprehend and respond to diverse questions with contextual accuracy, making it a versatile approach for extracting information from large datasets or knowledge bases</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Answer the question based on the context below. Keep the answer short and concise. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Respond &#34;Unsure about answer&#34; if not sure about the answer.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Context: Teplizumab traces its roots to a New Jersey drug company called Ortho 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Pharmaceutical. There, scientists generated an early version of the antibody, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    dubbed OKT3. Originally sourced from mice, the molecule was able to bind to the 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    surface of T cells and limit their cell-killing potential. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    In 1986, it was approved to help prevent organ rejection after kidney transplants, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    making it the first therapeutic antibody allowed for human use.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Question: What was OKT3 originally sourced from?
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Answer:
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+OKT3 was originally sourced from mice.
+</blockquote>
+<h3 id="-text-classification">🎭 Text Classification</h3>
+<p>Text classification involves using carefully crafted instructions or queries to guide a language model in categorizing text data into predefined classes or categories. The process entails formulating prompts that explicitly instruct the model to identify and assign specific labels to the input text based on its content, context, or characteristics.</p>
+<p>Let&rsquo;s try to demonstrate this by providing an example of text classification:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Classify the text into neutral, negative or positive. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Text: I think the food was okay. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Sentiment:
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Neutral
+</blockquote>
+<h3 id="-conversation">💬 Conversation</h3>
+<p>Conversational interaction with prompts involves instructing language models to engage in dynamic and context-aware dialogues. In this context, prompts serve as ongoing cues that guide the model&rsquo;s responses throughout the conversation. Each prompt contributes to the evolving discourse, allowing users to build upon previous interactions, ask follow-up questions, or steer the conversation in a specific direction. The success of conversational prompts relies on creating a coherent and contextually rich dialogue flow, ensuring that the model understands the evolving context and generates responses that align with the ongoing conversation. This approach enables users to interact with language models in a more interactive and nuanced manner, fostering dynamic and contextually aware conversational experiences.</p>
+<p>For instance, let&rsquo;s create a conversational system that&rsquo;s able to generate more technical and scientific responses to questions. Note how you are explicitly telling it how to behave through the instruction. This is sometimes referred to as role prompting.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    The following is a conversation with an AI research assistant. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    The assistant tone is technical and scientific.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Human: Hello, who are you?
+</span></span></span><span class="line"><span class="cl"><span class="s2">    AI: Greeting! I am an AI research assistant. How can I help you today?
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Human: Can you tell me about the creation of blackholes?
+</span></span></span><span class="line"><span class="cl"><span class="s2">    AI:
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Certainly! Black holes are created when massive stars collapse under the force of their own gravity. This collapse causes the star to become incredibly dense, creating a singularity at its center that has an infinite gravitational pull. Anything that gets too close to the black hole's event horizon, the point of no return, is pulled in and cannot escape. As more and more matter falls into the black hole, its gravity becomes stronger and the event horizon enlarges. Additionally, black holes can also merge with each other, creating even more massive and powerful black holes.
+</blockquote>
+<h3 id="-code-generation">💻 Code Generation</h3>
+<p>These prompts serve as structured guidelines, instructing the model on the desired functionality, programming language, and overall structure of the code to be generated. The process entails crafting prompts that clearly articulate the programming task, specifying input-output expectations, and providing any relevant context. By leveraging well-designed prompts, code generation tasks can range from simple algorithm implementations to complex software components. This approach empowers developers and non-programmers alike to harness the capabilities of language models for automating code creation, streamlining software development processes, and fostering collaboration between human programmers and AI systems.</p>
+<p>The example below shows how powerful LLMs can be with a little more effort in designing the prompts.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Table departments, columns = [DepartmentId, DepartmentName]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Table students, columns = [DepartmentId, StudentId, StudentName]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Create a MySQL query for all students in the Computer Science Department
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+SELECT StudentId, StudentName FROM students WHERE DepartmentId = (SELECT DepartmentId FROM departments WHERE DepartmentName = "Computer Science")
+</blockquote>
+<h2 id="-prompt-engineering-techniques">💡 Prompt Engineering Techniques</h2>
+<h3 id="-zero-shot-one-shot--few-shot">🎲 Zero-shot, One-shot &amp; Few-Shot</h3>
+<ol>
+<li>
+<p><strong>Zero-shot learning</strong>:</p>
+<ul>
+<li>
+<p><strong>Definition</strong>: Zero-shot learning refers to a scenario in which a model is trained to perform a task, but during training, it has not seen any examples or data related to certain classes or conditions that it will encounter during inference.</p>
+</li>
+<li>
+<p><strong>Example</strong>: If a language model is trained to understand the sentiment of movie reviews for positive and negative sentiments, and then it is tested on reviews expressing neutral sentiments (which were not part of the training data), that would be a zero-shot scenario for neutral sentiment.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>One-shot learning</strong>:</p>
+<ul>
+<li>
+<p><strong>Definition</strong>: One-shot learning involves training a model on a very small amount of data, often just a single example per class. The model is expected to generalize well and make accurate predictions even with this minimal training data.</p>
+</li>
+<li>
+<p><strong>Example</strong>: If a model is trained to recognize handwritten digits and is given only one example of each digit during training, it is a one-shot learning scenario. The model should then be able to correctly identify those digits in new, unseen examples.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Few-shot learning</strong>:</p>
+<ul>
+<li>
+<p><strong>Definition</strong>: Few-shot learning is an intermediate approach that involves training a model with a small number of examples per class, typically more than one but still significantly fewer than what is conventionally used in standard training scenarios.</p>
+</li>
+<li>
+<p><strong>Example</strong>: In the context of image recognition, a few-shot learning scenario might involve training a model to recognize a specific rare bird species with only a few images of each species during the training phase. The model is then expected to generalize and correctly classify new images of the same bird species with minimal examples.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Zero-shot example</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Generate a brief summary of the plot for a movie that hasn&#39;t been released yet. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Imagine it&#39;s a fantasy film set in a world with unique magical creatures and 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    provide key details.
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+In a world filled with magical creatures, a young orphan named Iris discovers she has the power to communicate with them through her dreams. She embarks on a quest to uncover the truth about her family's mysterious past and to save the realm from an evil sorcerer who seeks to control all magical beings. Along the way, she befriends a mischievous fairy, a noble centaur, and a wise old dragon, who aid her in her journey. With the fate of the kingdom in her hands, Iris must learn to harness her powers and face her fears to become the hero she was meant to be.
+</blockquote>
+<p><strong>One-shot example</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;Sentence: &#34;This basketball is easy to carry&#34;.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Answer: &#34;The sentiment of this sentence is positive&#34;.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Determine the sentiment of the sentence.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Sentence: &#34;This basketball has a lot of weight&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Answer:&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+The sentiment of this sentence is negative".
+</blockquote>
+<p><strong>Few-shot example</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Generate a product description based on the following examples:
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    [EXAMPLES]
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Example 1:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Product Name: Sleek Wireless Mouse
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Description: Experience smooth navigation and control with our Sleek Wireless Mouse. Its ergonomic design ensures comfort during extended use, and the high-precision sensor guarantees accuracy.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Example 2:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Product Name: Energize Protein Bar
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Description: Fuel your workout with Energize Protein Bar. Packed with protein and essential nutrients, this tasty snack is perfect for a pre-workout energy boost or post-workout recovery.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Example 3:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Product Name: Classic Leather Wallet
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Description: Carry your essentials in style with the Classic Leather Wallet. Made from genuine leather, it features multiple card slots and a slim design that fits comfortably in your pocket.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    [END EXAMPLES]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Product Name: Solar-Powered Garden Lights
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Description: 
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Brighten up your outdoor space with our Solar-Powered Garden Lights. These eco-friendly lights harness the power of the sun to provide an enchanting glow that will enhance the ambiance of your garden. Their durable, weather-resistant design ensures they can withstand the elements, and they are easy to install with no wiring required. illuminate your garden with style and sustainability with our Solar-Powered Garden Lights.
+</blockquote>
+<h3 id="-chain-of-thought">🔗 Chain of thought</h3>
+<p>The chain of thought for prompts refers to the logical progression or sequence of ideas and instructions presented to a language model. It involves crafting prompts in a way that guides the model&rsquo;s understanding and generates coherent and relevant responses. This chain typically includes:</p>
+<ol>
+<li>
+<p><strong>Introduction</strong>: Provide a brief context or background to set the stage for the task.</p>
+</li>
+<li>
+<p><strong>Instruction</strong>: Clearly state the main task or query you want the model to address.</p>
+</li>
+<li>
+<p><strong>Specificity</strong>: Be specific in detailing what you&rsquo;re looking for, including relevant details and constraints.</p>
+</li>
+<li>
+<p><strong>Contextual Information</strong>: If needed, provide additional context or examples to help the model better understand the task.</p>
+</li>
+<li>
+<p><strong>Confirmation or Clarification</strong>: Consider including a confirmation or clarification request at the end to ensure the model&rsquo;s understanding and prompt a clear response.</p>
+</li>
+</ol>
+<p>For example:</p>
+<p>Prompt original:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;What are the causes of anxiety, and how can it be managed?&#34;
+</span></span></code></pre></div><p>Prompt with chain of thought:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;What is anxiety?&#34;
+</span></span><span class="line"><span class="cl">&#34;What are the common causes of anxiety?&#34;
+</span></span><span class="line"><span class="cl">&#34;What are some effective strategies for managing anxiety?&#34;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - What is anxiety?
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - What are the common causes of anxiety?
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - What are some effective strategies for managing anxiety?
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+<ol>
+<li>
+<p>Anxiety is a feeling of worry, fear, or unease about an impending event or uncertain outcome. It is a natural response to stress but can become problematic when it affects one&rsquo;s daily life. <br></p>
+</li>
+<li>
+<p>Common causes of anxiety may include genetic factors, past traumas, stress, physical health conditions, substance abuse, and personality traits. <br></p>
+</li>
+<li>
+<p>Effective strategies for managing anxiety may include deep breathing exercises, progressive muscle relaxation, regular exercise, mindfulness meditation, cognitive-behavioral therapy, medication, and support systems like talking to friends and family or seeking professional help. It is important to find what works best for an individual&rsquo;s specific needs and circumstances.</p>
+</li>
+</ol>
+</blockquote>
+<p><strong>Other example of chain of thought</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Q: Joe has 20 eggs. He buys 2 more cartons of eggs. Each carton contains 12 eggs. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        How many eggs does Joe have now?
+</span></span></span><span class="line"><span class="cl"><span class="s2">    A: The answer is 44.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Q: Farmer John had 93 chickens. If he sold 20 to Farmer Bill and bought twice 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        that number more, how many chickens does Farmer John have now?
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+<p>A: Farmer John now has 146 chickens.</p>
+</blockquote>
+<h3 id="-zero-shot-chain-of-thought">🔗 Zero Shot Chain of Thought</h3>
+<p>The Zero Shot Chain of Thought (Zero-shot-CoT) prompt serves as a continuation of the CoT (Chain of Thought) prompting2 methodology. This novel approach involves the integration of an exceptionally straightforward zero-shot prompt. The study reveals that the inclusion of the phrase &ldquo;Let&rsquo;s think step by step.&rdquo; at the conclusion of a question enhances the language models&rsquo; ability to generate a coherent chain of thought in response to the inquiry. The resulting chain of thought proves conducive to extracting more precise and accurate answers from the language models.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    If John has 5 pears, then eats 2, and buys 5 more, then gives 3 to his friend, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    how many pears does he have?
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Let&#39;s think step by step.
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+1. John starts with 5 pears. <br>
+2. He eats 2 pears, so he now has 3 pears. <br>
+3. He buys 5 more pears, so he now has 8 pears. <br>
+4. He gives 3 pears to his friend, so he now has 5 pears. <br>
+<p>Therefore, John has 5 pears after eating 2, buying 5 more, and giving 3 to his friend.</p>
+</blockquote>
+<h2 id="-knowledge-generation--knowledge-integration">🧠 Knowledge Generation &amp; Knowledge Integration</h2>
+<h3 id="-knowledge-generation">🗃️ <strong>Knowledge Generation</strong></h3>
+<p>Knowledge Generation is the model&rsquo;s ability to produce new information or knowledge and then use it as part of the prompt. This concept involves guiding the model to provide specific information on a given topic and then using that information to generate precise responses to more complex problems.</p>
+<h3 id="-knowledge-integration">📑 <strong>Knowledge Integration</strong></h3>
+<p>Knowledge Integration is the model&rsquo;s ability to incorporate knowledge it is not familiar with into the data it understands. This enables the generation of knowledge on specific topics that were not part of its training data, with the aim of expanding its understanding and providing more detailed and accurate responses. In contrast to Knowledge Generation, in this case, we are the ones introducing new information through prompts, allowing the model to follow instructions using that acquired knowledge.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/prompt-engineering/resources/Knowledge_Integration_hu17312654762391707827.webp 400w,
+               /llm/prompt-engineering/resources/Knowledge_Integration_hu9425495555434410659.webp 760w,
+               /llm/prompt-engineering/resources/Knowledge_Integration_hu1569981119623220476.webp 1200w"
+               src="/llm/prompt-engineering/resources/Knowledge_Integration_hu17312654762391707827.webp"
+               width="758"
+               height="219"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><a href="https://blog.gopenai.com/fundamental-prompt-engineering-guide-with-vertex-ai-palm-api-c9f307413d85" target="_blank" rel="noopener">image source</a></p>
+<p><strong>Example of lack of knowledge</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Which country is larger, Congo or South Africa?
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+South Africa is larger than Congo.
+</blockquote>
+<p><strong>Generate the context</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Generate some knowledge about the sizes of South Africa and Congo:
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+South Africa is approximately 1,221,037 square kilometers in size, making it the 24th largest country in the world by land area. The country is located in southern Africa and is bordered by Namibia, Botswana, Zimbabwe, Mozambique, Eswatini, and Lesotho. South Africa is known for its diverse landscape, including the iconic Table Mountain, the scenic Garden Route, and the vast Kalahari Desert. <br>
+<p>On the other hand, the Democratic Republic of Congo, also known as Congo-Kinshasa, is the second-largest country in Africa and the 11th largest in the world, with a total area of 2,344,858 square kilometers. The country is located in central Africa and is home to numerous rivers, including the Congo River, which is the second-longest river in Africa. Congo is known for its rich natural resources, including diamonds, copper, and cobalt, but has also struggled with political instability and conflict in recent years.</p>
+</blockquote>
+<p><strong>Integrate the context</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    South Africa and Congo are two vastly different countries in terms of geographical size. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    South Africa covers an area of approximately 1.22 million square kilometers, making it the 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    24th largest country in the world. It has a diverse landscape, including the expansive 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    semi-arid Karoo region, the rugged Drakensberg mountain range, and the coastal plains of 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    KwaZulu-Natal. It&#39;s also home to iconic landmarks such as Table Mountain and the Kruger National Park. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    On the other hand, Congo (also known as the Democratic Republic of Congo or DRC) is the 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    second-largest country in Africa and the 11th largest in the world, with an area of over 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    2.34 million square kilometers. It is located in the heart of the continent and is marked 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    by dense rainforests, numerous rivers, and vast savannas. Despite its size, Congo has a 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    relatively low population density, with most of its people living in rural areas. 
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    In conclusion, while South Africa and Congo are both significant countries in Africa, 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    they differ significantly in size, topography, and population density.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Which country is larger, Congo or South Africa?
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">run_promt</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Congo is larger than South Africa.
+</blockquote>
+<p>This a correct answer</p>
+<h2 id="-resources">📘 Resources</h2>
+<ul>
+<li><a href="https://learnprompting.org/docs/intro" target="_blank" rel="noopener">learnprompting.com</a></li>
+<li><a href="https://www.promptingguide.ai/" target="_blank" rel="noopener">promptingguide.ai</a></li>
+<li><a href="https://www.w3schools.com/gen_ai/chatgpt-3-5/index.php" target="_blank" rel="noopener">w3schools.com/ChatGPT3.5</a></li>
+<li><a href="https://www.w3schools.com/gen_ai/chatgpt-4/index.php" target="_blank" rel="noopener">w3schools.com/ChatGPT4</a></li>
+</ul>
+
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2024-04-01T00:00:00.000Z">
+    <span>Last updated on</span>
+    Apr 1, 2024</time>
+      
+      
+  
+    
+    
+    
+      
+      
+    
+<div class="pt-1 no-prose w-full">
+  <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+  <div class="flex flex-col md:flex-row flex-nowrap justify-between gap-5 pt-2">
+    <div class="">
+      
+        <a class="group flex no-underline" href="/llm/azure-open-ai/">
+          <span
+            class="mt-[-0.3rem] me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline rtl:hidden">&larr;</span></span>
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Introduction to Azure OpenAI</span>
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                Mar 30, 2024
+              
+            </span>
+          </span>
+        </a>
+      
+    </div>
+    <div class="">
+      
+    </div>
+  </div>
+</div>
+
+
+
+      
+
+
+
+    </main>
+  </article>
+</div>
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2024. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

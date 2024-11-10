@@ -1,5 +1,5 @@
 ---
-title: Teaching
+title: Tutorials
 summary: My courses
 type: landing
 
@@ -13,11 +13,12 @@ sections:
   - block: collection
     id: teaching
     content:
-      title: Teaching
+      title: Tutorials
       filters:
         folders:
-          - teaching
+          - reinforcement_learning
+          - llm
     design:
       view: article-grid
-      columns: 2
+      columns: 3
 ---
