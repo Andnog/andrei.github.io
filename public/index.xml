@@ -71,47 +71,59 @@
 &lt;p&gt;Reinforcement Learning revolves around a few key components that work together to guide the agent’s learning process. Understanding these elements is essential to grasp how RL models make decisions and adapt over time. Here’s a closer look at each component:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Agent&lt;/strong&gt; 🧑‍💻
-The &lt;strong&gt;agent&lt;/strong&gt; is the learner or decision-maker in RL. It interacts with the environment, making decisions based on the information it receives, with the goal of maximizing rewards. For example, in a game, the agent might be a virtual character learning to navigate a maze.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Agent&lt;/strong&gt; 🧑‍💻&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;agent&lt;/strong&gt; is the learner or decision-maker in RL. It interacts with the environment, making decisions based on the information it receives, with the goal of maximizing rewards. For example, in a game, the agent might be a virtual character learning to navigate a maze.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Environment&lt;/strong&gt; 🌍
-The &lt;strong&gt;environment&lt;/strong&gt; represents everything external to the agent. It provides states and responds to the agent’s actions with new states and rewards. Think of the environment as the “world” where the agent operates, such as the maze in which the character moves.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Environment&lt;/strong&gt; 🌍&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;environment&lt;/strong&gt; represents everything external to the agent. It provides states and responds to the agent’s actions with new states and rewards. Think of the environment as the “world” where the agent operates, such as the maze in which the character moves.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;State&lt;/strong&gt; 📏
-The &lt;strong&gt;state&lt;/strong&gt; is a snapshot of the environment at a specific time. It contains information that the agent uses to make decisions. For instance, a robot’s state might include its location, speed, and nearby obstacles. The agent continuously updates its state based on feedback from the environment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;State&lt;/strong&gt; 📏&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;state&lt;/strong&gt; is a snapshot of the environment at a specific time. It contains information that the agent uses to make decisions. For instance, a robot’s state might include its location, speed, and nearby obstacles. The agent continuously updates its state based on feedback from the environment.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Actions&lt;/strong&gt; 🎮
-&lt;strong&gt;Actions&lt;/strong&gt; are the choices available to the agent. Based on the current state, the agent selects an action to take in the environment. For example, in a maze game, actions could be moving left, right, up, or down. The set of possible actions can vary depending on the agent’s current state and the rules of the environment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Actions&lt;/strong&gt; 🎮&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Actions&lt;/strong&gt; are the choices available to the agent. Based on the current state, the agent selects an action to take in the environment. For example, in a maze game, actions could be moving left, right, up, or down. The set of possible actions can vary depending on the agent’s current state and the rules of the environment.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Reward&lt;/strong&gt; 🏆
-&lt;strong&gt;Rewards&lt;/strong&gt; are feedback signals given to the agent after each action. Positive rewards encourage actions that are beneficial, while negative rewards discourage undesirable actions. The goal of the agent is to maximize its cumulative reward over time. For example, reaching the end of a maze might provide a high reward, while hitting a wall might result in a penalty.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reward&lt;/strong&gt; 🏆&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Rewards&lt;/strong&gt; are feedback signals given to the agent after each action. Positive rewards encourage actions that are beneficial, while negative rewards discourage undesirable actions. The goal of the agent is to maximize its cumulative reward over time. For example, reaching the end of a maze might provide a high reward, while hitting a wall might result in a penalty.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Policy&lt;/strong&gt; 📋
-The &lt;strong&gt;policy&lt;/strong&gt; defines the agent&amp;rsquo;s strategy for selecting actions. It’s essentially a mapping from states to actions, dictating what the agent should do at each step. Policies can be simple (like a table of actions) or complex (like a neural network). A well-learned policy maximizes the agent&amp;rsquo;s expected reward over time.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔍 &lt;strong&gt;Tip:&lt;/strong&gt; Policies are the backbone of the agent’s learning process. In RL, the objective is often to improve the policy based on experiences, making it increasingly effective in guiding the agent’s decisions.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Policy&lt;/strong&gt; 📋&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;policy&lt;/strong&gt; defines the agent&amp;rsquo;s strategy for selecting actions. It’s essentially a mapping from states to actions, dictating what the agent should do at each step. Policies can be simple (like a table of actions) or complex (like a neural network). A well-learned policy maximizes the agent&amp;rsquo;s expected reward over time.&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Policies are the backbone of the agent’s learning process. In RL, the objective is often to improve the policy based on experiences, making it increasingly effective in guiding the agent’s decisions.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;7&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Value Function&lt;/strong&gt; 📈
-The &lt;strong&gt;value function&lt;/strong&gt; estimates the long-term reward of being in a particular state or of taking a specific action from that state. Unlike the immediate reward, the value function helps the agent anticipate future rewards, guiding it toward actions with potentially higher cumulative rewards. This distinction between short-term rewards and long-term value is crucial in complex environments.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;💡 &lt;strong&gt;Insight:&lt;/strong&gt; Think of the value function as the agent’s intuition about what might pay off in the long run. For example, the agent may learn that moving away from the immediate goal may still yield a higher value if it leads to a better position in the future.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Value Function&lt;/strong&gt; 📈&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;value function&lt;/strong&gt; estimates the long-term reward of being in a particular state or of taking a specific action from that state. Unlike the immediate reward, the value function helps the agent anticipate future rewards, guiding it toward actions with potentially higher cumulative rewards. This distinction between short-term rewards and long-term value is crucial in complex environments.&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Insight:&lt;/strong&gt; Think of the value function as the agent’s intuition about what might pay off in the long run. For example, the agent may learn that moving away from the immediate goal may still yield a higher value if it leads to a better position in the future.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;8&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Model&lt;/strong&gt; (Optional) 🔄
-Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the environment&amp;rsquo;s response to the agent&amp;rsquo;s actions. This can be beneficial in complex environments, where simulating outcomes helps the agent learn faster. However, many RL algorithms are model-free, meaning they don’t rely on predictions but instead learn solely from experience.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Model&lt;/strong&gt; (Optional) 🔄&lt;/p&gt;
+&lt;p&gt;Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the environment&amp;rsquo;s response to the agent&amp;rsquo;s actions. This can be beneficial in complex environments, where simulating outcomes helps the agent learn faster. However, many RL algorithms are model-free, meaning they don’t rely on predictions but instead learn solely from experience.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;🛠️ &lt;strong&gt;Example:&lt;/strong&gt; A model could predict the next state or expected reward, allowing the agent to plan its actions more effectively. Model-based RL is especially useful when actions are costly or limited.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Reinforcement Learning Process Flow:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   Agent[&#34;Agent&#34;] --&gt; Action[&#34;Action Taken&#34;];
   Action --&gt; Environment[&#34;Environment&#34;];
@@ -122,6 +134,9 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
   Agent --&gt; Policy[&#34;Update Policy&#34;];
   Agent --&gt; ValueFunction[&#34;Update Value Function&#34;];
 &lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This flowchart illustrates the key steps in the reinforcement learning process. The Agent interacts with the Environment by taking an Action, leading to a New State and receiving Reward feedback. The agent uses this information to Update Policy and Update Value Function, gradually improving its strategy to maximize cumulative rewards.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;-types-of-reinforcement-learning&#34;&gt;🧠 Types of Reinforcement Learning&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning approaches vary based on how the agent learns, whether it uses a model of the environment, and its strategy for selecting actions. Here are some of the key types:&lt;/p&gt;
 &lt;ol&gt;
@@ -145,12 +160,17 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;On-Policy vs. Off-Policy Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;On-Policy Learning&lt;/strong&gt;: In on-policy learning, the agent learns from actions it takes according to its current policy. This approach focuses on improving the policy it follows during training. A common on-policy algorithm is &lt;strong&gt;SARSA (State-Action-Reward-State-Action)&lt;/strong&gt;, which evaluates actions by considering both current and future policies.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;📋 &lt;strong&gt;Note&lt;/strong&gt;: On-policy methods may be more stable but are sometimes slower in complex environments since the agent sticks to its current strategy while learning.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;li&gt;&lt;strong&gt;On-Policy Learning&lt;/strong&gt;: In on-policy learning, the agent learns from actions it takes according to its current policy. This approach focuses on improving the policy it follows during training. A common on-policy algorithm is &lt;strong&gt;SARSA (State-Action-Reward-State-Action)&lt;/strong&gt;, which evaluates actions by considering both current and future policies.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Note&lt;/strong&gt;: On-policy methods may be more stable but are sometimes slower in complex environments since the agent sticks to its current strategy while learning.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Off-Policy Learning&lt;/strong&gt;: In off-policy learning, the agent learns from actions that may differ from its current policy. This approach is useful because it allows the agent to explore a broader set of actions. &lt;strong&gt;Q-Learning&lt;/strong&gt; is a popular off-policy algorithm that optimizes the agent&amp;rsquo;s decisions independently from the current policy.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -158,7 +178,7 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Deterministic vs. Stochastic Policies&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -174,6 +194,8 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   RL[&#34;Reinforcement Learning&#34;] --&gt; ModelBased[&#34;Model-Based RL&#34;];
   RL --&gt; ModelFree[&#34;Model-Free RL&#34;];
@@ -182,7 +204,6 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
   PolicyTypes[&#34;Policy Types&#34;] --&gt; Deterministic[&#34;Deterministic&#34;];
   PolicyTypes --&gt; Stochastic[&#34;Stochastic&#34;];
 &lt;/div&gt;
-&lt;p&gt;Next, let’s dive into &lt;strong&gt;Key Algorithms in Reinforcement Learning&lt;/strong&gt;. This section will cover some of the foundational algorithms that help agents learn and improve within their environments.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-key-algorithms&#34;&gt;🗂️ Key Algorithms&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning relies on a range of algorithms that enable agents to learn from their experiences. Here are some of the most important foundational algorithms:&lt;/p&gt;
@@ -205,10 +226,15 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: A warehouse robot that knows the exact layout of the warehouse and calculates the shortest path to each pickup point can use dynamic programming to find the optimal path and avoid obstacles.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;📋 &lt;strong&gt;Note&lt;/strong&gt;: DP methods are computationally intensive and typically require complete knowledge of the environment, making them challenging to use in large or complex environments.&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Note&lt;/strong&gt;: DP methods are computationally intensive and typically require complete knowledge of the environment, making them challenging to use in large or complex environments.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Monte Carlo Methods&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Monte Carlo methods are model-free approaches that estimate the value of states and policies based on random samples of experiences. Unlike DP, Monte Carlo methods don’t require a complete model of the environment and work by averaging rewards over multiple episodes.&lt;/p&gt;
@@ -262,6 +288,8 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   RL[&#34;Reinforcement Learning Algorithms&#34;] --&gt; DP[&#34;Dynamic Programming&#34;];
   RL --&gt; MC[&#34;Monte Carlo Methods&#34;];
@@ -269,7 +297,6 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
   RL --&gt; QL[&#34;Q-Learning&#34;];
   QL --&gt; DQN[&#34;Deep Q-Networks&#34;];
 &lt;/div&gt;
-&lt;p&gt;Let’s move on to the &lt;strong&gt;Exploration vs. Exploitation&lt;/strong&gt; section. This is a critical concept in reinforcement learning that helps balance learning efficiency and effectiveness.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-exploration-vs-exploitation&#34;&gt;🌐 Exploration vs Exploitation&lt;/h2&gt;
 &lt;p&gt;One of the fundamental challenges in reinforcement learning is balancing &lt;strong&gt;exploration&lt;/strong&gt; (trying new actions to discover their outcomes) with &lt;strong&gt;exploitation&lt;/strong&gt; (using known actions that yield high rewards). This balance is essential for an agent to learn effectively without missing better solutions.&lt;/p&gt;
@@ -299,12 +326,14 @@ Finding the right balance between exploration and exploitation is a crucial part
 &lt;p&gt;&lt;strong&gt;Softmax Action Selection&lt;/strong&gt;: In this method, actions are selected probabilistically, with higher probabilities assigned to actions with higher estimated rewards. This allows exploration without explicitly setting an exploration probability.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Exploration Techniques in Deep Reinforcement Learning&lt;/strong&gt;
-For more complex environments, such as those with continuous or high-dimensional action spaces, advanced exploration techniques like &lt;strong&gt;Boltzmann exploration&lt;/strong&gt; and &lt;strong&gt;entropy regularization&lt;/strong&gt; help the agent explore effectively.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exploration Techniques in Deep Reinforcement Learning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For more complex environments, such as those with continuous or high-dimensional action spaces, advanced exploration techniques like &lt;strong&gt;Boltzmann exploration&lt;/strong&gt; and &lt;strong&gt;entropy regularization&lt;/strong&gt; help the agent explore effectively.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Boltzmann Exploration&lt;/strong&gt;: Actions are chosen based on a probability distribution that weighs both expected reward and exploration need.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Entropy Regularization&lt;/strong&gt;: Common in deep RL, this technique encourages the agent to maintain a diverse range of actions, especially useful for complex tasks requiring a variety of behaviors.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   RL[&#34;Reinforcement Learning&#34;] --&gt; Explore[&#34;Exploration&#34;];
   RL --&gt; Exploit[&#34;Exploitation&#34;];
@@ -313,7 +342,6 @@ For more complex environments, such as those with continuous or high-dimensional
   Techniques --&gt; Softmax[&#34;Softmax Action Selection&#34;];
   Exploit --&gt; Optimize[&#34;Optimize Known Actions&#34;];
 &lt;/div&gt;
-&lt;p&gt;Now, let’s dive into &lt;strong&gt;Markov Decision Processes (MDPs)&lt;/strong&gt;, which form the mathematical foundation for most reinforcement learning algorithms.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-markov-decision-processes-mdps&#34;&gt;🔗 Markov Decision Processes (MDPs)&lt;/h2&gt;
 &lt;p&gt;A &lt;strong&gt;Markov Decision Process (MDP)&lt;/strong&gt; is a mathematical framework used to model decision-making problems in reinforcement learning. MDPs define the environment where an agent operates, providing a structured way to represent states, actions, rewards, and transitions.&lt;/p&gt;
@@ -386,6 +414,8 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;p&gt;The Bellman Equation plays a crucial role in RL algorithms, providing a foundation for both value iteration and policy iteration methods.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Why MDPs Matter in Reinforcement Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;MDPs provide a formalized way to describe the RL problem, giving structure to the agent’s interactions with the environment. By modeling tasks as MDPs, RL algorithms can use MDP properties to evaluate and optimize policies systematically, helping the agent learn optimal behaviors.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   MDP[&#34;Markov Decision Process&#34;] --&gt; S[&#34;States (S)&#34;];
   MDP --&gt; A[&#34;Actions (A)&#34;];
@@ -400,7 +430,6 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
   T --&gt; R;
   R --&gt; Agent;
 &lt;/div&gt;
-&lt;p&gt;Next, let’s explore &lt;strong&gt;Practical Applications of Reinforcement Learning&lt;/strong&gt;. This section will highlight real-world scenarios where RL is transforming industries and solving complex problems.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-practical-applications&#34;&gt;💡 Practical Applications&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning has found applications across a variety of fields, from gaming to healthcare. These applications showcase the power of RL in tackling complex, sequential decision-making problems where traditional algorithms struggle.&lt;/p&gt;

@@ -47,35 +47,50 @@ Here's a quick comparison to clarify the unique nature of RL:
 Reinforcement Learning revolves around a few key components that work together to guide the agent’s learning process. Understanding these elements is essential to grasp how RL models make decisions and adapt over time. Here’s a closer look at each component:
 
 1. **Agent** 🧑‍💻
+
    The **agent** is the learner or decision-maker in RL. It interacts with the environment, making decisions based on the information it receives, with the goal of maximizing rewards. For example, in a game, the agent might be a virtual character learning to navigate a maze.
 
 2. **Environment** 🌍
+
    The **environment** represents everything external to the agent. It provides states and responds to the agent’s actions with new states and rewards. Think of the environment as the “world” where the agent operates, such as the maze in which the character moves.
 
 3. **State** 📏
+
    The **state** is a snapshot of the environment at a specific time. It contains information that the agent uses to make decisions. For instance, a robot’s state might include its location, speed, and nearby obstacles. The agent continuously updates its state based on feedback from the environment.
 
 4. **Actions** 🎮
+
    **Actions** are the choices available to the agent. Based on the current state, the agent selects an action to take in the environment. For example, in a maze game, actions could be moving left, right, up, or down. The set of possible actions can vary depending on the agent’s current state and the rules of the environment.
 
 5. **Reward** 🏆
+
    **Rewards** are feedback signals given to the agent after each action. Positive rewards encourage actions that are beneficial, while negative rewards discourage undesirable actions. The goal of the agent is to maximize its cumulative reward over time. For example, reaching the end of a maze might provide a high reward, while hitting a wall might result in a penalty.
 
 6. **Policy** 📋
+
    The **policy** defines the agent's strategy for selecting actions. It’s essentially a mapping from states to actions, dictating what the agent should do at each step. Policies can be simple (like a table of actions) or complex (like a neural network). A well-learned policy maximizes the agent's expected reward over time.
 
-   > 🔍 **Tip:** Policies are the backbone of the agent’s learning process. In RL, the objective is often to improve the policy based on experiences, making it increasingly effective in guiding the agent’s decisions.
+{{% callout note %}}
+   **Tip:** Policies are the backbone of the agent’s learning process. In RL, the objective is often to improve the policy based on experiences, making it increasingly effective in guiding the agent’s decisions.
+{{%/ callout %}}
 
 7. **Value Function** 📈
+
    The **value function** estimates the long-term reward of being in a particular state or of taking a specific action from that state. Unlike the immediate reward, the value function helps the agent anticipate future rewards, guiding it toward actions with potentially higher cumulative rewards. This distinction between short-term rewards and long-term value is crucial in complex environments.
 
-   > 💡 **Insight:** Think of the value function as the agent’s intuition about what might pay off in the long run. For example, the agent may learn that moving away from the immediate goal may still yield a higher value if it leads to a better position in the future.
+{{% callout note %}}
+ **Insight:** Think of the value function as the agent’s intuition about what might pay off in the long run. For example, the agent may learn that moving away from the immediate goal may still yield a higher value if it leads to a better position in the future.
+{{%/ callout %}}
 
 8. **Model** (Optional) 🔄
+
    Some RL approaches use a **model** to predict the environment's response to the agent's actions. This can be beneficial in complex environments, where simulating outcomes helps the agent learn faster. However, many RL algorithms are model-free, meaning they don’t rely on predictions but instead learn solely from experience.
 
    > 🛠️ **Example:** A model could predict the next state or expected reward, allowing the agent to plan its actions more effectively. Model-based RL is especially useful when actions are costly or limited.
 
+<br>
+
+**Reinforcement Learning Process Flow:**
 
 ```mermaid
 graph TD;
@@ -89,6 +104,8 @@ graph TD;
   Agent --> ValueFunction["Update Value Function"];
 
 ```
+
+> This flowchart illustrates the key steps in the reinforcement learning process. The Agent interacts with the Environment by taking an Action, leading to a New State and receiving Reward feedback. The agent uses this information to Update Policy and Update Value Function, gradually improving its strategy to maximize cumulative rewards.
 
 ## 🧠 Types of Reinforcement Learning 
 
@@ -108,7 +125,9 @@ Reinforcement Learning approaches vary based on how the agent learns, whether it
 
    - **On-Policy Learning**: In on-policy learning, the agent learns from actions it takes according to its current policy. This approach focuses on improving the policy it follows during training. A common on-policy algorithm is **SARSA (State-Action-Reward-State-Action)**, which evaluates actions by considering both current and future policies.
 
-     > 📋 **Note**: On-policy methods may be more stable but are sometimes slower in complex environments since the agent sticks to its current strategy while learning.
+{{% callout note %}}
+   **Note**: On-policy methods may be more stable but are sometimes slower in complex environments since the agent sticks to its current strategy while learning.
+{{%/ callout %}}
 
    - **Off-Policy Learning**: In off-policy learning, the agent learns from actions that may differ from its current policy. This approach is useful because it allows the agent to explore a broader set of actions. **Q-Learning** is a popular off-policy algorithm that optimizes the agent's decisions independently from the current policy.
 
@@ -122,6 +141,9 @@ Reinforcement Learning approaches vary based on how the agent learns, whether it
 
      > **Example**: In a game, an agent might decide to attack with a 70% probability and defend with a 30% probability based on its state, adding flexibility to its strategy.
 
+<br>
+
+**Summary:**
 
 ```mermaid
 graph TD;
@@ -132,8 +154,6 @@ graph TD;
   PolicyTypes["Policy Types"] --> Deterministic["Deterministic"];
   PolicyTypes --> Stochastic["Stochastic"];
 ```
-
-Next, let’s dive into **Key Algorithms in Reinforcement Learning**. This section will cover some of the foundational algorithms that help agents learn and improve within their environments.
 
 ---
 
@@ -153,7 +173,9 @@ Reinforcement Learning relies on a range of algorithms that enable agents to lea
 
    > **Example**: A warehouse robot that knows the exact layout of the warehouse and calculates the shortest path to each pickup point can use dynamic programming to find the optimal path and avoid obstacles.
 
-   > 📋 **Note**: DP methods are computationally intensive and typically require complete knowledge of the environment, making them challenging to use in large or complex environments.
+{{% callout note %}}
+   **Note**: DP methods are computationally intensive and typically require complete knowledge of the environment, making them challenging to use in large or complex environments.
+{{%/ callout %}}
 
 2. **Monte Carlo Methods**
 
@@ -193,6 +215,9 @@ Reinforcement Learning relies on a range of algorithms that enable agents to lea
 
    > **Example**: In Atari games, DQNs allow an agent to learn strategies and adapt to different levels by approximating Q-values for all possible game states using a neural network.
 
+<br>
+
+**Summary:**
 
 ```mermaid
 graph TD;
@@ -202,7 +227,6 @@ graph TD;
   RL --> QL["Q-Learning"];
   QL --> DQN["Deep Q-Networks"];
 ```
-Let’s move on to the **Exploration vs. Exploitation** section. This is a critical concept in reinforcement learning that helps balance learning efficiency and effectiveness.
 
 ---
 
@@ -236,10 +260,15 @@ To address this, reinforcement learning algorithms often use strategies like **e
 - **Softmax Action Selection**: In this method, actions are selected probabilistically, with higher probabilities assigned to actions with higher estimated rewards. This allows exploration without explicitly setting an exploration probability.
 
 **Exploration Techniques in Deep Reinforcement Learning**
+
 For more complex environments, such as those with continuous or high-dimensional action spaces, advanced exploration techniques like **Boltzmann exploration** and **entropy regularization** help the agent explore effectively.
 
    - **Boltzmann Exploration**: Actions are chosen based on a probability distribution that weighs both expected reward and exploration need.
    - **Entropy Regularization**: Common in deep RL, this technique encourages the agent to maintain a diverse range of actions, especially useful for complex tasks requiring a variety of behaviors.
+
+<br>
+
+**Summary:**
 
 ```mermaid
 graph TD;
@@ -250,8 +279,6 @@ graph TD;
   Techniques --> Softmax["Softmax Action Selection"];
   Exploit --> Optimize["Optimize Known Actions"];
 ```
-
-Now, let’s dive into **Markov Decision Processes (MDPs)**, which form the mathematical foundation for most reinforcement learning algorithms.
 
 ---
 
@@ -323,6 +350,10 @@ The Bellman Equation plays a crucial role in RL algorithms, providing a foundati
 
 MDPs provide a formalized way to describe the RL problem, giving structure to the agent’s interactions with the environment. By modeling tasks as MDPs, RL algorithms can use MDP properties to evaluate and optimize policies systematically, helping the agent learn optimal behaviors.
 
+<br>
+
+**Summary:**
+
 ```mermaid
 graph TD;
   MDP["Markov Decision Process"] --> S["States (S)"];
@@ -338,8 +369,6 @@ graph TD;
   T --> R;
   R --> Agent;
 ```
-
-Next, let’s explore **Practical Applications of Reinforcement Learning**. This section will highlight real-world scenarios where RL is transforming industries and solving complex problems.
 
 ---
 
