@@ -1,0 +1,1932 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: November 12, 2024 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.2.0" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Andrei Noguera" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Introduction to Reinforcement Learning with Q-Learning in Python" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/reinforcement_learning/q-leaning-python/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+    
+    <link href="/css/custom.min.caa35532b23c9db02ac3c4f3aca16b0f14049c009ef22685f5947da16cd0ef59.css" rel="stylesheet" />
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu2973964795487018635.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu13746399112698998448.png" />
+
+  <link rel="canonical" href="http://localhost:1313/reinforcement_learning/q-leaning-python/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Andrei Noguera" />
+  <meta property="og:url" content="http://localhost:1313/reinforcement_learning/q-leaning-python/" />
+  <meta property="og:title" content=" Q-Learning in Python | Andrei Noguera" />
+  <meta property="og:description" content="Introduction to Reinforcement Learning with Q-Learning in Python" /><meta property="og:image" content="http://localhost:1313/reinforcement_learning/q-leaning-python/featured.jpg" />
+    <meta property="twitter:image" content="http://localhost:1313/reinforcement_learning/q-leaning-python/featured.jpg" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2024-11-12T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2024-11-12T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  <title> Q-Learning in Python | Andrei Noguera</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let element = document.getElementById('search');
+    let trigger = document.getElementById('search_toggle');
+
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        element.classList.toggle('hidden');
+        element.querySelector("input").value = ""
+        element.querySelector("input").focus()
+
+        if (!element.classList.contains('hidden')) {
+          let clear_trigger = document.querySelector('.pagefind-ui__search-clear');
+
+          if (clear_trigger && !clear_trigger.hasAttribute('listenerOnClick')) {
+            clear_trigger.setAttribute('listenerOnClick', 'true');
+
+            clear_trigger.addEventListener('click', () => {
+              element.classList.toggle('hidden');
+            });
+          }
+        }
+
+      });
+    }
+  });
+</script>
+
+
+
+
+  
+  
+  
+  
+  <script defer src="/js/mermaid.bundle.addbbabb71331768410cfb03a610179690ff1dfd413519d34219c06a8fd39202.js" integrity="sha256-rdu6u3EzF2hBDPsDphAXlpD/Hf1BNRnTQhnAao/TkgI="></script>
+
+
+
+
+
+
+
+  
+  
+  <link type="text/css" rel="stylesheet" href="/dist/lib/katex/katex.min.505d5f829022bb7b4f24dfee0aa1141cd7bba67afe411d1240335f820960b5c3.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr&#43;QR0SQDNfgglgtcM=" />
+  
+  
+  <script defer src="/dist/lib/katex/katex.min.dc84b296ec3e884de093158f760fd9d45b6c7abe58b5381557f4e138f46a58ae.js" integrity="sha256-3ISyluw&#43;iE3gkxWPdg/Z1Ftser5YtTgVV/ThOPRqWK4="></script>
+  
+  
+  
+  
+  <script defer src="/js/katex-renderer.6579ec9683211cfb952064aedf3a3baea5eeb17a061775b32b70917474637c80.js" integrity="sha256-ZXnsloMhHPuVIGSu3zo7rqXusXoGF3WzK3CRdHRjfIA="></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.js"
+    integrity=""
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+      
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+    
+  
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="Andrei Noguera">
+        Andrei N
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Bio</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/experience/"
+        >Experience</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/certificates/"
+        >Certificates</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/skills/"
+        >Skills &amp; Tools</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/projects/"
+        >Projects</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/teaching/"
+        >Tutorials</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+      <button
+        aria-label="search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        id="search_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+      </button>
+      
+
+      
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+
+<div id="search" class="hidden p-3"></div>
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      <div class="mx-auto flex max-w-screen-xl">
+  
+
+  
+  <div class="hb-sidebar-mobile-menu fixed inset-0 z-10 bg-white dark:bg-black/80 hidden"></div>
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:sticky">
+  
+  <div class="px-4 pt-4 lg:hidden">
+    
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/"
+    
+  >Recent &amp; Upcoming Talks
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/example/"
+    
+  >Example Talk
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/"
+    
+  >Reinforcement_learnings
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/intro/"
+    
+  >Foundations and Key Concepts
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/reinforcement_learning/q-leaning-python/"
+    
+  > Q-Learning in Python
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#-introduction"
+                class="hb-docs-link"
+              >🚀 Introduction</a>
+            </li>
+          <li>
+              <a
+                href="#-setting-up-the-environment"
+                class="hb-docs-link"
+              >🛠️ Setting Up the Environment</a>
+            </li>
+          <li>
+              <a
+                href="#-understanding-the-q-learning-algorithm"
+                class="hb-docs-link"
+              >📘 Understanding the Q-Learning Algorithm</a>
+            </li>
+          <li>
+              <a
+                href="#-implementing-step-by-step"
+                class="hb-docs-link"
+              >👨‍💻 Implementing Step-by-Step</a>
+            </li>
+          <li>
+              <a
+                href="#-testing-the-agent"
+                class="hb-docs-link"
+              >🧪 Testing the Agent</a>
+            </li>
+          <li>
+              <a
+                href="#-visualizing-the-agents-learning-progress"
+                class="hb-docs-link"
+              >📊 Visualizing the Agent’s Learning Progress</a>
+            </li>
+          <li>
+              <a
+                href="#-conclusion--next-steps"
+                class="hb-docs-link"
+              >🔍 Conclusion &amp;amp; Next Steps</a>
+            </li>
+          </ul>
+  
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/github/"
+    
+  >Github
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/research/"
+    
+  >Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/certificates/"
+    
+  >Certificates
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/experience/"
+    
+  >Experience
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/skills/"
+    
+  >Skills and Tools
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/projects/"
+    
+  >Projects
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/"
+    
+  >Llms
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/azure-open-ai/"
+    
+  >Introduction to Azure OpenAI
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/prompt-engineering/"
+    
+  >Prompt Engineering
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Blog
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/get-started/"
+    
+  >🎉 Easily create your own simple yet highly customizable blog
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/second-brain/"
+    
+  >🧠 Sharpen your thinking with a second brain
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/data-visualization/"
+    
+  >📈 Communicate your results effectively with the best data visualizations
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/teach-courses/"
+    
+  >👩🏼‍🏫 Teach academic courses
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/project-management/"
+    
+  >✅ Manage your projects
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/"
+    
+  >Publications
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/preprint/"
+    
+  >An example preprint / working paper
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/journal-article/"
+    
+  >An example journal article
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/conference-paper/"
+    
+  >An example conference paper
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/admin/"
+    
+  >
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/"
+    
+  >Tutorials
+    </a></li>
+    </ul>
+
+    <ul class="flex flex-col gap-1 max-lg:hidden">
+        
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/intro/"
+    
+  >Foundations and Key Concepts
+    </a></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/reinforcement_learning/q-leaning-python/"
+    
+  > Q-Learning in Python
+    </a></li>
+        
+      </ul>
+    </div>
+
+</aside>
+  
+
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-introduction">🚀 Introduction</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#what-is-q-learning">What is Q-Learning?</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-setting-up-the-environment">🛠️ Setting Up the Environment</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-understanding-the-q-learning-algorithm">📘 Understanding the Q-Learning Algorithm</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-implementing-step-by-step">👨‍💻 Implementing Step-by-Step</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-testing-the-agent">🧪 Testing the Agent</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-visualizing-the-agents-learning-progress">📊 Visualizing the Agent’s Learning Progress</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-conclusion--next-steps">🔍 Conclusion &amp; Next Steps</a>
+      </li></ul>
+
+  
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="flex w-full min-w-0 min-h-[calc(100vh-var(--navbar-height))] justify-center break-words pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="prose prose-slate lg:prose-xl dark:prose-invert w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+      <div class="mb-1">
+        <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400">
+      <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
+        <a href="http://localhost:1313/reinforcement_learning/">Reinforcement_learnings</a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m8.25 4.5l7.5 7.5l-7.5 7.5"/></svg><div class="whitespace-nowrap font-medium text-gray-700 dark:text-gray-100"> Q-Learning in Python</div>
+</div>
+
+      </div>
+
+      <div class="content text-base">
+        <h1> Q-Learning in Python</h1>
+        <h2 id="-introduction">🚀 Introduction</h2>
+<p>In this tutorial, we’ll implement <strong>Q-Learning</strong>, a foundational reinforcement learning algorithm, in Python using the <strong>OpenAI Gym</strong> library. Q-Learning is a popular method for training agents to make decisions in environments with discrete states and actions. Our agent will learn to maximize its rewards by exploring and exploiting different strategies over time.</p>
+<h3 id="what-is-q-learning">What is Q-Learning?</h3>
+<p>Q-Learning is a type of <strong>model-free, off-policy algorithm</strong> that uses a <strong>Q-Table</strong> to store information about the expected future rewards of different actions in each state. The agent updates this table iteratively based on the rewards it receives, gradually improving its understanding of which actions yield the highest rewards.</p>
+<p>Q-Learning is ideal for discrete environments like OpenAI Gym’s <strong>Taxi-v3</strong> environment, where an agent (the taxi) learns to navigate a grid, pick up passengers, and drop them off at specified locations. The algorithm’s simplicity and flexibility make it a great starting point for understanding reinforcement learning.</p>
+<p><strong>Why OpenAI Gym?</strong></p>
+<p><strong>OpenAI Gym</strong> provides a suite of simulated environments designed for reinforcement learning, making it an ideal tool for experimenting with RL algorithms like Q-Learning. Gym’s environments are easy to set up and come with clear action and state spaces, allowing us to focus on the algorithm itself without worrying about complex setup.</p>
+<p><strong>Objectives</strong></p>
+<p>By the end of this tutorial, you will:</p>
+<ol>
+<li>Understand the core concepts of Q-Learning.</li>
+<li>Implement a Q-Learning agent in Python.</li>
+<li>Train the agent to navigate the Taxi-v3 environment.</li>
+<li>Observe the agent’s learning progress and evaluate its performance.</li>
+</ol>
+<hr>
+<h2 id="-setting-up-the-environment">🛠️ Setting Up the Environment</h2>
+<p>To begin implementing our Q-Learning agent, we’ll need to install the <strong>OpenAI Gym</strong> library, which provides the Taxi-v3 environment we’ll use. Additionally, we’ll install <strong>NumPy</strong> to manage numerical operations in our Q-Learning algorithm.</p>
+<ol>
+<li><strong>Installing Libraries</strong></li>
+</ol>
+<p>If you don’t already have Gym and NumPy installed, you can install them using the following command in your terminal or command prompt:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install gymnasium numpy
+</span></span></code></pre></div><p>This command installs both packages, allowing us to create and interact with the environment and manage the Q-Table for our Q-Learning agent.</p>
+<ol start="2">
+<li><strong>Initializing the Taxi-v3 Environment</strong></li>
+</ol>
+<p>OpenAI Gym’s <strong>Taxi-v3</strong> environment is a simple grid-based environment where an agent (a taxi) must:</p>
+<ol>
+<li>Navigate a grid world to find a passenger.</li>
+<li>Pick up the passenger.</li>
+<li>Deliver the passenger to a specified destination.</li>
+</ol>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-taxi-enviroment-problem">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Taxi V3"
+           src="/reinforcement_learning/q-leaning-python/resources/taxi.gif"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Taxi enviroment problem
+    </figcaption></figure>
+</p>
+</div>
+<p>The agent’s goal is to maximize its cumulative reward by successfully completing pickup and drop-off tasks while minimizing penalties for illegal actions.</p>
+<details class="spoiler "  id="spoiler-0">
+  <summary class="cursor-pointer">Complete Code</summary>
+  <div class="rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2">
+    Link: <a href="https://github.com/Andnog/Tutorials-Resources/blob/main/Reinforcement_learning/Q-Learning_Python/taxiv3.py" target="_blank" rel="noopener">Taxi V3 full code</a>
+  </div>
+</details>
+<p>Let’s start by importing Gym and setting up our environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">gymnasium</span> <span class="k">as</span> <span class="nn">gym</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialize the Taxi-v3 environment with render_mode set to &#34;ansi&#34; for text-based output</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">&#34;Taxi-v3&#34;</span><span class="p">,</span> <span class="n">render_mode</span><span class="o">=</span><span class="s2">&#34;ansi&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</span></span></code></pre></div><p>This code sets up the Taxi-v3 environment and resets it to the initial state, preparing it for interaction with the agent.</p>
+<ol start="3">
+<li><strong>Exploring the Environment</strong></li>
+</ol>
+<p>It’s helpful to understand the structure of the Taxi-v3 environment, including its <strong>action space</strong> (possible moves) and <strong>state space</strong> (different configurations of the taxi, passenger, and destination). We can examine the environment with these commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Check the number of possible actions</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Action Space:&#34;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check the number of possible states</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;State Space:&#34;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="p">)</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+Action Space: Discrete(6) <br>
+State Space: Discrete(500)
+</blockquote>
+<ul>
+<li><strong>Action Space</strong>: Taxi-v3 has six discrete actions, including moving in four directions, picking up, and dropping off the passenger.</li>
+<li><strong>State Space</strong>: There are 500 discrete states, representing all combinations of taxi positions, passenger locations, and destinations.</li>
+</ul>
+<ol start="4">
+<li><strong>Visualizing the Environment</strong></li>
+</ol>
+<p>OpenAI Gym allows us to visualize the environment, which is particularly useful for understanding the agent’s interactions. Use the following code to render the initial state of the environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Render the initial state</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</span></span></code></pre></div><p>This command displays a simple ASCII representation of the Taxi-v3 grid world:</p>
+<ul>
+<li>The <strong>yellow block</strong> represents the taxi’s position.</li>
+<li><strong>R, G, B, and Y</strong> represent potential passenger pickup and drop-off locations.</li>
+<li>The <strong>blue letter</strong> represents the passenger’s initial location, and <strong>magenta</strong> represents the destination.</li>
+</ul>
+<p><strong>Map</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    +---------+
+</span></span><span class="line"><span class="cl">    |R: | : :G|
+</span></span><span class="line"><span class="cl">    | : | : : |
+</span></span><span class="line"><span class="cl">    | : : : : |
+</span></span><span class="line"><span class="cl">    | | : | : |
+</span></span><span class="line"><span class="cl">    |Y| : |B: |
+</span></span><span class="line"><span class="cl">    +---------+
+</span></span></code></pre></div><hr>
+<h2 id="-understanding-the-q-learning-algorithm">📘 Understanding the Q-Learning Algorithm</h2>
+<p><strong>Q-Learning</strong> is a type of reinforcement learning algorithm where an agent learns a policy to maximize cumulative rewards by creating a <strong>Q-Table</strong>. The table keeps track of the agent’s expected rewards for each possible action in each state, guiding it toward more rewarding actions over time.</p>
+<ol>
+<li><strong>The Q-Table</strong></li>
+</ol>
+<p>The <strong>Q-Table</strong> is at the core of Q-Learning. It’s a matrix where:</p>
+<ul>
+<li><strong>Rows</strong> represent the possible states in the environment.</li>
+<li><strong>Columns</strong> represent the actions available in each state.</li>
+</ul>
+<p>Each cell in the Q-Table contains a <strong>Q-value</strong>, representing the expected reward for taking a specific action in a specific state. The agent updates these Q-values as it interacts with the environment, gradually improving its policy.</p>
+<p><strong>Example:</strong></p>
+<p>In the Taxi-v3 environment:</p>
+<ul>
+<li>Rows (states) represent each unique configuration of the taxi, passenger, and destination.</li>
+<li>Columns (actions) represent moves like up, down, pick-up, and drop-off.</li>
+</ul>
+<p>The agent will update the Q-values in this table using feedback from the environment.</p>
+<ol start="2">
+<li><strong>Key Parameters in Q-Learning</strong></li>
+</ol>
+<p>Several parameters influence how the Q-Learning algorithm functions:</p>
+<ul>
+<li>
+<p><strong>Learning Rate (α)</strong>: This parameter controls how much the agent values new information over old information. A high learning rate (closer to 1) means the agent learns quickly, while a low learning rate (closer to 0) results in slower learning.</p>
+</li>
+<li>
+<p><strong>Discount Factor (γ)</strong>: The discount factor determines the importance of future rewards. A high discount factor (closer to 1) encourages the agent to consider future rewards, while a low discount factor makes it focus more on immediate rewards.</p>
+</li>
+<li>
+<p><strong>Exploration Rate (ε)</strong>: Known as the epsilon parameter, the exploration rate controls the balance between <strong>exploration</strong> (trying new actions) and <strong>exploitation</strong> (using known actions with high rewards). A higher exploration rate encourages the agent to try new actions, while a lower rate focuses on maximizing rewards based on current knowledge.</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>The Q-Learning Update Rule</strong></li>
+</ol>
+<p>The agent updates its Q-values based on the <strong>Q-Learning update formula</strong>, which accounts for the reward received and the estimated value of future states. Here’s the formula:</p>
+\[
+Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s', a') - Q(s, a))
+\]<p>Where:</p>
+<ul>
+<li><strong>\( Q(s, a) \)</strong> is the current Q-value for the state-action pair.</li>
+<li><strong>\( R \)</strong> is the reward received after taking action <strong>\( a \)</strong> in state <strong>\( s \)</strong>.</li>
+<li><strong>\( \max Q(s', a') \)</strong> is the maximum Q-value for the next state <strong>\( s' \)</strong>, representing the best future reward.</li>
+<li><strong>\( \alpha \)</strong> is the learning rate.</li>
+<li><strong>\( \gamma \)</strong> is the discount factor.</li>
+</ul>
+<div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+<span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+  <svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/></svg>
+</span>
+  <span class="dark:text-neutral-300"><strong>Explanation</strong>: The agent updates the Q-value for the current state-action pair by considering the immediate reward and the expected value of future rewards. Over time, this iterative updating helps the agent build an optimal policy for maximizing cumulative rewards.</span>
+</div>
+<p><strong>Setting Parameters for Our Agent</strong></p>
+<p>In our implementation, we’ll set the following initial values for these parameters:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>       <span class="c1"># Learning rate</span>
+</span></span><span class="line"><span class="cl"><span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.9</span>       <span class="c1"># Discount factor</span>
+</span></span><span class="line"><span class="cl"><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.1</span>     <span class="c1"># Exploration rate</span>
+</span></span><span class="line"><span class="cl"><span class="n">epsilon_decay</span> <span class="o">=</span> <span class="mf">0.99</span>  <span class="c1"># Decay rate for epsilon</span>
+</span></span><span class="line"><span class="cl"><span class="n">episodes</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># Number of training episodes</span>
+</span></span></code></pre></div><p><strong>Why These Parameters Matter</strong></p>
+<ul>
+<li><strong>Learning Rate (α)</strong> ensures the agent doesn&rsquo;t completely overwrite previous knowledge, providing a balanced approach to updating Q-values.</li>
+<li><strong>Discount Factor (γ)</strong> encourages the agent to focus on long-term rewards, essential for achieving the goal of picking up and dropping off passengers efficiently.</li>
+<li><strong>Exploration Rate (ε)</strong> helps the agent avoid getting stuck in suboptimal actions, especially early in training, by encouraging it to try new moves.</li>
+</ul>
+<div class="mermaid">graph TD;
+  Agent["Agent"] --> Action["Action Taken"];
+  Action --> Environment["Environment"];
+  Environment --> State["New State"];
+  Environment --> Reward["Reward Received"];
+  State --> Agent;
+  Reward --> Agent;
+  Agent --> QTable["Update Q-Table"];
+</div>
+<hr>
+<h2 id="-implementing-step-by-step">👨‍💻 Implementing Step-by-Step</h2>
+<p><strong>Step 1: Setting Up the Q-Table</strong></p>
+<p>The <strong>Q-Table</strong> will store Q-values for each state-action pair, guiding the agent toward optimal decisions. Since the Taxi-v3 environment has discrete states and actions, we can initialize the Q-Table as a 2D NumPy array filled with zeros.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Initialize the Q-Table with zeros</span>
+</span></span><span class="line"><span class="cl"><span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">env</span><span class="o">.</span><span class="n">observation_space</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">n</span><span class="p">])</span>
+</span></span></code></pre></div><ul>
+<li><strong>Rows</strong> in <code>Q</code> represent each possible state in the environment.</li>
+<li><strong>Columns</strong> represent the actions available in each state.</li>
+</ul>
+<p><strong>Step 2: Defining Parameters</strong></p>
+<p>To control the learning process, let’s define the learning rate (alpha), discount factor (gamma), exploration rate (epsilon), and the number of training episodes.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Parameters</span>
+</span></span><span class="line"><span class="cl"><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>       <span class="c1"># Learning rate</span>
+</span></span><span class="line"><span class="cl"><span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.9</span>       <span class="c1"># Discount factor</span>
+</span></span><span class="line"><span class="cl"><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.1</span>     <span class="c1"># Exploration rate</span>
+</span></span><span class="line"><span class="cl"><span class="n">epsilon_decay</span> <span class="o">=</span> <span class="mf">0.99</span>  <span class="c1"># Decay rate for epsilon</span>
+</span></span><span class="line"><span class="cl"><span class="n">episodes</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># Number of training episodes</span>
+</span></span></code></pre></div><p><strong>Step 3: Training the Agent</strong></p>
+<p>The training loop is where the agent learns by interacting with the environment. Here, we’ll:</p>
+<ol>
+<li>Reset the environment at the start of each episode.</li>
+<li>Choose an action based on the <strong>epsilon-greedy</strong> policy.</li>
+<li>Update the Q-Table based on the reward received and the expected future reward.</li>
+</ol>
+<p><strong>Implementing the Training Loop</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># List to store total rewards per episode for visualization</span>
+</span></span><span class="line"><span class="cl"><span class="n">reward_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Training the agent</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">episodes</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_rewards</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Track total rewards for this episode</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Epsilon-greedy action selection</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Explore</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">])</span>  <span class="c1"># Exploit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Take the action, observe reward and next state</span>
+</span></span><span class="line"><span class="cl">        <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total_rewards</span> <span class="o">+=</span> <span class="n">reward</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Q-Learning update</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">next_state</span><span class="p">])</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Move to the next state</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span> <span class="o">=</span> <span class="n">next_state</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Append total rewards for this episode to the reward list</span>
+</span></span><span class="line"><span class="cl">    <span class="n">reward_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total_rewards</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Explanation of Key Components</strong></p>
+<ul>
+<li><strong>Epsilon-Greedy Action Selection</strong>: Balances exploration and exploitation. With a probability of epsilon, the agent selects a random action (explore), otherwise, it selects the action with the highest Q-value in the current state (exploit).</li>
+<li><strong>Q-Table Update</strong>: Each Q-value is updated based on the immediate reward and the maximum expected future reward, gradually refining the table with each interaction.</li>
+<li><strong>Loop until Done</strong>: The inner loop continues until the episode ends, either by dropping off the passenger or reaching a maximum step count.</li>
+</ul>
+<p><strong>Step 4: Decaying Exploration Rate (Optional)</strong></p>
+<p>As the agent learns, we may want it to rely more on exploitation rather than exploration. One way to do this is by gradually reducing the epsilon value:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Reduce epsilon over time</span>
+</span></span><span class="line"><span class="cl"><span class="n">epsilon_decay</span> <span class="o">=</span> <span class="mf">0.99</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">episodes</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Training code here</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">epsilon</span> <span class="o">*=</span> <span class="n">epsilon_decay</span>
+</span></span></code></pre></div><div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+<span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+  <svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/></svg>
+</span>
+  <span class="dark:text-neutral-300">This optional step gradually shifts the agent’s behavior from exploration to exploitation as training progresses.</span>
+</div>
+<p>Now that we&rsquo;ve trained our agent, let’s move on to the <strong>Testing the Agent</strong> section. This section will demonstrate how to evaluate the agent’s performance in the Taxi-v3 environment using the Q-Table it has learned.</p>
+<hr>
+<h2 id="-testing-the-agent">🧪 Testing the Agent</h2>
+<p>After training, the Q-Table should contain optimal (or near-optimal) values for each state-action pair. Now, we can test the agent by allowing it to navigate the environment using the learned Q-Table without further exploration. This means the agent will choose the action with the highest Q-value in each state.</p>
+<p><strong>Step 1: Run a Test Episode</strong></p>
+<p>Let’s write a script to run one episode where the agent only exploits the knowledge in the Q-Table.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Reset the environment to start a new episode</span>
+</span></span><span class="line"><span class="cl"><span class="n">state</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="n">total_rewards</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Testing the agent&#39;s performance:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Select the action with the highest Q-value in the current state</span>
+</span></span><span class="line"><span class="cl">    <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Take the action and observe the reward and next state</span>
+</span></span><span class="line"><span class="cl">    <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_rewards</span> <span class="o">+=</span> <span class="n">reward</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Render the environment in text mode to visualize the agent&#39;s actions</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">render</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Move to the next state</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span> <span class="o">=</span> <span class="n">next_state</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Total Rewards:&#34;</span><span class="p">,</span> <span class="n">total_rewards</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Explanation of the Testing Code</strong></p>
+<ol>
+<li><strong>Resetting the Environment</strong>: We reset the environment to initialize the episode.</li>
+<li><strong>Exploiting the Q-Table</strong>: For each step, the agent selects the action with the highest Q-value in the current state.</li>
+<li><strong>Environment Rendering</strong>: The <code>env.render()</code> function visually displays each step the agent takes, showing the taxi’s movements in the grid.</li>
+<li><strong>Tracking Rewards</strong>: <code>total_rewards</code> accumulates the rewards the agent receives throughout the episode, allowing us to evaluate the agent’s performance.</li>
+</ol>
+<p><strong>Observing Results</strong></p>
+<p>In the rendered environment:</p>
+<ul>
+<li>The <strong>taxi’s position</strong> updates as it navigates the grid.</li>
+<li><strong>Passenger locations</strong> and <strong>destination points</strong> are shown as specific letters (e.g., “R” for Red, “G” for Green).</li>
+<li><strong>Completed episodes</strong> will display the agent reaching the destination and successfully dropping off the passenger.</li>
+</ul>
+<p>A high cumulative reward indicates that the agent has successfully learned an efficient policy for picking up and dropping off passengers. If <code>total_rewards</code> is low, further tuning of parameters or additional training episodes may be required.</p>
+<p><strong>Render example</strong></p>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-render-example-output">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Render"
+           src="/reinforcement_learning/q-leaning-python/resources/render.svg"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Render example output
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<h2 id="-visualizing-the-agents-learning-progress">📊 Visualizing the Agent’s Learning Progress</h2>
+<p>Visualizing the agent’s progress can help us better understand how well it’s learning and identify any potential areas for improvement. Here, we’ll track the <strong>total rewards</strong> received by the agent in each episode during training, which gives us an indication of how efficiently it’s completing tasks over time.</p>
+<p><strong>Step 1: Modifying the Training Loop to Track Rewards</strong></p>
+<p>Let’s update our training loop to store the total rewards for each episode in a list. This will allow us to plot the rewards after training is complete.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># List to store total rewards per episode</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># List to store total rewards per episode for visualization</span>
+</span></span><span class="line"><span class="cl"><span class="n">reward_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Training the agent</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">episodes</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_rewards</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Track total rewards for this episode</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Epsilon-greedy action selection</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">action</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">action_space</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>  <span class="c1"># Explore</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">])</span>  <span class="c1"># Exploit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Take the action, observe reward and next state</span>
+</span></span><span class="line"><span class="cl">        <span class="n">next_state</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">truncated</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total_rewards</span> <span class="o">+=</span> <span class="n">reward</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Q-Learning update</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">reward</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">next_state</span><span class="p">])</span> <span class="o">-</span> <span class="n">Q</span><span class="p">[</span><span class="n">state</span><span class="p">,</span> <span class="n">action</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Move to the next state</span>
+</span></span><span class="line"><span class="cl">        <span class="n">state</span> <span class="o">=</span> <span class="n">next_state</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Decay epsilon after each episode</span>
+</span></span><span class="line"><span class="cl">    <span class="n">epsilon</span> <span class="o">*=</span> <span class="n">epsilon_decay</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Append total rewards for this episode to the reward list</span>
+</span></span><span class="line"><span class="cl">    <span class="n">reward_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total_rewards</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Step 2: Plotting the Rewards Over Episodes</strong></p>
+<p>Now that we’re tracking rewards for each episode, let’s visualize the learning curve. Ideally, we should see an upward trend in rewards over time, indicating that the agent is improving.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot total rewards per episode</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">reward_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Episodes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;Total Rewards&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Agent&#39;s Learning Progress&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><p>This plot shows the <strong>total rewards</strong> for each episode, providing insights into the agent’s learning trajectory. A rising trend in total rewards suggests that the agent is learning to complete tasks more effectively.</p>
+<p><strong>Interpreting the Learning Curve</strong></p>
+<ol>
+<li><strong>Increasing Rewards</strong>: If the rewards gradually increase over episodes, this indicates the agent is improving and finding more efficient paths to the goal.</li>
+<li><strong>Flat or Decreasing Rewards</strong>: If rewards remain flat or decrease, it could mean that the agent isn’t learning effectively. In such cases, adjusting parameters (e.g., learning rate, discount factor) or extending the number of episodes may help.</li>
+</ol>
+<div class="image-bg">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img src="resources/Rewards%20Over%20Episodes.png" alt="Rewards Over Episodes" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+</div>
+<p><strong>Optional: Smoothing the Learning Curve</strong></p>
+<p>Since rewards can fluctuate, you may consider smoothing the curve for better visualization. This can be done by averaging rewards over a sliding window.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Smoothing the curve with a rolling average</span>
+</span></span><span class="line"><span class="cl"><span class="n">window_size</span> <span class="o">=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="n">smoothed_rewards</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reward_list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">window_size</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">window_size</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reward_list</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">reward_list</span><span class="p">))]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">smoothed_rewards</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Episodes&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;Average Total Rewards&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Smoothed Learning Progress of the Agent&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><div class="image-bg">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img src="resources/Smoothing%20the%20Learning%20Curve.png" alt="Rewards Over Episodes" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+</div>
+<hr>
+<h2 id="-conclusion--next-steps">🔍 Conclusion &amp; Next Steps</h2>
+<p><strong>Summary</strong></p>
+<p>In this tutorial, we built a reinforcement learning agent using the <strong>Q-Learning</strong> algorithm in Python. Here’s a recap of what we covered:</p>
+<ol>
+<li><strong>Setting Up the Environment</strong>: We used <strong>OpenAI Gym’s Taxi-v3</strong> environment, where the agent learns to pick up and drop off passengers.</li>
+<li><strong>Understanding Q-Learning</strong>: We explored the core concepts, including the <strong>Q-Table</strong>, <strong>learning rate</strong>, <strong>discount factor</strong>, and <strong>exploration-exploitation balance</strong>.</li>
+<li><strong>Implementing Q-Learning</strong>: We implemented a Q-Learning training loop, allowing the agent to learn through episodes and iteratively update its Q-values.</li>
+<li><strong>Testing and Visualization</strong>: We evaluated the agent’s performance by running a test episode and visualized the learning curve, observing the agent’s progress over time.</li>
+</ol>
+<p><strong>Results and Interpretation</strong></p>
+<p>The agent’s learning progress was tracked using a plot of total rewards per episode. Ideally, we observed an upward trend in rewards, indicating improved task completion efficiency. This result demonstrates that the agent learned to navigate the environment and complete the tasks effectively.</p>
+<p><strong>Next Steps</strong></p>
+<p>To take this project further, consider the following expansions:</p>
+<ol>
+<li>
+<p><strong>Experiment with Hyperparameters</strong>: Adjust the learning rate, discount factor, and exploration rate to see how they affect the agent’s performance.</p>
+</li>
+<li>
+<p><strong>Epsilon Decay</strong>: Implement a more sophisticated decay schedule for epsilon, gradually reducing exploration as the agent becomes more confident in its policy.</p>
+</li>
+<li>
+<p><strong>Implement Different RL Algorithms</strong>: Try other reinforcement learning algorithms, such as SARSA or Deep Q-Networks (DQNs), which use neural networks for environments with continuous state spaces.</p>
+</li>
+<li>
+<p><strong>Apply to More Complex Environments</strong>: Experiment with other OpenAI Gym environments, such as CartPole or MountainCar, where the state and action spaces are larger and more complex.</p>
+</li>
+<li>
+<p><strong>Add Logging and Metrics</strong>: Track additional metrics, such as average steps per episode, to gain deeper insights into the agent’s performance.</p>
+</li>
+</ol>
+<p>By exploring these next steps, you can expand your understanding of reinforcement learning and improve the agent’s performance in diverse environments.</p>
+
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2024-11-12T00:00:00.000Z">
+    <span>Last updated on</span>
+    Nov 12, 2024</time>
+      
+      
+  
+    
+    
+    
+      
+      
+    
+<div class="pt-1 no-prose w-full">
+  <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+  <div class="flex flex-col md:flex-row flex-nowrap justify-between gap-5 pt-2">
+    <div class="">
+      
+        <a class="group flex no-underline" href="/reinforcement_learning/intro/">
+          <span
+            class="mt-[-0.3rem] me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline rtl:hidden">&larr;</span></span>
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Foundations and Key Concepts</span>
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                Oct 10, 2024
+              
+            </span>
+          </span>
+        </a>
+      
+    </div>
+    <div class="">
+      
+    </div>
+  </div>
+</div>
+
+
+
+      
+
+
+
+    </main>
+  </article>
+</div>
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2024. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

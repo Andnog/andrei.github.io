@@ -39,7 +39,10 @@
     text-decoration: none;
 }
 
-
 .m-0-imp {
     margin: 0 !important;
+}
+
+.image-bg img {
+    background-color: white!important;
 }
