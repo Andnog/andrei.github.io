@@ -488,7 +488,7 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
     <item>
       <title>Introduction to Azure OpenAI</title>
       <link>http://localhost:1313/llm/azure-open-ai/</link>
-      <pubDate>Sat, 30 Mar 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/llm/azure-open-ai/</guid>
       <description>&lt;h2 id=&#34;general-description&#34;&gt;General Description&lt;/h2&gt;
 &lt;p&gt;Welcome to the &lt;strong&gt;ChatGPT API Tutorial&lt;/strong&gt;—an immersive guide for integrating &lt;strong&gt;OpenAI&amp;rsquo;s ChatGPT into your applications using the API with Azure OpenAI&lt;/strong&gt;. Whether you&amp;rsquo;re a developer aiming to enhance user interactions or a data enthusiast exploring language model capabilities, this tutorial provides the insights you need to leverage ChatGPT effectively.&lt;/p&gt;
@@ -1519,7 +1519,7 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
     <item>
       <title>Prompt Engineering</title>
       <link>http://localhost:1313/llm/prompt-engineering/</link>
-      <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 27 Feb 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/llm/prompt-engineering/</guid>
       <description>&lt;h2 id=&#34;-general-description&#34;&gt;📝 General Description&lt;/h2&gt;
 &lt;p&gt;Welcome to the Prompt Engineering Tutorial, where we delve into the art and science of crafting effective prompts for language models. Whether you&amp;rsquo;re a novice or an experienced user, this tutorial will equip you with the skills to optimize your interactions with models like GPT-3.5 through thoughtful and strategic prompt engineering.&lt;/p&gt;

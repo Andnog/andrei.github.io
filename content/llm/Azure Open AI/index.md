@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure OpenAI
 summary: "Tutorial: Explaining ChatGPT with Azure OpenAI Integration"
-date: 2024-03-30
+date: 2024-02-19
 type: docs
 math: false
 weight: 1
