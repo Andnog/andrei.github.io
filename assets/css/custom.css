@@ -46,3 +46,12 @@
 .image-bg img {
     background-color: white!important;
 }
+
+.flowchart-link  {
+    stroke: gray!important;
+}
+
+marker path {
+    fill: gray!important;
+    stroke: gray!important;
+}
