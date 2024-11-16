@@ -5,7 +5,7 @@
     <link>http://localhost:1313/tags/reinfocement-learning/</link>
       <atom:link href="http://localhost:1313/tags/reinfocement-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Reinfocement Learning</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Thu, 10 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 12 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu14089566703181701121.png</url>
       <title>Reinfocement Learning</title>
@@ -71,47 +71,59 @@
 &lt;p&gt;Reinforcement Learning revolves around a few key components that work together to guide the agent’s learning process. Understanding these elements is essential to grasp how RL models make decisions and adapt over time. Here’s a closer look at each component:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Agent&lt;/strong&gt; 🧑‍💻
-The &lt;strong&gt;agent&lt;/strong&gt; is the learner or decision-maker in RL. It interacts with the environment, making decisions based on the information it receives, with the goal of maximizing rewards. For example, in a game, the agent might be a virtual character learning to navigate a maze.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Agent&lt;/strong&gt; 🧑‍💻&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;agent&lt;/strong&gt; is the learner or decision-maker in RL. It interacts with the environment, making decisions based on the information it receives, with the goal of maximizing rewards. For example, in a game, the agent might be a virtual character learning to navigate a maze.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Environment&lt;/strong&gt; 🌍
-The &lt;strong&gt;environment&lt;/strong&gt; represents everything external to the agent. It provides states and responds to the agent’s actions with new states and rewards. Think of the environment as the “world” where the agent operates, such as the maze in which the character moves.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Environment&lt;/strong&gt; 🌍&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;environment&lt;/strong&gt; represents everything external to the agent. It provides states and responds to the agent’s actions with new states and rewards. Think of the environment as the “world” where the agent operates, such as the maze in which the character moves.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;State&lt;/strong&gt; 📏
-The &lt;strong&gt;state&lt;/strong&gt; is a snapshot of the environment at a specific time. It contains information that the agent uses to make decisions. For instance, a robot’s state might include its location, speed, and nearby obstacles. The agent continuously updates its state based on feedback from the environment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;State&lt;/strong&gt; 📏&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;state&lt;/strong&gt; is a snapshot of the environment at a specific time. It contains information that the agent uses to make decisions. For instance, a robot’s state might include its location, speed, and nearby obstacles. The agent continuously updates its state based on feedback from the environment.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Actions&lt;/strong&gt; 🎮
-&lt;strong&gt;Actions&lt;/strong&gt; are the choices available to the agent. Based on the current state, the agent selects an action to take in the environment. For example, in a maze game, actions could be moving left, right, up, or down. The set of possible actions can vary depending on the agent’s current state and the rules of the environment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Actions&lt;/strong&gt; 🎮&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Actions&lt;/strong&gt; are the choices available to the agent. Based on the current state, the agent selects an action to take in the environment. For example, in a maze game, actions could be moving left, right, up, or down. The set of possible actions can vary depending on the agent’s current state and the rules of the environment.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Reward&lt;/strong&gt; 🏆
-&lt;strong&gt;Rewards&lt;/strong&gt; are feedback signals given to the agent after each action. Positive rewards encourage actions that are beneficial, while negative rewards discourage undesirable actions. The goal of the agent is to maximize its cumulative reward over time. For example, reaching the end of a maze might provide a high reward, while hitting a wall might result in a penalty.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reward&lt;/strong&gt; 🏆&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Rewards&lt;/strong&gt; are feedback signals given to the agent after each action. Positive rewards encourage actions that are beneficial, while negative rewards discourage undesirable actions. The goal of the agent is to maximize its cumulative reward over time. For example, reaching the end of a maze might provide a high reward, while hitting a wall might result in a penalty.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Policy&lt;/strong&gt; 📋
-The &lt;strong&gt;policy&lt;/strong&gt; defines the agent&amp;rsquo;s strategy for selecting actions. It’s essentially a mapping from states to actions, dictating what the agent should do at each step. Policies can be simple (like a table of actions) or complex (like a neural network). A well-learned policy maximizes the agent&amp;rsquo;s expected reward over time.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🔍 &lt;strong&gt;Tip:&lt;/strong&gt; Policies are the backbone of the agent’s learning process. In RL, the objective is often to improve the policy based on experiences, making it increasingly effective in guiding the agent’s decisions.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Policy&lt;/strong&gt; 📋&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;policy&lt;/strong&gt; defines the agent&amp;rsquo;s strategy for selecting actions. It’s essentially a mapping from states to actions, dictating what the agent should do at each step. Policies can be simple (like a table of actions) or complex (like a neural network). A well-learned policy maximizes the agent&amp;rsquo;s expected reward over time.&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Tip:&lt;/strong&gt; Policies are the backbone of the agent’s learning process. In RL, the objective is often to improve the policy based on experiences, making it increasingly effective in guiding the agent’s decisions.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;7&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Value Function&lt;/strong&gt; 📈
-The &lt;strong&gt;value function&lt;/strong&gt; estimates the long-term reward of being in a particular state or of taking a specific action from that state. Unlike the immediate reward, the value function helps the agent anticipate future rewards, guiding it toward actions with potentially higher cumulative rewards. This distinction between short-term rewards and long-term value is crucial in complex environments.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;💡 &lt;strong&gt;Insight:&lt;/strong&gt; Think of the value function as the agent’s intuition about what might pay off in the long run. For example, the agent may learn that moving away from the immediate goal may still yield a higher value if it leads to a better position in the future.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Value Function&lt;/strong&gt; 📈&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;value function&lt;/strong&gt; estimates the long-term reward of being in a particular state or of taking a specific action from that state. Unlike the immediate reward, the value function helps the agent anticipate future rewards, guiding it toward actions with potentially higher cumulative rewards. This distinction between short-term rewards and long-term value is crucial in complex environments.&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Insight:&lt;/strong&gt; Think of the value function as the agent’s intuition about what might pay off in the long run. For example, the agent may learn that moving away from the immediate goal may still yield a higher value if it leads to a better position in the future.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;8&#34;&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Model&lt;/strong&gt; (Optional) 🔄
-Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the environment&amp;rsquo;s response to the agent&amp;rsquo;s actions. This can be beneficial in complex environments, where simulating outcomes helps the agent learn faster. However, many RL algorithms are model-free, meaning they don’t rely on predictions but instead learn solely from experience.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Model&lt;/strong&gt; (Optional) 🔄&lt;/p&gt;
+&lt;p&gt;Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the environment&amp;rsquo;s response to the agent&amp;rsquo;s actions. This can be beneficial in complex environments, where simulating outcomes helps the agent learn faster. However, many RL algorithms are model-free, meaning they don’t rely on predictions but instead learn solely from experience.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;🛠️ &lt;strong&gt;Example:&lt;/strong&gt; A model could predict the next state or expected reward, allowing the agent to plan its actions more effectively. Model-based RL is especially useful when actions are costly or limited.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Reinforcement Learning Process Flow:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   Agent[&#34;Agent&#34;] --&gt; Action[&#34;Action Taken&#34;];
   Action --&gt; Environment[&#34;Environment&#34;];
@@ -122,6 +134,9 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
   Agent --&gt; Policy[&#34;Update Policy&#34;];
   Agent --&gt; ValueFunction[&#34;Update Value Function&#34;];
 &lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This flowchart illustrates the key steps in the reinforcement learning process. The Agent interacts with the Environment by taking an Action, leading to a New State and receiving Reward feedback. The agent uses this information to Update Policy and Update Value Function, gradually improving its strategy to maximize cumulative rewards.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;-types-of-reinforcement-learning&#34;&gt;🧠 Types of Reinforcement Learning&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning approaches vary based on how the agent learns, whether it uses a model of the environment, and its strategy for selecting actions. Here are some of the key types:&lt;/p&gt;
 &lt;ol&gt;
@@ -145,12 +160,17 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;On-Policy vs. Off-Policy Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;On-Policy Learning&lt;/strong&gt;: In on-policy learning, the agent learns from actions it takes according to its current policy. This approach focuses on improving the policy it follows during training. A common on-policy algorithm is &lt;strong&gt;SARSA (State-Action-Reward-State-Action)&lt;/strong&gt;, which evaluates actions by considering both current and future policies.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;📋 &lt;strong&gt;Note&lt;/strong&gt;: On-policy methods may be more stable but are sometimes slower in complex environments since the agent sticks to its current strategy while learning.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;li&gt;&lt;strong&gt;On-Policy Learning&lt;/strong&gt;: In on-policy learning, the agent learns from actions it takes according to its current policy. This approach focuses on improving the policy it follows during training. A common on-policy algorithm is &lt;strong&gt;SARSA (State-Action-Reward-State-Action)&lt;/strong&gt;, which evaluates actions by considering both current and future policies.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Note&lt;/strong&gt;: On-policy methods may be more stable but are sometimes slower in complex environments since the agent sticks to its current strategy while learning.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Off-Policy Learning&lt;/strong&gt;: In off-policy learning, the agent learns from actions that may differ from its current policy. This approach is useful because it allows the agent to explore a broader set of actions. &lt;strong&gt;Q-Learning&lt;/strong&gt; is a popular off-policy algorithm that optimizes the agent&amp;rsquo;s decisions independently from the current policy.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -158,7 +178,7 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Deterministic vs. Stochastic Policies&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -174,6 +194,8 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   RL[&#34;Reinforcement Learning&#34;] --&gt; ModelBased[&#34;Model-Based RL&#34;];
   RL --&gt; ModelFree[&#34;Model-Free RL&#34;];
@@ -182,7 +204,6 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
   PolicyTypes[&#34;Policy Types&#34;] --&gt; Deterministic[&#34;Deterministic&#34;];
   PolicyTypes --&gt; Stochastic[&#34;Stochastic&#34;];
 &lt;/div&gt;
-&lt;p&gt;Next, let’s dive into &lt;strong&gt;Key Algorithms in Reinforcement Learning&lt;/strong&gt;. This section will cover some of the foundational algorithms that help agents learn and improve within their environments.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-key-algorithms&#34;&gt;🗂️ Key Algorithms&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning relies on a range of algorithms that enable agents to learn from their experiences. Here are some of the most important foundational algorithms:&lt;/p&gt;
@@ -205,10 +226,15 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;: A warehouse robot that knows the exact layout of the warehouse and calculates the shortest path to each pickup point can use dynamic programming to find the optimal path and avoid obstacles.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;📋 &lt;strong&gt;Note&lt;/strong&gt;: DP methods are computationally intensive and typically require complete knowledge of the environment, making them challenging to use in large or complex environments.&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Note&lt;/strong&gt;: DP methods are computationally intensive and typically require complete knowledge of the environment, making them challenging to use in large or complex environments.&lt;/span&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Monte Carlo Methods&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Monte Carlo methods are model-free approaches that estimate the value of states and policies based on random samples of experiences. Unlike DP, Monte Carlo methods don’t require a complete model of the environment and work by averaging rewards over multiple episodes.&lt;/p&gt;
@@ -262,6 +288,8 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   RL[&#34;Reinforcement Learning Algorithms&#34;] --&gt; DP[&#34;Dynamic Programming&#34;];
   RL --&gt; MC[&#34;Monte Carlo Methods&#34;];
@@ -269,7 +297,6 @@ Some RL approaches use a &lt;strong&gt;model&lt;/strong&gt; to predict the envir
   RL --&gt; QL[&#34;Q-Learning&#34;];
   QL --&gt; DQN[&#34;Deep Q-Networks&#34;];
 &lt;/div&gt;
-&lt;p&gt;Let’s move on to the &lt;strong&gt;Exploration vs. Exploitation&lt;/strong&gt; section. This is a critical concept in reinforcement learning that helps balance learning efficiency and effectiveness.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-exploration-vs-exploitation&#34;&gt;🌐 Exploration vs Exploitation&lt;/h2&gt;
 &lt;p&gt;One of the fundamental challenges in reinforcement learning is balancing &lt;strong&gt;exploration&lt;/strong&gt; (trying new actions to discover their outcomes) with &lt;strong&gt;exploitation&lt;/strong&gt; (using known actions that yield high rewards). This balance is essential for an agent to learn effectively without missing better solutions.&lt;/p&gt;
@@ -299,12 +326,14 @@ Finding the right balance between exploration and exploitation is a crucial part
 &lt;p&gt;&lt;strong&gt;Softmax Action Selection&lt;/strong&gt;: In this method, actions are selected probabilistically, with higher probabilities assigned to actions with higher estimated rewards. This allows exploration without explicitly setting an exploration probability.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Exploration Techniques in Deep Reinforcement Learning&lt;/strong&gt;
-For more complex environments, such as those with continuous or high-dimensional action spaces, advanced exploration techniques like &lt;strong&gt;Boltzmann exploration&lt;/strong&gt; and &lt;strong&gt;entropy regularization&lt;/strong&gt; help the agent explore effectively.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exploration Techniques in Deep Reinforcement Learning&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For more complex environments, such as those with continuous or high-dimensional action spaces, advanced exploration techniques like &lt;strong&gt;Boltzmann exploration&lt;/strong&gt; and &lt;strong&gt;entropy regularization&lt;/strong&gt; help the agent explore effectively.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Boltzmann Exploration&lt;/strong&gt;: Actions are chosen based on a probability distribution that weighs both expected reward and exploration need.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Entropy Regularization&lt;/strong&gt;: Common in deep RL, this technique encourages the agent to maintain a diverse range of actions, especially useful for complex tasks requiring a variety of behaviors.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   RL[&#34;Reinforcement Learning&#34;] --&gt; Explore[&#34;Exploration&#34;];
   RL --&gt; Exploit[&#34;Exploitation&#34;];
@@ -313,7 +342,6 @@ For more complex environments, such as those with continuous or high-dimensional
   Techniques --&gt; Softmax[&#34;Softmax Action Selection&#34;];
   Exploit --&gt; Optimize[&#34;Optimize Known Actions&#34;];
 &lt;/div&gt;
-&lt;p&gt;Now, let’s dive into &lt;strong&gt;Markov Decision Processes (MDPs)&lt;/strong&gt;, which form the mathematical foundation for most reinforcement learning algorithms.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-markov-decision-processes-mdps&#34;&gt;🔗 Markov Decision Processes (MDPs)&lt;/h2&gt;
 &lt;p&gt;A &lt;strong&gt;Markov Decision Process (MDP)&lt;/strong&gt; is a mathematical framework used to model decision-making problems in reinforcement learning. MDPs define the environment where an agent operates, providing a structured way to represent states, actions, rewards, and transitions.&lt;/p&gt;
@@ -386,6 +414,8 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;p&gt;The Bellman Equation plays a crucial role in RL algorithms, providing a foundation for both value iteration and policy iteration methods.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Why MDPs Matter in Reinforcement Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;MDPs provide a formalized way to describe the RL problem, giving structure to the agent’s interactions with the environment. By modeling tasks as MDPs, RL algorithms can use MDP properties to evaluate and optimize policies systematically, helping the agent learn optimal behaviors.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph TD;
   MDP[&#34;Markov Decision Process&#34;] --&gt; S[&#34;States (S)&#34;];
   MDP --&gt; A[&#34;Actions (A)&#34;];
@@ -400,7 +430,6 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
   T --&gt; R;
   R --&gt; Agent;
 &lt;/div&gt;
-&lt;p&gt;Next, let’s explore &lt;strong&gt;Practical Applications of Reinforcement Learning&lt;/strong&gt;. This section will highlight real-world scenarios where RL is transforming industries and solving complex problems.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-practical-applications&#34;&gt;💡 Practical Applications&lt;/h2&gt;
 &lt;p&gt;Reinforcement Learning has found applications across a variety of fields, from gaming to healthcare. These applications showcase the power of RL in tackling complex, sequential decision-making problems where traditional algorithms struggle.&lt;/p&gt;
@@ -488,7 +517,7 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
     <item>
       <title> Q-Learning in Python</title>
       <link>http://localhost:1313/reinforcement_learning/q-leaning-python/</link>
-      <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 12 Nov 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/reinforcement_learning/q-leaning-python/</guid>
       <description>&lt;h2 id=&#34;-introduction&#34;&gt;🚀 Introduction&lt;/h2&gt;
 &lt;p&gt;In this tutorial, we’ll implement &lt;strong&gt;Q-Learning&lt;/strong&gt;, a foundational reinforcement learning algorithm, in Python using the &lt;strong&gt;OpenAI Gym&lt;/strong&gt; library. Q-Learning is a popular method for training agents to make decisions in environments with discrete states and actions. Our agent will learn to maximize its rewards by exploring and exploiting different strategies over time.&lt;/p&gt;
@@ -509,13 +538,13 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;h2 id=&#34;-setting-up-the-environment&#34;&gt;🛠️ Setting Up the Environment&lt;/h2&gt;
 &lt;p&gt;To begin implementing our Q-Learning agent, we’ll need to install the &lt;strong&gt;OpenAI Gym&lt;/strong&gt; library, which provides the Taxi-v3 environment we’ll use. Additionally, we’ll install &lt;strong&gt;NumPy&lt;/strong&gt; to manage numerical operations in our Q-Learning algorithm.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Installing Libraries&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Installing Libraries&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If you don’t already have Gym and NumPy installed, you can install them using the following command in your terminal or command prompt:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install gymnasium numpy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command installs both packages, allowing us to create and interact with the environment and manage the Q-Table for our Q-Learning agent.&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Initializing the Taxi-v3 Environment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Initializing the Taxi-v3 Environment&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;OpenAI Gym’s &lt;strong&gt;Taxi-v3&lt;/strong&gt; environment is a simple grid-based environment where an agent (a taxi) must:&lt;/p&gt;
 &lt;ol&gt;
@@ -523,7 +552,40 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;li&gt;Pick up the passenger.&lt;/li&gt;
 &lt;li&gt;Deliver the passenger to a specified destination.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-taxi-enviroment-problem&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Taxi V3&#34;
+           src=&#34;http://localhost:1313/reinforcement_learning/q-leaning-python/resources/taxi.gif&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Taxi enviroment problem
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;The agent’s goal is to maximize its cumulative reward by successfully completing pickup and drop-off tasks while minimizing penalties for illegal actions.&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-0&#34;&gt;
+  &lt;summary class=&#34;cursor-pointer&#34;&gt;Complete Code&lt;/summary&gt;
+  &lt;div class=&#34;rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2&#34;&gt;
+    Link:
+  &lt;/div&gt;
+&lt;/details&gt;
 &lt;p&gt;Let’s start by importing Gym and setting up our environment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;gymnasium&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;gym&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
@@ -533,7 +595,7 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This code sets up the Taxi-v3 environment and resets it to the initial state, preparing it for interaction with the agent.&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Exploring the Environment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Exploring the Environment&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;It’s helpful to understand the structure of the Taxi-v3 environment, including its &lt;strong&gt;action space&lt;/strong&gt; (possible moves) and &lt;strong&gt;state space&lt;/strong&gt; (different configurations of the taxi, passenger, and destination). We can examine the environment with these commands:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Check the number of possible actions&lt;/span&gt;
@@ -541,12 +603,20 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Check the number of possible states&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;State Space:&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;observation_space&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5&#34;/&gt;&lt;/svg&gt;
+  &lt;/span&gt; Output: &lt;hr class=&#34;m-0-imp&#34;&gt; 
+Action Space: Discrete(6) &lt;br&gt;
+State Space: Discrete(500)
+&lt;/blockquote&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Action Space&lt;/strong&gt;: Taxi-v3 has six discrete actions, including moving in four directions, picking up, and dropping off the passenger.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;State Space&lt;/strong&gt;: There are 500 discrete states, representing all combinations of taxi positions, passenger locations, and destinations.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;Visualizing the Environment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visualizing the Environment&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;OpenAI Gym allows us to visualize the environment, which is particularly useful for understanding the agent’s interactions. Use the following code to render the initial state of the environment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Render the initial state&lt;/span&gt;
@@ -557,12 +627,19 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;li&gt;&lt;strong&gt;R, G, B, and Y&lt;/strong&gt; represent potential passenger pickup and drop-off locations.&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;blue letter&lt;/strong&gt; represents the passenger’s initial location, and &lt;strong&gt;magenta&lt;/strong&gt; represents the destination.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Now that we have our environment set up, let&amp;rsquo;s dive into &lt;strong&gt;Understanding the Q-Learning Algorithm&lt;/strong&gt;. This section explains how Q-Learning works and details the key parameters we&amp;rsquo;ll need for our agent.&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Map&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    |R: | : :G|
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    | : | : : |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    | : : : : |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    | | : | : |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    |Y| : |B: |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h2 id=&#34;-understanding-the-q-learning-algorithm&#34;&gt;📘 Understanding the Q-Learning Algorithm&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Q-Learning&lt;/strong&gt; is a type of reinforcement learning algorithm where an agent learns a policy to maximize cumulative rewards by creating a &lt;strong&gt;Q-Table&lt;/strong&gt;. The table keeps track of the agent’s expected rewards for each possible action in each state, guiding it toward more rewarding actions over time.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;The Q-Table&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Q-Table&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The &lt;strong&gt;Q-Table&lt;/strong&gt; is at the core of Q-Learning. It’s a matrix where:&lt;/p&gt;
 &lt;ul&gt;
@@ -578,7 +655,7 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;/ul&gt;
 &lt;p&gt;The agent will update the Q-values in this table using feedback from the environment.&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;Key Parameters in Q-Learning&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Key Parameters in Q-Learning&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Several parameters influence how the Q-Learning algorithm functions:&lt;/p&gt;
 &lt;ul&gt;
@@ -593,7 +670,7 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;The Q-Learning Update Rule&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Q-Learning Update Rule&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The agent updates its Q-values based on the &lt;strong&gt;Q-Learning update formula&lt;/strong&gt;, which accounts for the reward received and the estimated value of future states. Here’s the formula:&lt;/p&gt;
 \[
@@ -617,6 +694,7 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;alpha&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;# Learning rate&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;gamma&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.9&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;# Discount factor&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;epsilon&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;# Exploration rate&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;epsilon_decay&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.99&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Decay rate for epsilon&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;episodes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# Number of training episodes&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Why These Parameters Matter&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -649,6 +727,7 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;alpha&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;# Learning rate&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;gamma&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.9&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;# Discount factor&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;epsilon&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;# Exploration rate&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;epsilon_decay&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.99&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Decay rate for epsilon&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;episodes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1000&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;# Number of training episodes&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Step 3: Training the Agent&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The training loop is where the agent learns by interacting with the environment. Here, we’ll:&lt;/p&gt;
@@ -658,26 +737,34 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;li&gt;Update the Q-Table based on the reward received and the expected future reward.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;Implementing the Training Loop&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;episode&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;episodes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Reset environment and get the initial state&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# List to store total rewards per episode for visualization&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;reward_list&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Training the agent&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;episode&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;episodes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Track total rewards for this episode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Choose an action (epsilon-greedy)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Epsilon-greedy action selection&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;epsilon&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action_space&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sample&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Explore&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argmax&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Exploit&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Take the action, observe the reward and next state&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Q-Learning formula to update the Q-Table&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Take the action, observe reward and next state&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;truncated&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Q-Learning update&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;alpha&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gamma&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Move to the next state&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Append total rewards for this episode to the reward list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;reward_list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Explanation of Key Components&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Epsilon-Greedy Action Selection&lt;/strong&gt;: Balances exploration and exploitation. With a probability of epsilon, the agent selects a random action (explore), otherwise, it selects the action with the highest Q-value in the current state (exploit).&lt;/li&gt;
@@ -690,6 +777,8 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;epsilon_decay&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.99&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;episode&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;episodes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Training code here&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;epsilon&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;epsilon_decay&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
 &lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
@@ -708,16 +797,17 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;done&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;Testing the agent&amp;#39;s performance:&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Select the action with the highest Q-value in the current state&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argmax&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Take the action and observe the reward and next state&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;truncated&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Render the environment for visualization&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;render&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Render the environment in text mode to visualize the agent&amp;#39;s actions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;render&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Move to the next state&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;
@@ -738,41 +828,70 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;li&gt;&lt;strong&gt;Completed episodes&lt;/strong&gt; will display the agent reaching the destination and successfully dropping off the passenger.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A high cumulative reward indicates that the agent has successfully learned an efficient policy for picking up and dropping off passengers. If &lt;code&gt;total_rewards&lt;/code&gt; is low, further tuning of parameters or additional training episodes may be required.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s move on to the &lt;strong&gt;Visualizing the Agent’s Learning Progress&lt;/strong&gt; section. In this part, we’ll add some visualization tools to track how the agent’s performance improves over time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Render example&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-render-example-output&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Render&#34;
+           src=&#34;http://localhost:1313/reinforcement_learning/q-leaning-python/resources/render.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Render example output
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;-visualizing-the-agents-learning-progress&#34;&gt;📊 Visualizing the Agent’s Learning Progress&lt;/h2&gt;
 &lt;p&gt;Visualizing the agent’s progress can help us better understand how well it’s learning and identify any potential areas for improvement. Here, we’ll track the &lt;strong&gt;total rewards&lt;/strong&gt; received by the agent in each episode during training, which gives us an indication of how efficiently it’s completing tasks over time.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Step 1: Modifying the Training Loop to Track Rewards&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Let’s update our training loop to store the total rewards for each episode in a list. This will allow us to plot the rewards after training is complete.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# List to store total rewards per episode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# List to store total rewards per episode for visualization&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;reward_list&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Training the agent&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;episode&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;episodes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reset&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Track total rewards for this episode&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Epsilon-greedy action selection&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;uniform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;epsilon&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action_space&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sample&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Explore&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argmax&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# Exploit&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Take action, observe reward and next state&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Take the action, observe reward and next state&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;done&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;truncated&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;step&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Q-Learning update&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;alpha&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reward&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gamma&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Q&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;state&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Move to next state&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;# Move to the next state&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;state&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;next_state&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Decay epsilon after each episode&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;epsilon&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;epsilon_decay&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Append the total reward for this episode to the reward list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;# Append total rewards for this episode to the reward list&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;reward_list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;append&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;total_rewards&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Step 2: Plotting the Rewards Over Episodes&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Now that we’re tracking rewards for each episode, let’s visualize the learning curve. Ideally, we should see an upward trend in rewards over time, indicating that the agent is improving.&lt;/p&gt;
@@ -790,6 +909,29 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;li&gt;&lt;strong&gt;Increasing Rewards&lt;/strong&gt;: If the rewards gradually increase over episodes, this indicates the agent is improving and finding more efficient paths to the goal.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Flat or Decreasing Rewards&lt;/strong&gt;: If rewards remain flat or decrease, it could mean that the agent isn’t learning effectively. In such cases, adjusting parameters (e.g., learning rate, discount factor) or extending the number of episodes may help.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div class=&#34;image-bg&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/Rewards%20Over%20Episodes.png&#34; alt=&#34;Rewards Over Episodes&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Optional: Smoothing the Learning Curve&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Since rewards can fluctuate, you may consider smoothing the curve for better visualization. This can be done by averaging rewards over a sliding window.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Smoothing the curve with a rolling average&lt;/span&gt;
@@ -801,7 +943,30 @@ Q(s, a) = Q(s, a) + \alpha \times (R + \gamma \times \max Q(s&#39;, a&#39;) - Q(
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ylabel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Average Total Rewards&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Smoothed Learning Progress of the Agent&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;image-bg&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/Smoothing%20the%20Learning%20Curve.png&#34; alt=&#34;Rewards Over Episodes&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;-conclusion--next-steps&#34;&gt;🔍 Conclusion &amp;amp; Next Steps&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Summary&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;In this tutorial, we built a reinforcement learning agent using the &lt;strong&gt;Q-Learning&lt;/strong&gt; algorithm in Python. Here’s a recap of what we covered:&lt;/p&gt;

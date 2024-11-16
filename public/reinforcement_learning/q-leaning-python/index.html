@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: November 12, 2024 --><html lang="en-us" dir="ltr"
+<!-- Last Published: November 15, 2024 --><html lang="en-us" dir="ltr"
       data-wc-theme-default="system">
   
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
@@ -420,6 +420,7 @@
         
       
     
+  
   
   
   
@@ -1027,6 +1028,14 @@
             </li><li class="flex flex-col "><a
     class="hb-sidebar-custom-link
       text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/news/"
+    
+  >Automated News Analysis with GCP
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
     href="/project/research/"
     
   >Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico
@@ -1293,6 +1302,12 @@
         <h1> Q-Learning in Python</h1>
         <h2 id="-introduction">🚀 Introduction</h2>
 <p>In this tutorial, we’ll implement <strong>Q-Learning</strong>, a foundational reinforcement learning algorithm, in Python using the <strong>OpenAI Gym</strong> library. Q-Learning is a popular method for training agents to make decisions in environments with discrete states and actions. Our agent will learn to maximize its rewards by exploring and exploiting different strategies over time.</p>
+<div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+<span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+  <svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/></svg>
+</span>
+  <span class="dark:text-neutral-300"><strong>Complete Code:</strong> <a href="https://github.com/Andnog/Tutorials-Resources/blob/main/Reinforcement_learning/Q-Learning_Python/taxiv3.py" target="_blank" rel="noopener">Taxi V3 full code</a></span>
+</div>
 <h3 id="what-is-q-learning">What is Q-Learning?</h3>
 <p>Q-Learning is a type of <strong>model-free, off-policy algorithm</strong> that uses a <strong>Q-Table</strong> to store information about the expected future rewards of different actions in each state. The agent updates this table iteratively based on the rewards it receives, gradually improving its understanding of which actions yield the highest rewards.</p>
 <p>Q-Learning is ideal for discrete environments like OpenAI Gym’s <strong>Taxi-v3</strong> environment, where an agent (the taxi) learns to navigate a grid, pick up passengers, and drop them off at specified locations. The algorithm’s simplicity and flexibility make it a great starting point for understanding reinforcement learning.</p>
@@ -1352,12 +1367,6 @@
 </p>
 </div>
 <p>The agent’s goal is to maximize its cumulative reward by successfully completing pickup and drop-off tasks while minimizing penalties for illegal actions.</p>
-<details class="spoiler "  id="spoiler-0">
-  <summary class="cursor-pointer">Complete Code</summary>
-  <div class="rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2">
-    Link: <a href="https://github.com/Andnog/Tutorials-Resources/blob/main/Reinforcement_learning/Q-Learning_Python/taxiv3.py" target="_blank" rel="noopener">Taxi V3 full code</a>
-  </div>
-</details>
 <p>Let’s start by importing Gym and setting up our environment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">gymnasium</span> <span class="k">as</span> <span class="nn">gym</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>

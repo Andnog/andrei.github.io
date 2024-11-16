@@ -16,6 +16,12 @@ image:
 
 In this tutorial, we’ll implement **Q-Learning**, a foundational reinforcement learning algorithm, in Python using the **OpenAI Gym** library. Q-Learning is a popular method for training agents to make decisions in environments with discrete states and actions. Our agent will learn to maximize its rewards by exploring and exploiting different strategies over time.
 
+{{% callout note %}}
+
+**Complete Code:** [Taxi V3 full code](https://github.com/Andnog/Tutorials-Resources/blob/main/Reinforcement_learning/Q-Learning_Python/taxiv3.py)
+
+{{%/ callout %}}
+
 ### What is Q-Learning?
 Q-Learning is a type of **model-free, off-policy algorithm** that uses a **Q-Table** to store information about the expected future rewards of different actions in each state. The agent updates this table iteratively based on the rewards it receives, gradually improving its understanding of which actions yield the highest rewards.
 
@@ -62,13 +68,6 @@ OpenAI Gym’s **Taxi-v3** environment is a simple grid-based environment where 
 </div>
 
 The agent’s goal is to maximize its cumulative reward by successfully completing pickup and drop-off tasks while minimizing penalties for illegal actions.
-
-{{< spoiler text="Complete Code" >}}
-Link: [Taxi V3 full code](https://github.com/Andnog/Tutorials-Resources/blob/main/Reinforcement_learning/Q-Learning_Python/taxiv3.py)
-{{< /spoiler >}}
-
-
-
 
 Let’s start by importing Gym and setting up our environment:
 
