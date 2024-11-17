@@ -109,7 +109,7 @@ A Data Studio dashboard was set up to present the analysis results. Key features
 
 ### PDF Example Report
 
-[{{< icon name="document" >}} Dashboard Report PDF](resources/Report_Dashboard.pdf)
+<a href="resources/Report_Dashboard.pdf" target="blank">{{< icon name="document" >}} Dashboard Report PDF</a>
 
 ---
 
