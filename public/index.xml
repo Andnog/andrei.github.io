@@ -2678,7 +2678,7 @@ Congo is larger than South Africa.
 
 
 
-&lt;div id=&#34;chart-618397245&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-913754286&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   async function fetchChartJSON() {
     console.debug(&#39;Hugo Blox fetching chart JSON...&#39;)
@@ -2696,7 +2696,7 @@ Congo is larger than South Africa.
 
       fetchChartJSON().then(chart =&gt; {
         console.debug(&#39;Plotting chart...&#39;)
-        window.Plotly.newPlot(&#39;chart-618397245&#39;, chart.data, chart.layout, {responsive: true});
+        window.Plotly.newPlot(&#39;chart-913754286&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -3424,7 +3424,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;li&gt;&lt;strong&gt;Cloud Pub/Sub&lt;/strong&gt;: Manages messaging between services, ensuring that extracted data flows smoothly through each stage.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Cloud Storage&lt;/strong&gt;: Stores the raw HTML content for historical and backup purposes.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;BigQuery&lt;/strong&gt;: Acts as the structured data warehouse for processed news data.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Data Studio&lt;/strong&gt;: Creates an interactive dashboard for visualizing analysis results.&lt;/li&gt;
+&lt;li&gt;**Looker **: Creates an interactive dashboard for visualizing analysis results.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Google Kubernetes Engine (GKE)&lt;/strong&gt;: Runs NLP models for entity recognition and text analysis.
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;:  Used to containerize the application, ensuring consistency and portability.&lt;/li&gt;
@@ -3442,7 +3442,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;li&gt;&lt;strong&gt;N-grams Analysis&lt;/strong&gt;: Uses unigrams, bigrams, trigrams, and quadrigrams for text insights with NLTK.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Named Entity Recognition (NER)&lt;/strong&gt;: Identifies named entities such as people, places, and organizations using spaCy.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Data Studio.&lt;/p&gt;
+&lt;p&gt;The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Looker Studio.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;data-schema&#34;&gt;Data Schema&lt;/h2&gt;
 &lt;h3 id=&#34;key-tables&#34;&gt;Key Tables&lt;/h3&gt;
@@ -3493,7 +3493,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;ol&gt;
 &lt;li&gt;Cloud Scheduler triggers NLP analysis at scheduled times.&lt;/li&gt;
 &lt;li&gt;The NLP model processes each article, performing frequency analysis and entity recognition.&lt;/li&gt;
-&lt;li&gt;The results are stored in BigQuery and visualized in Data Studio.&lt;/li&gt;
+&lt;li&gt;The results are stored in BigQuery and visualized in Looker Studio.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;
 
@@ -3513,7 +3513,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Project Flow&#34; srcset=&#34;
                /project/news/resources/ProjectFlow_hu10627101085534324064.webp 400w,
                /project/news/resources/ProjectFlow_hu7491263619185376250.webp 760w,
                /project/news/resources/ProjectFlow_hu17822350382704724148.webp 1200w&#34;
@@ -3524,7 +3524,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;architecture-diagram&#34;&gt;Architecture Diagram&lt;/h3&gt;
-&lt;p&gt;The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Data Studio for the dashboard, enabling easy monitoring and analysis.&lt;/p&gt;
+&lt;p&gt;The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Looker Studio for the dashboard, enabling easy monitoring and analysis.&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -3543,7 +3543,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Architecture Diagram&#34; srcset=&#34;
                /project/news/resources/achitecture_hu14717856938482271033.webp 400w,
                /project/news/resources/achitecture_hu4589275302579216269.webp 760w,
                /project/news/resources/achitecture_hu8169087343203014867.webp 1200w&#34;
@@ -3555,13 +3555,34 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
-&lt;p&gt;A Data Studio dashboard was set up to present the analysis results. Key features include:&lt;/p&gt;
+&lt;p&gt;A Looker Studio dashboard was set up to present the analysis results. Key features include:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Page 1&lt;/strong&gt;: Overview of collected news with filters by source, date, and keywords.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Page 2&lt;/strong&gt;: Word frequency and n-grams analysis.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Page 3&lt;/strong&gt;: Advanced n-grams and word cloud visualizations.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Page 4&lt;/strong&gt;: Named Entity Recognition (NER) analysis, including breakdowns by persons, places, and organizations.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/Looker%20Studio.png&#34; alt=&#34;Looker Studio&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
 &lt;h3 id=&#34;pdf-example-report&#34;&gt;PDF Example Report&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;resources/Report_Dashboard.pdf&#34; target=&#34;blank&#34;&gt;
   &lt;span class=&#34;inline-block  pr-1&#34;&gt;

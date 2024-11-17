@@ -1360,7 +1360,7 @@ This project, developed as a part of the &ldquo;Cloud Computing&rdquo; course in
 <li><strong>Cloud Pub/Sub</strong>: Manages messaging between services, ensuring that extracted data flows smoothly through each stage.</li>
 <li><strong>Cloud Storage</strong>: Stores the raw HTML content for historical and backup purposes.</li>
 <li><strong>BigQuery</strong>: Acts as the structured data warehouse for processed news data.</li>
-<li><strong>Data Studio</strong>: Creates an interactive dashboard for visualizing analysis results.</li>
+<li>**Looker **: Creates an interactive dashboard for visualizing analysis results.</li>
 <li><strong>Google Kubernetes Engine (GKE)</strong>: Runs NLP models for entity recognition and text analysis.
 <ul>
 <li><strong>Docker</strong>:  Used to containerize the application, ensuring consistency and portability.</li>
@@ -1378,7 +1378,7 @@ This project, developed as a part of the &ldquo;Cloud Computing&rdquo; course in
 <li><strong>N-grams Analysis</strong>: Uses unigrams, bigrams, trigrams, and quadrigrams for text insights with NLTK.</li>
 <li><strong>Named Entity Recognition (NER)</strong>: Identifies named entities such as people, places, and organizations using spaCy.</li>
 </ul>
-<p>The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Data Studio.</p>
+<p>The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Looker Studio.</p>
 <hr>
 <h2 id="data-schema">Data Schema</h2>
 <h3 id="key-tables">Key Tables</h3>
@@ -1429,7 +1429,7 @@ This project, developed as a part of the &ldquo;Cloud Computing&rdquo; course in
 <ol>
 <li>Cloud Scheduler triggers NLP analysis at scheduled times.</li>
 <li>The NLP model processes each article, performing frequency analysis and entity recognition.</li>
-<li>The results are stored in BigQuery and visualized in Data Studio.</li>
+<li>The results are stored in BigQuery and visualized in Looker Studio.</li>
 </ol>
 <p>
 
@@ -1449,7 +1449,7 @@ This project, developed as a part of the &ldquo;Cloud Computing&rdquo; course in
 
 <figure  >
   <div class="flex justify-center	">
-    <div class="w-100" ><img alt="tech used" srcset="
+    <div class="w-100" ><img alt="Project Flow" srcset="
                /project/news/resources/ProjectFlow_hu10627101085534324064.webp 400w,
                /project/news/resources/ProjectFlow_hu7491263619185376250.webp 760w,
                /project/news/resources/ProjectFlow_hu17822350382704724148.webp 1200w"
@@ -1460,7 +1460,7 @@ This project, developed as a part of the &ldquo;Cloud Computing&rdquo; course in
   </div></figure>
 </p>
 <h3 id="architecture-diagram">Architecture Diagram</h3>
-<p>The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Data Studio for the dashboard, enabling easy monitoring and analysis.</p>
+<p>The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Looker Studio for the dashboard, enabling easy monitoring and analysis.</p>
 <p>
 
 
@@ -1479,7 +1479,7 @@ This project, developed as a part of the &ldquo;Cloud Computing&rdquo; course in
 
 <figure  >
   <div class="flex justify-center	">
-    <div class="w-100" ><img alt="tech used" srcset="
+    <div class="w-100" ><img alt="Architecture Diagram" srcset="
                /project/news/resources/achitecture_hu14717856938482271033.webp 400w,
                /project/news/resources/achitecture_hu4589275302579216269.webp 760w,
                /project/news/resources/achitecture_hu8169087343203014867.webp 1200w"
@@ -1491,13 +1491,34 @@ This project, developed as a part of the &ldquo;Cloud Computing&rdquo; course in
 </p>
 <hr>
 <h2 id="dashboard">Dashboard</h2>
-<p>A Data Studio dashboard was set up to present the analysis results. Key features include:</p>
+<p>A Looker Studio dashboard was set up to present the analysis results. Key features include:</p>
 <ul>
 <li><strong>Page 1</strong>: Overview of collected news with filters by source, date, and keywords.</li>
 <li><strong>Page 2</strong>: Word frequency and n-grams analysis.</li>
 <li><strong>Page 3</strong>: Advanced n-grams and word cloud visualizations.</li>
 <li><strong>Page 4</strong>: Named Entity Recognition (NER) analysis, including breakdowns by persons, places, and organizations.</li>
 </ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img src="resources/Looker%20Studio.png" alt="Looker Studio" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
 <h3 id="pdf-example-report">PDF Example Report</h3>
 <p><a href="resources/Report_Dashboard.pdf" target="blank">
   <span class="inline-block  pr-1">

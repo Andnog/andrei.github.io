@@ -43,7 +43,7 @@ The solution needed to:
 - **Cloud Pub/Sub**: Manages messaging between services, ensuring that extracted data flows smoothly through each stage.
 - **Cloud Storage**: Stores the raw HTML content for historical and backup purposes.
 - **BigQuery**: Acts as the structured data warehouse for processed news data.
-- **Data Studio**: Creates an interactive dashboard for visualizing analysis results.
+- **Looker **: Creates an interactive dashboard for visualizing analysis results.
 - **Google Kubernetes Engine (GKE)**: Runs NLP models for entity recognition and text analysis. 
   - **Docker**:  Used to containerize the application, ensuring consistency and portability.
 - **Cloud Run**: Deploys serverless containers for additional NLP tasks.
@@ -59,7 +59,7 @@ The data science model focuses on processing raw news text to identify essential
 - **N-grams Analysis**: Uses unigrams, bigrams, trigrams, and quadrigrams for text insights with NLTK.
 - **Named Entity Recognition (NER)**: Identifies named entities such as people, places, and organizations using spaCy.
 
-The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Data Studio.
+The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Looker Studio.
 
 ---
 
@@ -88,24 +88,26 @@ The system architecture is designed to be fully decoupled, serverless, and scala
 ### Workflow 2: News Analysis
 1. Cloud Scheduler triggers NLP analysis at scheduled times.
 2. The NLP model processes each article, performing frequency analysis and entity recognition.
-3. The results are stored in BigQuery and visualized in Data Studio.
+3. The results are stored in BigQuery and visualized in Looker Studio.
 
-![tech used](resources/ProjectFlow.png)
+![Project Flow](resources/ProjectFlow.png)
 
 ### Architecture Diagram
-The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Data Studio for the dashboard, enabling easy monitoring and analysis.
+The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Looker Studio for the dashboard, enabling easy monitoring and analysis.
 
-![tech used](resources/achitecture.png)
+![Architecture Diagram](resources/achitecture.png)
 
 ---
 
 ## Dashboard
 
-A Data Studio dashboard was set up to present the analysis results. Key features include:
+A Looker Studio dashboard was set up to present the analysis results. Key features include:
 - **Page 1**: Overview of collected news with filters by source, date, and keywords.
 - **Page 2**: Word frequency and n-grams analysis.
 - **Page 3**: Advanced n-grams and word cloud visualizations.
 - **Page 4**: Named Entity Recognition (NER) analysis, including breakdowns by persons, places, and organizations.
+
+![Looker Studio](resources/Looker%20Studio.png)
 
 ### PDF Example Report
 
