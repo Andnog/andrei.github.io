@@ -21,11 +21,253 @@
     </item>
     
     <item>
-      <title>Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico</title>
+      <title>Automated News Analysis with GCP</title>
       <link>http://localhost:1313/project/news/</link>
       <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/project/news/</guid>
-      <description>&lt;p&gt;Reasearch paper publication.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
+&lt;p&gt;This project, developed as a part of the &amp;ldquo;Cloud Computing&amp;rdquo; course in the Master&amp;rsquo;s in Data Science program, demonstrates an automated news analysis system using various Google Cloud Platform (GCP) services. The objective was to create a scalable, serverless solution for extracting, processing, and analyzing news articles from popular media outlets.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;summary&#34; srcset=&#34;
+               /project/news/resources/SUMMARY_hu12549796095115031286.webp 400w,
+               /project/news/resources/SUMMARY_hu15405875428751627949.webp 760w,
+               /project/news/resources/SUMMARY_hu10514249569512975497.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/news/resources/SUMMARY_hu12549796095115031286.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;282&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;goals&#34;&gt;Goals&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Implement a cloud-based solution for a real-world problem.&lt;/li&gt;
+&lt;li&gt;Develop a data science project deployable on the cloud.&lt;/li&gt;
+&lt;li&gt;Utilize Google Cloud Platform tools to streamline the process.&lt;/li&gt;
+&lt;li&gt;Propose an innovative solution that could benefit companies needing media monitoring.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;business-use-case&#34;&gt;Business Use Case&lt;/h3&gt;
+&lt;p&gt;Many organizations rely on press monitoring services to track relevant news about their sector, evaluate brand presence, and adjust communication strategies. Despite the availability of electronic solutions, many still depend on manual methods, leading to time and resource inefficiencies.&lt;/p&gt;
+&lt;h3 id=&#34;solution-requirements&#34;&gt;Solution Requirements&lt;/h3&gt;
+&lt;p&gt;The solution needed to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Extract HTML and XML files from news sites.&lt;/li&gt;
+&lt;li&gt;Automate processes using Google Cloud Platform.&lt;/li&gt;
+&lt;li&gt;Perform text extraction, cleaning, and storage in a structured database.&lt;/li&gt;
+&lt;li&gt;Implement Natural Language Processing (NLP) techniques to identify and analyze key entities.&lt;/li&gt;
+&lt;li&gt;Visualize the insights on a user-friendly dashboard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;gcp-tools-utilized&#34;&gt;GCP Tools Utilized&lt;/h2&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+               /project/news/resources/techs_used_hu11200484862602000508.webp 400w,
+               /project/news/resources/techs_used_hu6825935607339017889.webp 760w,
+               /project/news/resources/techs_used_hu13988790560792156940.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/news/resources/techs_used_hu11200484862602000508.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;341&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cloud Scheduler&lt;/strong&gt;: Schedules tasks to initiate news extraction twice daily.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud Functions&lt;/strong&gt;: Runs serverless code to extract headlines, publish dates, links, and full text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud Pub/Sub&lt;/strong&gt;: Manages messaging between services, ensuring that extracted data flows smoothly through each stage.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud Storage&lt;/strong&gt;: Stores the raw HTML content for historical and backup purposes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BigQuery&lt;/strong&gt;: Acts as the structured data warehouse for processed news data.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Studio&lt;/strong&gt;: Creates an interactive dashboard for visualizing analysis results.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google Kubernetes Engine (GKE)&lt;/strong&gt;: Runs NLP models for entity recognition and text analysis.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;:  Used to containerize the application, ensuring consistency and portability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud Run&lt;/strong&gt;: Deploys serverless containers for additional NLP tasks.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloud Logging&lt;/strong&gt;: Monitors service performance and logs events for troubleshooting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;data-science-workflow&#34;&gt;Data Science Workflow&lt;/h2&gt;
+&lt;p&gt;The data science model focuses on processing raw news text to identify essential information. Key techniques include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tokenization and Normalization&lt;/strong&gt;: Prepares text for analysis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frequency Analysis&lt;/strong&gt;: Highlights recurring terms.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;N-grams Analysis&lt;/strong&gt;: Uses unigrams, bigrams, trigrams, and quadrigrams for text insights with NLTK.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Named Entity Recognition (NER)&lt;/strong&gt;: Identifies named entities such as people, places, and organizations using spaCy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Data Studio.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;data-schema&#34;&gt;Data Schema&lt;/h2&gt;
+&lt;h3 id=&#34;key-tables&#34;&gt;Key Tables&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Notes Table&lt;/strong&gt;: Stores metadata and processed content for each news article.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frequency Table&lt;/strong&gt;: Tracks the frequency of each word in the processed content.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;N-grams Table&lt;/strong&gt;: Stores n-gram counts for further analysis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NER Table&lt;/strong&gt;: Contains recognized entities (e.g., persons, places, organizations) with occurrence counts.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+               /project/news/resources/DatabaseTables_hu6851130293813862887.webp 400w,
+               /project/news/resources/DatabaseTables_hu4806471106134352514.webp 760w,
+               /project/news/resources/DatabaseTables_hu6677739929682999115.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/news/resources/DatabaseTables_hu6851130293813862887.webp&#34;
+               width=&#34;621&#34;
+               height=&#34;301&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;architecture-and-workflow&#34;&gt;Architecture and Workflow&lt;/h2&gt;
+&lt;p&gt;The system architecture is designed to be fully decoupled, serverless, and scalable. The core workflows are:&lt;/p&gt;
+&lt;h3 id=&#34;workflow-1-news-extraction&#34;&gt;Workflow 1: News Extraction&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Cloud Scheduler triggers news extraction at specific intervals.&lt;/li&gt;
+&lt;li&gt;Cloud Functions extract key details (title, date, link) from each news source.&lt;/li&gt;
+&lt;li&gt;Extracted data is preprocessed and stored in Cloud Storage and BigQuery.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;workflow-2-news-analysis&#34;&gt;Workflow 2: News Analysis&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Cloud Scheduler triggers NLP analysis at scheduled times.&lt;/li&gt;
+&lt;li&gt;The NLP model processes each article, performing frequency analysis and entity recognition.&lt;/li&gt;
+&lt;li&gt;The results are stored in BigQuery and visualized in Data Studio.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+               /project/news/resources/ProjectFlow_hu10627101085534324064.webp 400w,
+               /project/news/resources/ProjectFlow_hu7491263619185376250.webp 760w,
+               /project/news/resources/ProjectFlow_hu17822350382704724148.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/news/resources/ProjectFlow_hu10627101085534324064.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;174&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;architecture-diagram&#34;&gt;Architecture Diagram&lt;/h3&gt;
+&lt;p&gt;The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Data Studio for the dashboard, enabling easy monitoring and analysis.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+               /project/news/resources/achitecture_hu14717856938482271033.webp 400w,
+               /project/news/resources/achitecture_hu4589275302579216269.webp 760w,
+               /project/news/resources/achitecture_hu8169087343203014867.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/news/resources/achitecture_hu14717856938482271033.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;432&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
+&lt;p&gt;A Data Studio dashboard was set up to present the analysis results. Key features include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Page 1&lt;/strong&gt;: Overview of collected news with filters by source, date, and keywords.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Page 2&lt;/strong&gt;: Word frequency and n-grams analysis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Page 3&lt;/strong&gt;: Advanced n-grams and word cloud visualizations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Page 4&lt;/strong&gt;: Named Entity Recognition (NER) analysis, including breakdowns by persons, places, and organizations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pdf-example-report&#34;&gt;PDF Example Report&lt;/h3&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This cloud-based solution for news analysis offers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Speed&lt;/strong&gt;: Efficiently automates tasks with minimal latency.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reliability&lt;/strong&gt;: Scheduled jobs ensure consistent performance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cost-Effectiveness&lt;/strong&gt;: Serverless infrastructure reduces costs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Usability&lt;/strong&gt;: Provides actionable insights through data-driven visualizations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;future-improvements&#34;&gt;Future Improvements&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Integrating additional media sources for broader coverage.&lt;/li&gt;
+&lt;li&gt;Expanding the NLP model to analyze more variables.&lt;/li&gt;
+&lt;li&gt;Enhancing indexing and database relationships for richer analysis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;colaborations&#34;&gt;Colaborations&lt;/h3&gt;
+&lt;p&gt;This project is a colaboration with Miguel Ángel Bernal&lt;/p&gt;
+</description>
     </item>
     
     <item>
