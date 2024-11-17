@@ -379,7 +379,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;li&gt;&lt;strong&gt;Cloud Pub/Sub&lt;/strong&gt;: Manages messaging between services, ensuring that extracted data flows smoothly through each stage.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Cloud Storage&lt;/strong&gt;: Stores the raw HTML content for historical and backup purposes.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;BigQuery&lt;/strong&gt;: Acts as the structured data warehouse for processed news data.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Data Studio&lt;/strong&gt;: Creates an interactive dashboard for visualizing analysis results.&lt;/li&gt;
+&lt;li&gt;**Looker **: Creates an interactive dashboard for visualizing analysis results.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Google Kubernetes Engine (GKE)&lt;/strong&gt;: Runs NLP models for entity recognition and text analysis.
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;:  Used to containerize the application, ensuring consistency and portability.&lt;/li&gt;
@@ -397,7 +397,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;li&gt;&lt;strong&gt;N-grams Analysis&lt;/strong&gt;: Uses unigrams, bigrams, trigrams, and quadrigrams for text insights with NLTK.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Named Entity Recognition (NER)&lt;/strong&gt;: Identifies named entities such as people, places, and organizations using spaCy.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Data Studio.&lt;/p&gt;
+&lt;p&gt;The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Looker Studio.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;data-schema&#34;&gt;Data Schema&lt;/h2&gt;
 &lt;h3 id=&#34;key-tables&#34;&gt;Key Tables&lt;/h3&gt;
@@ -448,7 +448,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;ol&gt;
 &lt;li&gt;Cloud Scheduler triggers NLP analysis at scheduled times.&lt;/li&gt;
 &lt;li&gt;The NLP model processes each article, performing frequency analysis and entity recognition.&lt;/li&gt;
-&lt;li&gt;The results are stored in BigQuery and visualized in Data Studio.&lt;/li&gt;
+&lt;li&gt;The results are stored in BigQuery and visualized in Looker Studio.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;
 
@@ -468,7 +468,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Project Flow&#34; srcset=&#34;
                /project/news/resources/ProjectFlow_hu10627101085534324064.webp 400w,
                /project/news/resources/ProjectFlow_hu7491263619185376250.webp 760w,
                /project/news/resources/ProjectFlow_hu17822350382704724148.webp 1200w&#34;
@@ -479,7 +479,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;architecture-diagram&#34;&gt;Architecture Diagram&lt;/h3&gt;
-&lt;p&gt;The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Data Studio for the dashboard, enabling easy monitoring and analysis.&lt;/p&gt;
+&lt;p&gt;The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Looker Studio for the dashboard, enabling easy monitoring and analysis.&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -498,7 +498,7 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Architecture Diagram&#34; srcset=&#34;
                /project/news/resources/achitecture_hu14717856938482271033.webp 400w,
                /project/news/resources/achitecture_hu4589275302579216269.webp 760w,
                /project/news/resources/achitecture_hu8169087343203014867.webp 1200w&#34;
@@ -510,16 +510,39 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
-&lt;p&gt;A Data Studio dashboard was set up to present the analysis results. Key features include:&lt;/p&gt;
+&lt;p&gt;A Looker Studio dashboard was set up to present the analysis results. Key features include:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Page 1&lt;/strong&gt;: Overview of collected news with filters by source, date, and keywords.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Page 2&lt;/strong&gt;: Word frequency and n-grams analysis.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Page 3&lt;/strong&gt;: Advanced n-grams and word cloud visualizations.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Page 4&lt;/strong&gt;: Named Entity Recognition (NER) analysis, including breakdowns by persons, places, and organizations.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;pdf-example-report&#34;&gt;PDF Example Report&lt;/h3&gt;
 &lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/Looker%20Studio.png&#34; alt=&#34;Looker Studio&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
+&lt;h3 id=&#34;pdf-example-report&#34;&gt;PDF Example Report&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;resources/Report_Dashboard.pdf&#34; target=&#34;blank&#34;&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9&#34;/&gt;&lt;/svg&gt;
+  &lt;/span&gt; Dashboard Report PDF&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;This cloud-based solution for news analysis offers:&lt;/p&gt;
@@ -546,6 +569,1128 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
       <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/project/research/</guid>
       <description>&lt;p&gt;Reasearch paper publication.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Calculator with Autonomous Decentralized Service-Oriented Architecture</title>
+      <link>http://localhost:1313/project/adsoa/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/adsoa/</guid>
+      <description>&lt;h2 id=&#34;overview-of-the-adsoa-calculator-project&#34;&gt;Overview of the ADSOA Calculator Project&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;ADSOA Calculator Project&lt;/strong&gt; is an implementation of the Autonomous Decentralized Service-Oriented Architecture (ADSOA) to create a system capable of handling arithmetic operations. The project is built to demonstrate the principles of distributed systems, fault tolerance, and service-oriented architecture, applying these to a simple yet robust calculator application.&lt;/p&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;Applied Student Project for the Systems Analysis and Design Course&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Objective&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The primary goal is to develop a robust, scalable, and autonomous architecture that handles basic arithmetic operations (addition, subtraction, multiplication, and division). The system should leverage distributed processing while ensuring high availability and low downtime.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;What is ADSOA?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ADSOA combines two key architectural paradigms:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Autonomous Decentralized Systems (ADS)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Focus on creating independent, self-contained components that can operate without relying on other parts of the system.&lt;/li&gt;
+&lt;li&gt;Resilience to faults: Even if one component fails, the rest of the system continues to function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Service-Oriented Architecture (SOA)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Emphasizes modularity and reusability through services that communicate via defined protocols.&lt;/li&gt;
+&lt;li&gt;Decouples components to promote scalability and maintainability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;ADSOA&lt;/strong&gt; integrates these paradigms, resulting in a hybrid architecture that emphasizes modular, independent, and distributed components capable of handling failures gracefully. It mimics the human body system: independent yet interconnected subsystems working collectively.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-adsoa-concept-diagram&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ADSOA&#34; srcset=&#34;
+               /project/adsoa/resources/adsoa_hu14182500250075894947.webp 400w,
+               /project/adsoa/resources/adsoa_hu15086932956580799629.webp 760w,
+               /project/adsoa/resources/adsoa_hu14656658351344399551.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/adsoa_hu14182500250075894947.webp&#34;
+               width=&#34;685&#34;
+               height=&#34;487&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      ADSOA Concept Diagram
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;a href=&#34;https://link.springer.com/chapter/10.1007/978-3-030-33749-0_15&#34;&gt;Architecture Paper of ADSOA&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;key-concepts-of-adsoa-in-the-calculator&#34;&gt;Key Concepts of ADSOA in the Calculator&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Data Field (DF)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Acts as the communication hub for the system.&lt;/li&gt;
+&lt;li&gt;Handles message transmission and ensures that only the relevant components process requests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Nodes&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Base units of the architecture.&lt;/li&gt;
+&lt;li&gt;Responsible for relaying messages and connecting different system components.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cells&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Functional units that provide specific services, such as performing arithmetic operations.&lt;/li&gt;
+&lt;li&gt;Operate independently, ensuring system scalability and reliability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-concept-implementation&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ADSOA concept&#34; srcset=&#34;
+               /project/adsoa/resources/adsoa_shema_hu13828900425440253608.webp 400w,
+               /project/adsoa/resources/adsoa_shema_hu3422284676163421840.webp 760w,
+               /project/adsoa/resources/adsoa_shema_hu3974982323389169867.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/adsoa_shema_hu13828900425440253608.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;333&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Concept Implementation
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;adsoa-calculator-system-design&#34;&gt;ADSOA Calculator System Design&lt;/h3&gt;
+&lt;p&gt;The system consists of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Client Interfaces&lt;/strong&gt;: Graphical User Interfaces (GUIs) for user interaction.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Service Cells&lt;/strong&gt;: Perform arithmetic operations (e.g., addition, subtraction).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nodes&lt;/strong&gt;: Distribute and relay messages between clients and service cells.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Field (DF)&lt;/strong&gt;: The central communication layer, ensuring smooth data flow across components.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The system&amp;rsquo;s design ensures high modularity, allowing new services or interfaces to be added without disrupting existing components.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-schema-of-the-system&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ADSOA schema&#34; srcset=&#34;
+               /project/adsoa/resources/adsoa_concept_hu1976077787361971894.webp 400w,
+               /project/adsoa/resources/adsoa_concept_hu2888668220621746030.webp 760w,
+               /project/adsoa/resources/adsoa_concept_hu7522166460061393654.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/adsoa_concept_hu1976077787361971894.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;499&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Schema of the System
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Java Implementation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The project leverages Java due to its robust support for multithreading, networking, and GUI development. The following technologies and techniques are used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;UI Frameworks&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;JFoenix&lt;/strong&gt; and &lt;strong&gt;FontAwesome&lt;/strong&gt; for an intuitive and interactive graphical interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Backend&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Threads&lt;/strong&gt; for handling concurrent operations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WebSockets&lt;/strong&gt; for seamless communication between components.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reflection&lt;/strong&gt; for dynamically handling arithmetic operations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Instance Management&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;A specialized instance generator to create and manage service containers dynamically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;adsoa-protocol&#34;&gt;ADSOA Protocol&lt;/h3&gt;
+&lt;p&gt;The ADSOA protocol manages system communication and ensures fault tolerance:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Node Registration&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;New nodes request permission to join the Data Field (DF).&lt;/li&gt;
+&lt;li&gt;DF validates and integrates the node into the network.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Message Handling&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Messages contain metadata (e.g., source, destination, action type).&lt;/li&gt;
+&lt;li&gt;Only relevant nodes or cells process specific messages, improving efficiency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Service Requests&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Clients send requests to the DF.&lt;/li&gt;
+&lt;li&gt;DF forwards requests to appropriate service cells, which process and return results.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;basic-system-implementation&#34;&gt;Basic System Implementation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Objective&lt;/strong&gt;: Implement the foundational ADSOA components, including nodes, data field, and basic GUI.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Features&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Creation of service cells for addition, subtraction, multiplication, and division.&lt;/li&gt;
+&lt;li&gt;Development of a basic graphical interface for user interaction.&lt;/li&gt;
+&lt;li&gt;Establishment of communication protocols for nodes and cells.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Challenges and Benefits&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Challenges&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Ensuring seamless node communication and message distribution.&lt;/li&gt;
+&lt;li&gt;Managing dynamic addition and removal of components in real-time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Benefits&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Scalable architecture allowing the addition of new services.&lt;/li&gt;
+&lt;li&gt;Fault-tolerant design ensures minimal system disruption.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-first-interface&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;ADSOA interface&#34; srcset=&#34;
+               /project/adsoa/resources/first_interface_hu398157398713646400.webp 400w,
+               /project/adsoa/resources/first_interface_hu15374711609338635143.webp 760w,
+               /project/adsoa/resources/first_interface_hu10215109767495437525.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/first_interface_hu398157398713646400.webp&#34;
+               width=&#34;514&#34;
+               height=&#34;353&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      First Interface
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;evolution-of-the-adsoa-calculator&#34;&gt;Evolution of the ADSOA Calculator&lt;/h2&gt;
+&lt;p&gt;After successfully implementing the foundational architecture, the next development stage focused on optimizing system performance, increasing fault tolerance, and enabling dynamic scalability. This part describes the enhancements introduced to the ADSOA calculator, which elevate it from a basic prototype to a robust distributed system.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Advanced Features Implemented&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Message Queuing System&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To manage incoming and outgoing messages efficiently, a multi-level queuing mechanism was introduced. The system uses three queues to organize and prioritize messages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Incoming Message Queue&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Temporarily stores all received messages.&lt;/li&gt;
+&lt;li&gt;Ensures no messages are lost during high traffic periods.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Processing Queue&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Processes messages based on their type and priority.&lt;/li&gt;
+&lt;li&gt;Handles service requests (e.g., arithmetic operations), acknowledgment messages (acuses), and status updates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Outgoing Message Queue&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Holds processed responses until they are sent back to the appropriate node, cell, or client.&lt;/li&gt;
+&lt;li&gt;Prevents duplicate messages by maintaining a record of completed processes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-queue-system&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;queue&#34; srcset=&#34;
+               /project/adsoa/resources/queues_hu1073568126561579550.webp 400w,
+               /project/adsoa/resources/queues_hu18227452137182383653.webp 760w,
+               /project/adsoa/resources/queues_hu14180133546212262168.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/queues_hu1073568126561579550.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;363&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Queue System
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Service Replication and Cloning&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To enhance system availability, the concept of &lt;strong&gt;cloning service cells&lt;/strong&gt; was introduced. This mechanism ensures that critical services remain operational, even if individual cells fail.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How Cloning Works&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A clone request is triggered when the system detects low availability of a service.&lt;/li&gt;
+&lt;li&gt;Service cells replicate themselves, inheriting all configurations from the original cell.&lt;/li&gt;
+&lt;li&gt;The replicated cells register themselves with the Data Field (DF) and become operational.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cloning Protocol&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensures that only one clone is created per service request to avoid resource wastage.&lt;/li&gt;
+&lt;li&gt;Uses timestamps and message coordination to prevent redundant cloning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Benefits&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improved fault tolerance.&lt;/li&gt;
+&lt;li&gt;Load balancing by distributing requests across multiple service cells.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-cloning-system&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;cloning&#34; srcset=&#34;
+               /project/adsoa/resources/cloning_hu2352260943689547885.webp 400w,
+               /project/adsoa/resources/cloning_hu10530408642498227480.webp 760w,
+               /project/adsoa/resources/cloning_hu17444172823282957255.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/cloning_hu2352260943689547885.webp&#34;
+               width=&#34;569&#34;
+               height=&#34;289&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Cloning System
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Service Execution from Disk&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Originally, all services were embedded within the service cells. To make the system more modular and scalable, services were externalized and executed from disk.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Process&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Service cells retrieve service scripts or executables from disk.&lt;/li&gt;
+&lt;li&gt;The script is loaded dynamically, executed with the required parameters, and results are returned.&lt;/li&gt;
+&lt;li&gt;The script or executable is destroyed after execution to free resources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Advantages&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Allows dynamic addition of new services without modifying the system code.&lt;/li&gt;
+&lt;li&gt;Reduces memory usage by only loading services when needed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-reflection-implementation&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;reflection&#34; srcset=&#34;
+               /project/adsoa/resources/services_hu12016095813193904743.webp 400w,
+               /project/adsoa/resources/services_hu12830084246564859165.webp 760w,
+               /project/adsoa/resources/services_hu16666681496371707689.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/services_hu12016095813193904743.webp&#34;
+               width=&#34;556&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Reflection Implementation
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Example explanation&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Message Sent: A message is sent to the service cell specifying an operation (e.g., multiplication 2 x 3).&lt;/li&gt;
+&lt;li&gt;Message Received: The service cell receives the message and dynamically calls the requested operation using reflection.&lt;/li&gt;
+&lt;li&gt;Result Generated: The operation is executed, the result is calculated (6), and the reflection instance is cleared to free memory.&lt;/li&gt;
+&lt;li&gt;Result Sent: The calculated result (6) is sent back to the requester.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Dynamic Configuration with Files&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Configuration files were introduced to provide flexibility in managing service cells:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Configuration File Format&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Specifies the services available in each cell.&lt;/li&gt;
+&lt;li&gt;Uses a simple text-based format for ease of use.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Configuration for Cell A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Services:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Addition
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Subtraction
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Security Mechanism&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cells only execute services defined in their configuration file.&lt;/li&gt;
+&lt;li&gt;Ensures unauthorized modifications or additions are prevented.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-configuration-file-concept&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;config&#34; srcset=&#34;
+               /project/adsoa/resources/configuration-file_hu7146870507345631294.webp 400w,
+               /project/adsoa/resources/configuration-file_hu817146713804262805.webp 760w,
+               /project/adsoa/resources/configuration-file_hu5593748841809156896.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/configuration-file_hu7146870507345631294.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;720&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Configuration File Concept
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Acknowledgment System (Acuses)&lt;/strong&gt;
+The acknowledgment system ensures message delivery and tracks the completion of service requests.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Key Features&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Each acknowledgment (acuse) includes a unique event ID for tracking.&lt;/li&gt;
+&lt;li&gt;Acuses are used to verify that a message has reached its destination and has been processed successfully.&lt;/li&gt;
+&lt;li&gt;Retransmissions are triggered if acknowledgments are not received within a specified timeframe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Use Cases&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prevent message loss during network disruptions.&lt;/li&gt;
+&lt;li&gt;Identify and resolve failed service requests efficiently.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-acknowledgment-system-example&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Acuses&#34; srcset=&#34;
+               /project/adsoa/resources/invoces_hu3192398638792900268.webp 400w,
+               /project/adsoa/resources/invoces_hu13844783593376362429.webp 760w,
+               /project/adsoa/resources/invoces_hu2672136472051437952.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/invoces_hu3192398638792900268.webp&#34;
+               width=&#34;599&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Acknowledgment System Example
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;protocol-enhancements&#34;&gt;Protocol Enhancements&lt;/h3&gt;
+&lt;p&gt;The communication protocol between nodes and cells was updated to support the new features:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Updated Message Structure&lt;/strong&gt;
+Messages now include additional metadata to handle dynamic configurations and cloning:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Header Section&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Content Code (CC)&lt;/strong&gt;: Indicates the type of message (e.g., service request, acknowledgment).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Source Type (TS)&lt;/strong&gt;: Identifies whether the message originated from a node or a cell.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fingerprint ID (FID)&lt;/strong&gt;: Unique identifier for the originating entity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Body Section&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Operation Code (OP)&lt;/strong&gt;: Specifies the operation to be performed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Values (VAL)&lt;/strong&gt;: Contains input data for the operation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Event ID (EVID)&lt;/strong&gt;: Tracks the specific event associated with the message.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Message Processing Workflow&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Message Reception&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Messages are received by the DF and added to the incoming queue.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Message Distribution&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Messages are forwarded to the appropriate nodes or service cells based on the operation type.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Service Execution&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Service cells process the request and generate results.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Response Delivery&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Results are sent back to the client via the DF.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-message-structure&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Messages&#34; srcset=&#34;
+               /project/adsoa/resources/messages_hu10293064409756690935.webp 400w,
+               /project/adsoa/resources/messages_hu1144879389936451095.webp 760w,
+               /project/adsoa/resources/messages_hu100533258143585600.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/messages_hu10293064409756690935.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;374&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Message Structure
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;improved-fault-tolerance&#34;&gt;Improved Fault Tolerance&lt;/h3&gt;
+&lt;p&gt;The enhancements introduced several mechanisms to improve the system&amp;rsquo;s fault tolerance:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Node Monitoring&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nodes continuously monitor each other for availability.&lt;/li&gt;
+&lt;li&gt;If a node fails, other nodes take over its responsibilities seamlessly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Service Redundancy&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiple instances of the same service ensure continuous availability.&lt;/li&gt;
+&lt;li&gt;Load balancing algorithms distribute requests evenly across service cells.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Message Duplication Prevention&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unique identifiers in message headers prevent duplicate processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Advanced Graphical Interfaces&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The graphical user interfaces were redesigned to provide better usability and system visibility:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Client Interface&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Clean, user-friendly design for submitting arithmetic operations.&lt;/li&gt;
+&lt;li&gt;Displays results and logs of processed requests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Node Monitor&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Visualizes the status of all active nodes and their connections.&lt;/li&gt;
+&lt;li&gt;Highlights failed nodes and provides recovery options.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Service Cell Dashboard&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lists available services and their current status.&lt;/li&gt;
+&lt;li&gt;Displays real-time logs of processed messages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cell Manager&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Allows administrators to add, remove, or modify services dynamically.&lt;/li&gt;
+&lt;li&gt;Provides detailed reports on service usage and performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;final-features-implemented&#34;&gt;Final Features Implemented&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Dynamic DNA Injection&lt;/strong&gt;
+This feature enables service cells to dynamically update their operational capabilities without requiring system downtime.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How it Works&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A specialized &lt;strong&gt;Cell Manager&lt;/strong&gt; sends &amp;ldquo;DNA injection&amp;rdquo; messages through the Data Field (DF).&lt;/li&gt;
+&lt;li&gt;Target cells receiving these messages add the specified services to their configurations dynamically.&lt;/li&gt;
+&lt;li&gt;DNA injection is validated to ensure that only authorized updates are applied.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Benefits&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Facilitates quick deployment of new services.&lt;/li&gt;
+&lt;li&gt;Reduces system downtime by eliminating the need for manual updates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-add-substraction-to-empty-cell&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Add&#34; srcset=&#34;
+               /project/adsoa/resources/Cell-Manager-Add_hu13424414775554161261.webp 400w,
+               /project/adsoa/resources/Cell-Manager-Add_hu1718525446930953539.webp 760w,
+               /project/adsoa/resources/Cell-Manager-Add_hu12852328784275865057.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/Cell-Manager-Add_hu13424414775554161261.webp&#34;
+               width=&#34;619&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Add Substraction to Empty Cell
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Service Removal&lt;/strong&gt;
+Just as services can be dynamically added, they can also be removed when no longer needed or to optimize performance.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;How it Works&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Cell Manager sends service removal messages specifying the conditions for deletion.&lt;/li&gt;
+&lt;li&gt;Cells validate the conditions and remove the specified services accordingly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Use Cases&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Removing deprecated or outdated services.&lt;/li&gt;
+&lt;li&gt;Optimizing resources by deactivating underused features.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-remove-multiplication-from-cell&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Remove&#34; srcset=&#34;
+               /project/adsoa/resources/Cell-Manager-Remove_hu17228284976719088630.webp 400w,
+               /project/adsoa/resources/Cell-Manager-Remove_hu4082196763948485098.webp 760w,
+               /project/adsoa/resources/Cell-Manager-Remove_hu13960819733445930201.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/Cell-Manager-Remove_hu17228284976719088630.webp&#34;
+               width=&#34;586&#34;
+               height=&#34;760&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Remove Multiplication from Cell
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Mother Cell&lt;/strong&gt;
+A &amp;ldquo;Mother Cell&amp;rdquo; was introduced as a central unit capable of replicating itself and acquiring any required service dynamically. This cell acts as a fallback mechanism to ensure system continuity.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Key Capabilities&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ability to adopt any service requested by the DF.&lt;/li&gt;
+&lt;li&gt;Automatic replication when system demand increases or redundancy is required.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Advantages&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Acts as a backup for critical operations.&lt;/li&gt;
+&lt;li&gt;Improves system reliability during peak usage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Improved Instance Management&lt;/strong&gt;
+A new &lt;strong&gt;Instance Generator&lt;/strong&gt; was developed to manage the lifecycle of service cells and nodes more effectively.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Key Features&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dynamically instantiates service cells based on workload and service requests.&lt;/li&gt;
+&lt;li&gt;Tracks active instances and provides options to scale up or down as needed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Technical Implementation&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Java threads for efficient resource utilization.&lt;/li&gt;
+&lt;li&gt;WebSockets for seamless communication with the DF.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-instance-management-interface&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Manager&#34; srcset=&#34;
+               /project/adsoa/resources/manager_hu5395550012437617757.webp 400w,
+               /project/adsoa/resources/manager_hu6178825841328505310.webp 760w,
+               /project/adsoa/resources/manager_hu6130941237645189716.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/manager_hu5395550012437617757.webp&#34;
+               width=&#34;759&#34;
+               height=&#34;572&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Instance Management Interface
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Advantages of the System&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;High Availability&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;With features like cloning, dynamic DNA injection, and Mother Cell capabilities, the system remains operational even under adverse conditions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Flexibility&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dynamic service addition and removal ensure the system can adapt to changing requirements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fault Tolerance&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Redundancy and monitoring mechanisms minimize the impact of node or cell failures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Scalability&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The architecture supports the addition of unlimited nodes, cells, and clients, making it suitable for larger-scale deployments.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;final-version&#34;&gt;Final Version&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Calculator Interface&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;User-friendly design for performing arithmetic operations.&lt;/li&gt;
+&lt;li&gt;Displays real-time results and operation logs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-calculator-interface&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/calculator%20interface.png&#34; alt=&#34;Calculator&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Calculator Interface
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Node Manager&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Visual representation of all active nodes and their statuses.&lt;/li&gt;
+&lt;li&gt;Includes options to manually start, stop, or monitor nodes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-node-interface&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/node%20interface.png&#34; alt=&#34;Node&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Node Interface
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Cell Manager&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Lists all operational cells and their available services.&lt;/li&gt;
+&lt;li&gt;Add and remove operations throught the parameters.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-cell-manager-interface&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/celll%20manager.png&#34; alt=&#34;Cell Manager&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Cell Manager Interface
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Instance Manager&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;Allows administrators to manage the lifecycle of service cells dynamically.&lt;/li&gt;
+&lt;li&gt;Includes tools for scaling and optimizing resource usage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-manager-interface&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Manager&#34; srcset=&#34;
+               /project/adsoa/resources/manager_hu5395550012437617757.webp 400w,
+               /project/adsoa/resources/manager_hu6178825841328505310.webp 760w,
+               /project/adsoa/resources/manager_hu6130941237645189716.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/adsoa/resources/manager_hu5395550012437617757.webp&#34;
+               width=&#34;759&#34;
+               height=&#34;572&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Manager Interface
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;demo-video&#34;&gt;Demo video&lt;/h3&gt;
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+&lt;video controls  &gt;
+  &lt;source src=&#34;http://localhost:1313/project/adsoa/resources/demo.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;future-directions-and-enhancements&#34;&gt;Future Directions and Enhancements&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Integration with Other Architectures&lt;/strong&gt;
+The system can be integrated with cloud platforms for improved scalability and resilience. Technologies like Kubernetes could manage nodes and cells as containers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Advanced Service Capabilities&lt;/strong&gt;
+The architecture can support more complex operations, such as:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Matrix calculations.&lt;/li&gt;
+&lt;li&gt;Statistical functions.&lt;/li&gt;
+&lt;li&gt;Graph plotting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Security Enhancements&lt;/strong&gt;
+Future iterations could include:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Encryption for secure communication between nodes and cells.&lt;/li&gt;
+&lt;li&gt;Authentication mechanisms to restrict unauthorized access.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Cross-Platform Support&lt;/strong&gt;
+While the current implementation uses Java, the system could be adapted to other programming languages or frameworks to increase flexibility.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pdf-download-section&#34;&gt;PDF Download Section&lt;/h2&gt;
+&lt;p&gt;For a detailed explanation of the ADSOA Calculator Project, including diagrams, testing results, and implementation details, download the full PDF documentation here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;resources/Entrega final ADSOA.pdf&#34; target=&#34;blank&#34;&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9&#34;/&gt;&lt;/svg&gt;
+  &lt;/span&gt; Download PDF Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The ADSOA Calculator Project successfully demonstrates the potential of distributed architectures in building scalable and fault-tolerant systems. By combining the principles of ADS and SOA, this project lays the groundwork for more complex applications in critical environments. The final system not only performs arithmetic operations efficiently but also provides a robust framework for future enhancements and applications.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

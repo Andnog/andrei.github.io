@@ -1,0 +1,2775 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: November 17, 2024 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.2.0" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Andrei Noguera" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Overview of the ADSOA Calculator Project
+The ADSOA Calculator Project is an implementation of the Autonomous Decentralized Service-Oriented Architecture (ADSOA) to create a system capable of handling arithmetic operations. The project is built to demonstrate the principles of distributed systems, fault tolerance, and service-oriented architecture, applying these to a simple yet robust calculator application." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/project/adsoa/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+    
+    <link href="/css/custom.min.a22b6f6167abd6bd5246f9e3878a595effffe6cac9db5fd9c2671d9d7dd38d26.css" rel="stylesheet" />
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu2973964795487018635.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu13746399112698998448.png" />
+
+  <link rel="canonical" href="http://localhost:1313/project/adsoa/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Andrei Noguera" />
+  <meta property="og:url" content="http://localhost:1313/project/adsoa/" />
+  <meta property="og:title" content="Calculator with Autonomous Decentralized Service-Oriented Architecture | Andrei Noguera" />
+  <meta property="og:description" content="Overview of the ADSOA Calculator Project
+The ADSOA Calculator Project is an implementation of the Autonomous Decentralized Service-Oriented Architecture (ADSOA) to create a system capable of handling arithmetic operations. The project is built to demonstrate the principles of distributed systems, fault tolerance, and service-oriented architecture, applying these to a simple yet robust calculator application." /><meta property="og:image" content="http://localhost:1313/project/adsoa/featured.jpg" />
+    <meta property="twitter:image" content="http://localhost:1313/project/adsoa/featured.jpg" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2018-12-01T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2018-12-01T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/project/adsoa/"
+  },
+  "headline": "Calculator with Autonomous Decentralized Service-Oriented Architecture",
+  
+  "image": [
+    "http://localhost:1313/project/adsoa/featured.jpg"
+  ],
+  
+  "datePublished": "2018-12-01T00:00:00Z",
+  "dateModified": "2018-12-01T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Andrei Noguera"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Andrei Noguera",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/media/icon_hu15520437786676792804.png"
+    }
+  },
+  "description": "\u003ch2 id=\"overview-of-the-adsoa-calculator-project\"\u003eOverview of the ADSOA Calculator Project\u003c/h2\u003e\n\u003cp\u003eThe \u003cstrong\u003eADSOA Calculator Project\u003c/strong\u003e is an implementation of the Autonomous Decentralized Service-Oriented Architecture (ADSOA) to create a system capable of handling arithmetic operations. The project is built to demonstrate the principles of distributed systems, fault tolerance, and service-oriented architecture, applying these to a simple yet robust calculator application.\u003c/p\u003e"
+}
+</script>
+
+  
+
+  
+
+
+  <title>Calculator with Autonomous Decentralized Service-Oriented Architecture | Andrei Noguera</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let element = document.getElementById('search');
+    let trigger = document.getElementById('search_toggle');
+
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        element.classList.toggle('hidden');
+        element.querySelector("input").value = ""
+        element.querySelector("input").focus()
+
+        if (!element.classList.contains('hidden')) {
+          let clear_trigger = document.querySelector('.pagefind-ui__search-clear');
+
+          if (clear_trigger && !clear_trigger.hasAttribute('listenerOnClick')) {
+            clear_trigger.setAttribute('listenerOnClick', 'true');
+
+            clear_trigger.addEventListener('click', () => {
+              element.classList.toggle('hidden');
+            });
+          }
+        }
+
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.js"
+    integrity=""
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+      
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+    
+  
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="Andrei Noguera">
+        Andrei N
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Bio</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/experience/"
+        >Experience</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/certificates/"
+        >Certificates</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/skills/"
+        >Skills &amp; Tools</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/projects/"
+        >Projects</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/teaching/"
+        >Tutorials</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+      <button
+        aria-label="search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        id="search_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+      </button>
+      
+
+      
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+
+<div id="search" class="hidden p-3"></div>
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      
+
+
+
+
+
+<div class="mx-auto flex max-w-screen-xl">
+  
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:hidden xl:block">
+  
+  <div class="px-4 pt-4 lg:hidden">
+    
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/"
+    
+  >Recent &amp; Upcoming Talks
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/example/"
+    
+  >Example Talk
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/"
+    
+  >Reinforcement_learnings
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/intro/"
+    
+  >Foundations and Key Concepts
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/q-leaning-python/"
+    
+  > Q-Learning in Python
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/github/"
+    
+  >Github
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/speech-generator/"
+    
+  >Speech Generator with Transformers
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/news/"
+    
+  >Automated News Analysis with GCP
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/research/"
+    
+  >Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/project/adsoa/"
+    
+  >Calculator with Autonomous Decentralized Service-Oriented Architecture
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#overview-of-the-adsoa-calculator-project"
+                class="hb-docs-link"
+              >Overview of the ADSOA Calculator Project</a>
+            </li>
+          <li>
+              <a
+                href="#basic-system-implementation"
+                class="hb-docs-link"
+              >Basic System Implementation</a>
+            </li>
+          <li>
+              <a
+                href="#evolution-of-the-adsoa-calculator"
+                class="hb-docs-link"
+              >Evolution of the ADSOA Calculator</a>
+            </li>
+          <li>
+              <a
+                href="#final-version"
+                class="hb-docs-link"
+              >Final Version</a>
+            </li>
+          <li>
+              <a
+                href="#future-directions-and-enhancements"
+                class="hb-docs-link"
+              >Future Directions and Enhancements</a>
+            </li>
+          <li>
+              <a
+                href="#pdf-download-section"
+                class="hb-docs-link"
+              >PDF Download Section</a>
+            </li>
+          <li>
+              <a
+                href="#conclusion"
+                class="hb-docs-link"
+              >Conclusion</a>
+            </li>
+          </ul>
+  
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/certificates/"
+    
+  >Certificates
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/experience/"
+    
+  >Experience
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/skills/"
+    
+  >Skills and Tools
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/projects/"
+    
+  >Projects
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/"
+    
+  >Llms
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/azure-open-ai/"
+    
+  >Introduction to Azure OpenAI
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/prompt-engineering/"
+    
+  >Prompt Engineering
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Blog
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/get-started/"
+    
+  >🎉 Easily create your own simple yet highly customizable blog
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/second-brain/"
+    
+  >🧠 Sharpen your thinking with a second brain
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/data-visualization/"
+    
+  >📈 Communicate your results effectively with the best data visualizations
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/teach-courses/"
+    
+  >👩🏼‍🏫 Teach academic courses
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/project-management/"
+    
+  >✅ Manage your projects
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/"
+    
+  >Publications
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/preprint/"
+    
+  >An example preprint / working paper
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/journal-article/"
+    
+  >An example journal article
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/conference-paper/"
+    
+  >An example conference paper
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/admin/"
+    
+  >
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/"
+    
+  >Tutorials
+    </a></li>
+    </ul>
+
+    <div class="max-xl:hidden h-0 w-64 shrink-0"></div></div>
+
+</aside>
+  
+
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#overview-of-the-adsoa-calculator-project">Overview of the ADSOA Calculator Project</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#key-concepts-of-adsoa-in-the-calculator">Key Concepts of ADSOA in the Calculator</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#adsoa-calculator-system-design">ADSOA Calculator System Design</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#adsoa-protocol">ADSOA Protocol</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#basic-system-implementation">Basic System Implementation</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#evolution-of-the-adsoa-calculator">Evolution of the ADSOA Calculator</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#protocol-enhancements">Protocol Enhancements</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#improved-fault-tolerance">Improved Fault Tolerance</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#final-features-implemented">Final Features Implemented</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#final-version">Final Version</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#demo-video">Demo video</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#future-directions-and-enhancements">Future Directions and Enhancements</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#pdf-download-section">PDF Download Section</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#conclusion">Conclusion</a>
+      </li></ul>
+
+  
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+
+      
+
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Calculator with Autonomous Decentralized Service-Oriented Architecture</h1>
+
+      <div class="mt-4 mb-16">
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2"><span class="mr-1">Dec 1, 2018</span>
+        
+
+        
+        <span class="mx-1">·</span>
+        <span class="mx-1">
+          10 min read
+        </span>
+        
+        </div>
+
+        <div class="mt-3">
+          
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="article-header article-container featured-image-wrapper mt-4 mb-16" style="max-width: 720px; max-height: 401px;">
+        <div style="position: relative">
+          <img src="/project/adsoa/featured_hu15947335300646327610.webp" width="720" height="401" alt="" class="featured-image">
+          
+        </div>
+      </div>
+      
+
+      
+      
+
+      <div class="prose prose-slate lg:prose-xl dark:prose-invert">
+        <h2 id="overview-of-the-adsoa-calculator-project">Overview of the ADSOA Calculator Project</h2>
+<p>The <strong>ADSOA Calculator Project</strong> is an implementation of the Autonomous Decentralized Service-Oriented Architecture (ADSOA) to create a system capable of handling arithmetic operations. The project is built to demonstrate the principles of distributed systems, fault tolerance, and service-oriented architecture, applying these to a simple yet robust calculator application.</p>
+<div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+<span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+  <svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/></svg>
+</span>
+  <span class="dark:text-neutral-300">Applied Student Project for the Systems Analysis and Design Course</span>
+</div>
+<p><strong>Objective</strong></p>
+<p>The primary goal is to develop a robust, scalable, and autonomous architecture that handles basic arithmetic operations (addition, subtraction, multiplication, and division). The system should leverage distributed processing while ensuring high availability and low downtime.</p>
+<hr>
+<p><strong>What is ADSOA?</strong></p>
+<p>ADSOA combines two key architectural paradigms:</p>
+<ol>
+<li>
+<p><strong>Autonomous Decentralized Systems (ADS)</strong>:</p>
+<ul>
+<li>Focus on creating independent, self-contained components that can operate without relying on other parts of the system.</li>
+<li>Resilience to faults: Even if one component fails, the rest of the system continues to function.</li>
+</ul>
+</li>
+<li>
+<p><strong>Service-Oriented Architecture (SOA)</strong>:</p>
+<ul>
+<li>Emphasizes modularity and reusability through services that communicate via defined protocols.</li>
+<li>Decouples components to promote scalability and maintainability.</li>
+</ul>
+</li>
+</ol>
+<p><strong>ADSOA</strong> integrates these paradigms, resulting in a hybrid architecture that emphasizes modular, independent, and distributed components capable of handling failures gracefully. It mimics the human body system: independent yet interconnected subsystems working collectively.</p>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-adsoa-concept-diagram">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="ADSOA" srcset="
+               /project/adsoa/resources/adsoa_hu14182500250075894947.webp 400w,
+               /project/adsoa/resources/adsoa_hu15086932956580799629.webp 760w,
+               /project/adsoa/resources/adsoa_hu14656658351344399551.webp 1200w"
+               src="/project/adsoa/resources/adsoa_hu14182500250075894947.webp"
+               width="685"
+               height="487"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      ADSOA Concept Diagram
+    </figcaption></figure>
+</p>
+</div>
+<div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+<span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+  <svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/></svg>
+</span>
+  <span class="dark:text-neutral-300"><a href="https://link.springer.com/chapter/10.1007/978-3-030-33749-0_15">Architecture Paper of ADSOA</a></span>
+</div>
+<hr>
+<h3 id="key-concepts-of-adsoa-in-the-calculator">Key Concepts of ADSOA in the Calculator</h3>
+<ol>
+<li>
+<p><strong>Data Field (DF)</strong>:</p>
+<ul>
+<li>Acts as the communication hub for the system.</li>
+<li>Handles message transmission and ensures that only the relevant components process requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Nodes</strong>:</p>
+<ul>
+<li>Base units of the architecture.</li>
+<li>Responsible for relaying messages and connecting different system components.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cells</strong>:</p>
+<ul>
+<li>Functional units that provide specific services, such as performing arithmetic operations.</li>
+<li>Operate independently, ensuring system scalability and reliability.</li>
+</ul>
+</li>
+</ol>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-concept-implementation">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="ADSOA concept" srcset="
+               /project/adsoa/resources/adsoa_shema_hu13828900425440253608.webp 400w,
+               /project/adsoa/resources/adsoa_shema_hu3422284676163421840.webp 760w,
+               /project/adsoa/resources/adsoa_shema_hu3974982323389169867.webp 1200w"
+               src="/project/adsoa/resources/adsoa_shema_hu13828900425440253608.webp"
+               width="760"
+               height="333"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Concept Implementation
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<h3 id="adsoa-calculator-system-design">ADSOA Calculator System Design</h3>
+<p>The system consists of:</p>
+<ul>
+<li><strong>Client Interfaces</strong>: Graphical User Interfaces (GUIs) for user interaction.</li>
+<li><strong>Service Cells</strong>: Perform arithmetic operations (e.g., addition, subtraction).</li>
+<li><strong>Nodes</strong>: Distribute and relay messages between clients and service cells.</li>
+<li><strong>Data Field (DF)</strong>: The central communication layer, ensuring smooth data flow across components.</li>
+</ul>
+<p>The system&rsquo;s design ensures high modularity, allowing new services or interfaces to be added without disrupting existing components.</p>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-schema-of-the-system">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="ADSOA schema" srcset="
+               /project/adsoa/resources/adsoa_concept_hu1976077787361971894.webp 400w,
+               /project/adsoa/resources/adsoa_concept_hu2888668220621746030.webp 760w,
+               /project/adsoa/resources/adsoa_concept_hu7522166460061393654.webp 1200w"
+               src="/project/adsoa/resources/adsoa_concept_hu1976077787361971894.webp"
+               width="760"
+               height="499"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Schema of the System
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<p><strong>Java Implementation</strong></p>
+<p>The project leverages Java due to its robust support for multithreading, networking, and GUI development. The following technologies and techniques are used:</p>
+<ul>
+<li><strong>UI Frameworks</strong>:
+<ul>
+<li><strong>JFoenix</strong> and <strong>FontAwesome</strong> for an intuitive and interactive graphical interface.</li>
+</ul>
+</li>
+<li><strong>Backend</strong>:
+<ul>
+<li><strong>Threads</strong> for handling concurrent operations.</li>
+<li><strong>WebSockets</strong> for seamless communication between components.</li>
+<li><strong>Reflection</strong> for dynamically handling arithmetic operations.</li>
+</ul>
+</li>
+<li><strong>Instance Management</strong>:
+<ul>
+<li>A specialized instance generator to create and manage service containers dynamically.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="adsoa-protocol">ADSOA Protocol</h3>
+<p>The ADSOA protocol manages system communication and ensures fault tolerance:</p>
+<ol>
+<li><strong>Node Registration</strong>:
+<ul>
+<li>New nodes request permission to join the Data Field (DF).</li>
+<li>DF validates and integrates the node into the network.</li>
+</ul>
+</li>
+<li><strong>Message Handling</strong>:
+<ul>
+<li>Messages contain metadata (e.g., source, destination, action type).</li>
+<li>Only relevant nodes or cells process specific messages, improving efficiency.</li>
+</ul>
+</li>
+<li><strong>Service Requests</strong>:
+<ul>
+<li>Clients send requests to the DF.</li>
+<li>DF forwards requests to appropriate service cells, which process and return results.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="basic-system-implementation">Basic System Implementation</h2>
+<ul>
+<li><strong>Objective</strong>: Implement the foundational ADSOA components, including nodes, data field, and basic GUI.</li>
+<li><strong>Features</strong>:
+<ul>
+<li>Creation of service cells for addition, subtraction, multiplication, and division.</li>
+<li>Development of a basic graphical interface for user interaction.</li>
+<li>Establishment of communication protocols for nodes and cells.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Challenges and Benefits</strong></p>
+<ul>
+<li><strong>Challenges</strong>:
+<ul>
+<li>Ensuring seamless node communication and message distribution.</li>
+<li>Managing dynamic addition and removal of components in real-time.</li>
+</ul>
+</li>
+<li><strong>Benefits</strong>:
+<ul>
+<li>Scalable architecture allowing the addition of new services.</li>
+<li>Fault-tolerant design ensures minimal system disruption.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-first-interface">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="ADSOA interface" srcset="
+               /project/adsoa/resources/first_interface_hu398157398713646400.webp 400w,
+               /project/adsoa/resources/first_interface_hu15374711609338635143.webp 760w,
+               /project/adsoa/resources/first_interface_hu10215109767495437525.webp 1200w"
+               src="/project/adsoa/resources/first_interface_hu398157398713646400.webp"
+               width="514"
+               height="353"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      First Interface
+    </figcaption></figure>
+</p>
+</div>
+<h2 id="evolution-of-the-adsoa-calculator">Evolution of the ADSOA Calculator</h2>
+<p>After successfully implementing the foundational architecture, the next development stage focused on optimizing system performance, increasing fault tolerance, and enabling dynamic scalability. This part describes the enhancements introduced to the ADSOA calculator, which elevate it from a basic prototype to a robust distributed system.</p>
+<hr>
+<p><strong>Advanced Features Implemented</strong></p>
+<ol>
+<li><strong>Message Queuing System</strong></li>
+</ol>
+<p>To manage incoming and outgoing messages efficiently, a multi-level queuing mechanism was introduced. The system uses three queues to organize and prioritize messages:</p>
+<ul>
+<li>
+<p><strong>Incoming Message Queue</strong>:</p>
+<ul>
+<li>Temporarily stores all received messages.</li>
+<li>Ensures no messages are lost during high traffic periods.</li>
+</ul>
+</li>
+<li>
+<p><strong>Processing Queue</strong>:</p>
+<ul>
+<li>Processes messages based on their type and priority.</li>
+<li>Handles service requests (e.g., arithmetic operations), acknowledgment messages (acuses), and status updates.</li>
+</ul>
+</li>
+<li>
+<p><strong>Outgoing Message Queue</strong>:</p>
+<ul>
+<li>Holds processed responses until they are sent back to the appropriate node, cell, or client.</li>
+<li>Prevents duplicate messages by maintaining a record of completed processes.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-queue-system">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="queue" srcset="
+               /project/adsoa/resources/queues_hu1073568126561579550.webp 400w,
+               /project/adsoa/resources/queues_hu18227452137182383653.webp 760w,
+               /project/adsoa/resources/queues_hu14180133546212262168.webp 1200w"
+               src="/project/adsoa/resources/queues_hu1073568126561579550.webp"
+               width="760"
+               height="363"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Queue System
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<ol start="2">
+<li><strong>Service Replication and Cloning</strong></li>
+</ol>
+<p>To enhance system availability, the concept of <strong>cloning service cells</strong> was introduced. This mechanism ensures that critical services remain operational, even if individual cells fail.</p>
+<ul>
+<li>
+<p><strong>How Cloning Works</strong>:</p>
+<ul>
+<li>A clone request is triggered when the system detects low availability of a service.</li>
+<li>Service cells replicate themselves, inheriting all configurations from the original cell.</li>
+<li>The replicated cells register themselves with the Data Field (DF) and become operational.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cloning Protocol</strong>:</p>
+<ul>
+<li>Ensures that only one clone is created per service request to avoid resource wastage.</li>
+<li>Uses timestamps and message coordination to prevent redundant cloning.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Improved fault tolerance.</li>
+<li>Load balancing by distributing requests across multiple service cells.</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-cloning-system">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="cloning" srcset="
+               /project/adsoa/resources/cloning_hu2352260943689547885.webp 400w,
+               /project/adsoa/resources/cloning_hu10530408642498227480.webp 760w,
+               /project/adsoa/resources/cloning_hu17444172823282957255.webp 1200w"
+               src="/project/adsoa/resources/cloning_hu2352260943689547885.webp"
+               width="569"
+               height="289"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Cloning System
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<ol start="3">
+<li><strong>Service Execution from Disk</strong></li>
+</ol>
+<p>Originally, all services were embedded within the service cells. To make the system more modular and scalable, services were externalized and executed from disk.</p>
+<ul>
+<li>
+<p><strong>Process</strong>:</p>
+<ul>
+<li>Service cells retrieve service scripts or executables from disk.</li>
+<li>The script is loaded dynamically, executed with the required parameters, and results are returned.</li>
+<li>The script or executable is destroyed after execution to free resources.</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Allows dynamic addition of new services without modifying the system code.</li>
+<li>Reduces memory usage by only loading services when needed.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-reflection-implementation">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="reflection" srcset="
+               /project/adsoa/resources/services_hu12016095813193904743.webp 400w,
+               /project/adsoa/resources/services_hu12830084246564859165.webp 760w,
+               /project/adsoa/resources/services_hu16666681496371707689.webp 1200w"
+               src="/project/adsoa/resources/services_hu12016095813193904743.webp"
+               width="556"
+               height="760"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Reflection Implementation
+    </figcaption></figure>
+</p>
+</div>
+<p><strong>Example explanation</strong></p>
+<ol>
+<li>Message Sent: A message is sent to the service cell specifying an operation (e.g., multiplication 2 x 3).</li>
+<li>Message Received: The service cell receives the message and dynamically calls the requested operation using reflection.</li>
+<li>Result Generated: The operation is executed, the result is calculated (6), and the reflection instance is cleared to free memory.</li>
+<li>Result Sent: The calculated result (6) is sent back to the requester.</li>
+</ol>
+<hr>
+<ol start="4">
+<li><strong>Dynamic Configuration with Files</strong></li>
+</ol>
+<p>Configuration files were introduced to provide flexibility in managing service cells:</p>
+<ul>
+<li>
+<p><strong>Configuration File Format</strong>:</p>
+<ul>
+<li>Specifies the services available in each cell.</li>
+<li>Uses a simple text-based format for ease of use.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Configuration for Cell A
+</span></span><span class="line"><span class="cl">Services:
+</span></span><span class="line"><span class="cl">- Addition
+</span></span><span class="line"><span class="cl">- Subtraction
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Security Mechanism</strong>:</p>
+<ul>
+<li>Cells only execute services defined in their configuration file.</li>
+<li>Ensures unauthorized modifications or additions are prevented.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-configuration-file-concept">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="config" srcset="
+               /project/adsoa/resources/configuration-file_hu7146870507345631294.webp 400w,
+               /project/adsoa/resources/configuration-file_hu817146713804262805.webp 760w,
+               /project/adsoa/resources/configuration-file_hu5593748841809156896.webp 1200w"
+               src="/project/adsoa/resources/configuration-file_hu7146870507345631294.webp"
+               width="760"
+               height="720"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Configuration File Concept
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<ol start="5">
+<li><strong>Acknowledgment System (Acuses)</strong>
+The acknowledgment system ensures message delivery and tracks the completion of service requests.</li>
+</ol>
+<ul>
+<li>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Each acknowledgment (acuse) includes a unique event ID for tracking.</li>
+<li>Acuses are used to verify that a message has reached its destination and has been processed successfully.</li>
+<li>Retransmissions are triggered if acknowledgments are not received within a specified timeframe.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Prevent message loss during network disruptions.</li>
+<li>Identify and resolve failed service requests efficiently.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-acknowledgment-system-example">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Acuses" srcset="
+               /project/adsoa/resources/invoces_hu3192398638792900268.webp 400w,
+               /project/adsoa/resources/invoces_hu13844783593376362429.webp 760w,
+               /project/adsoa/resources/invoces_hu2672136472051437952.webp 1200w"
+               src="/project/adsoa/resources/invoces_hu3192398638792900268.webp"
+               width="599"
+               height="760"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Acknowledgment System Example
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<h3 id="protocol-enhancements">Protocol Enhancements</h3>
+<p>The communication protocol between nodes and cells was updated to support the new features:</p>
+<p><strong>Updated Message Structure</strong>
+Messages now include additional metadata to handle dynamic configurations and cloning:</p>
+<ul>
+<li>
+<p><strong>Header Section</strong>:</p>
+<ul>
+<li><strong>Content Code (CC)</strong>: Indicates the type of message (e.g., service request, acknowledgment).</li>
+<li><strong>Source Type (TS)</strong>: Identifies whether the message originated from a node or a cell.</li>
+<li><strong>Fingerprint ID (FID)</strong>: Unique identifier for the originating entity.</li>
+</ul>
+</li>
+<li>
+<p><strong>Body Section</strong>:</p>
+<ul>
+<li><strong>Operation Code (OP)</strong>: Specifies the operation to be performed.</li>
+<li><strong>Values (VAL)</strong>: Contains input data for the operation.</li>
+<li><strong>Event ID (EVID)</strong>: Tracks the specific event associated with the message.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Message Processing Workflow</strong></p>
+<ol>
+<li><strong>Message Reception</strong>:
+<ul>
+<li>Messages are received by the DF and added to the incoming queue.</li>
+</ul>
+</li>
+<li><strong>Message Distribution</strong>:
+<ul>
+<li>Messages are forwarded to the appropriate nodes or service cells based on the operation type.</li>
+</ul>
+</li>
+<li><strong>Service Execution</strong>:
+<ul>
+<li>Service cells process the request and generate results.</li>
+</ul>
+</li>
+<li><strong>Response Delivery</strong>:
+<ul>
+<li>Results are sent back to the client via the DF.</li>
+</ul>
+</li>
+</ol>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-message-structure">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Messages" srcset="
+               /project/adsoa/resources/messages_hu10293064409756690935.webp 400w,
+               /project/adsoa/resources/messages_hu1144879389936451095.webp 760w,
+               /project/adsoa/resources/messages_hu100533258143585600.webp 1200w"
+               src="/project/adsoa/resources/messages_hu10293064409756690935.webp"
+               width="760"
+               height="374"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Message Structure
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<h3 id="improved-fault-tolerance">Improved Fault Tolerance</h3>
+<p>The enhancements introduced several mechanisms to improve the system&rsquo;s fault tolerance:</p>
+<ol>
+<li>
+<p><strong>Node Monitoring</strong>:</p>
+<ul>
+<li>Nodes continuously monitor each other for availability.</li>
+<li>If a node fails, other nodes take over its responsibilities seamlessly.</li>
+</ul>
+</li>
+<li>
+<p><strong>Service Redundancy</strong>:</p>
+<ul>
+<li>Multiple instances of the same service ensure continuous availability.</li>
+<li>Load balancing algorithms distribute requests evenly across service cells.</li>
+</ul>
+</li>
+<li>
+<p><strong>Message Duplication Prevention</strong>:</p>
+<ul>
+<li>Unique identifiers in message headers prevent duplicate processing.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p><strong>Advanced Graphical Interfaces</strong></p>
+<p>The graphical user interfaces were redesigned to provide better usability and system visibility:</p>
+<ol>
+<li>
+<p><strong>Client Interface</strong>:</p>
+<ul>
+<li>Clean, user-friendly design for submitting arithmetic operations.</li>
+<li>Displays results and logs of processed requests.</li>
+</ul>
+</li>
+<li>
+<p><strong>Node Monitor</strong>:</p>
+<ul>
+<li>Visualizes the status of all active nodes and their connections.</li>
+<li>Highlights failed nodes and provides recovery options.</li>
+</ul>
+</li>
+<li>
+<p><strong>Service Cell Dashboard</strong>:</p>
+<ul>
+<li>Lists available services and their current status.</li>
+<li>Displays real-time logs of processed messages.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cell Manager</strong>:</p>
+<ul>
+<li>Allows administrators to add, remove, or modify services dynamically.</li>
+<li>Provides detailed reports on service usage and performance.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="final-features-implemented">Final Features Implemented</h3>
+<ol>
+<li><strong>Dynamic DNA Injection</strong>
+This feature enables service cells to dynamically update their operational capabilities without requiring system downtime.</li>
+</ol>
+<ul>
+<li>
+<p><strong>How it Works</strong>:</p>
+<ul>
+<li>A specialized <strong>Cell Manager</strong> sends &ldquo;DNA injection&rdquo; messages through the Data Field (DF).</li>
+<li>Target cells receiving these messages add the specified services to their configurations dynamically.</li>
+<li>DNA injection is validated to ensure that only authorized updates are applied.</li>
+</ul>
+</li>
+<li>
+<p><strong>Benefits</strong>:</p>
+<ul>
+<li>Facilitates quick deployment of new services.</li>
+<li>Reduces system downtime by eliminating the need for manual updates.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-add-substraction-to-empty-cell">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Add" srcset="
+               /project/adsoa/resources/Cell-Manager-Add_hu13424414775554161261.webp 400w,
+               /project/adsoa/resources/Cell-Manager-Add_hu1718525446930953539.webp 760w,
+               /project/adsoa/resources/Cell-Manager-Add_hu12852328784275865057.webp 1200w"
+               src="/project/adsoa/resources/Cell-Manager-Add_hu13424414775554161261.webp"
+               width="619"
+               height="760"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Add Substraction to Empty Cell
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<ol start="2">
+<li><strong>Service Removal</strong>
+Just as services can be dynamically added, they can also be removed when no longer needed or to optimize performance.</li>
+</ol>
+<ul>
+<li>
+<p><strong>How it Works</strong>:</p>
+<ul>
+<li>The Cell Manager sends service removal messages specifying the conditions for deletion.</li>
+<li>Cells validate the conditions and remove the specified services accordingly.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Removing deprecated or outdated services.</li>
+<li>Optimizing resources by deactivating underused features.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-remove-multiplication-from-cell">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Remove" srcset="
+               /project/adsoa/resources/Cell-Manager-Remove_hu17228284976719088630.webp 400w,
+               /project/adsoa/resources/Cell-Manager-Remove_hu4082196763948485098.webp 760w,
+               /project/adsoa/resources/Cell-Manager-Remove_hu13960819733445930201.webp 1200w"
+               src="/project/adsoa/resources/Cell-Manager-Remove_hu17228284976719088630.webp"
+               width="586"
+               height="760"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Remove Multiplication from Cell
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<ol start="3">
+<li><strong>Mother Cell</strong>
+A &ldquo;Mother Cell&rdquo; was introduced as a central unit capable of replicating itself and acquiring any required service dynamically. This cell acts as a fallback mechanism to ensure system continuity.</li>
+</ol>
+<ul>
+<li>
+<p><strong>Key Capabilities</strong>:</p>
+<ul>
+<li>The ability to adopt any service requested by the DF.</li>
+<li>Automatic replication when system demand increases or redundancy is required.</li>
+</ul>
+</li>
+<li>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Acts as a backup for critical operations.</li>
+<li>Improves system reliability during peak usage.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol start="4">
+<li><strong>Improved Instance Management</strong>
+A new <strong>Instance Generator</strong> was developed to manage the lifecycle of service cells and nodes more effectively.</li>
+</ol>
+<ul>
+<li>
+<p><strong>Key Features</strong>:</p>
+<ul>
+<li>Dynamically instantiates service cells based on workload and service requests.</li>
+<li>Tracks active instances and provides options to scale up or down as needed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Technical Implementation</strong>:</p>
+<ul>
+<li>Java threads for efficient resource utilization.</li>
+<li>WebSockets for seamless communication with the DF.</li>
+</ul>
+</li>
+</ul>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-instance-management-interface">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Manager" srcset="
+               /project/adsoa/resources/manager_hu5395550012437617757.webp 400w,
+               /project/adsoa/resources/manager_hu6178825841328505310.webp 760w,
+               /project/adsoa/resources/manager_hu6130941237645189716.webp 1200w"
+               src="/project/adsoa/resources/manager_hu5395550012437617757.webp"
+               width="759"
+               height="572"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Instance Management Interface
+    </figcaption></figure>
+</p>
+</div>
+<hr>
+<p><strong>Advantages of the System</strong></p>
+<ol>
+<li>
+<p><strong>High Availability</strong>:</p>
+<ul>
+<li>With features like cloning, dynamic DNA injection, and Mother Cell capabilities, the system remains operational even under adverse conditions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Flexibility</strong>:</p>
+<ul>
+<li>Dynamic service addition and removal ensure the system can adapt to changing requirements.</li>
+</ul>
+</li>
+<li>
+<p><strong>Fault Tolerance</strong>:</p>
+<ul>
+<li>Redundancy and monitoring mechanisms minimize the impact of node or cell failures.</li>
+</ul>
+</li>
+<li>
+<p><strong>Scalability</strong>:</p>
+<ul>
+<li>The architecture supports the addition of unlimited nodes, cells, and clients, making it suitable for larger-scale deployments.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="final-version">Final Version</h2>
+<ol>
+<li><strong>Calculator Interface</strong>:
+<ul>
+<li>User-friendly design for performing arithmetic operations.</li>
+<li>Displays real-time results and operation logs.</li>
+</ul>
+</li>
+</ol>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-calculator-interface">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img src="resources/calculator%20interface.png" alt="Calculator" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Calculator Interface
+    </figcaption></figure>
+</p>
+</div>
+<ol start="2">
+<li><strong>Node Manager</strong>:
+<ul>
+<li>Visual representation of all active nodes and their statuses.</li>
+<li>Includes options to manually start, stop, or monitor nodes.</li>
+</ul>
+</li>
+</ol>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-node-interface">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img src="resources/node%20interface.png" alt="Node" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Node Interface
+    </figcaption></figure>
+</p>
+</div>
+<ol start="3">
+<li><strong>Cell Manager</strong>:
+<ul>
+<li>Lists all operational cells and their available services.</li>
+<li>Add and remove operations throught the parameters.</li>
+</ul>
+</li>
+</ol>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-cell-manager-interface">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img src="resources/celll%20manager.png" alt="Cell Manager" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Cell Manager Interface
+    </figcaption></figure>
+</p>
+</div>
+<ol start="4">
+<li><strong>Instance Manager</strong>:
+<ul>
+<li>Allows administrators to manage the lifecycle of service cells dynamically.</li>
+<li>Includes tools for scaling and optimizing resource usage.</li>
+</ul>
+</li>
+</ol>
+<div class="text-center">
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-manager-interface">
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="Manager" srcset="
+               /project/adsoa/resources/manager_hu5395550012437617757.webp 400w,
+               /project/adsoa/resources/manager_hu6178825841328505310.webp 760w,
+               /project/adsoa/resources/manager_hu6130941237645189716.webp 1200w"
+               src="/project/adsoa/resources/manager_hu5395550012437617757.webp"
+               width="759"
+               height="572"
+               loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Manager Interface
+    </figcaption></figure>
+</p>
+</div>
+<h3 id="demo-video">Demo video</h3>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+<video controls  >
+  <source src="/project/adsoa/resources/demo.mp4" type="video/mp4">
+</video>
+
+<hr>
+<h2 id="future-directions-and-enhancements">Future Directions and Enhancements</h2>
+<ol>
+<li>
+<p><strong>Integration with Other Architectures</strong>
+The system can be integrated with cloud platforms for improved scalability and resilience. Technologies like Kubernetes could manage nodes and cells as containers.</p>
+</li>
+<li>
+<p><strong>Advanced Service Capabilities</strong>
+The architecture can support more complex operations, such as:</p>
+</li>
+</ol>
+<ul>
+<li>Matrix calculations.</li>
+<li>Statistical functions.</li>
+<li>Graph plotting.</li>
+</ul>
+<ol start="3">
+<li><strong>Security Enhancements</strong>
+Future iterations could include:</li>
+</ol>
+<ul>
+<li>Encryption for secure communication between nodes and cells.</li>
+<li>Authentication mechanisms to restrict unauthorized access.</li>
+</ul>
+<ol start="4">
+<li><strong>Cross-Platform Support</strong>
+While the current implementation uses Java, the system could be adapted to other programming languages or frameworks to increase flexibility.</li>
+</ol>
+<hr>
+<h2 id="pdf-download-section">PDF Download Section</h2>
+<p>For a detailed explanation of the ADSOA Calculator Project, including diagrams, testing results, and implementation details, download the full PDF documentation here:</p>
+<p><a href="resources/Entrega final ADSOA.pdf" target="blank">
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9"/></svg>
+  </span> Download PDF Documentation</a></p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>The ADSOA Calculator Project successfully demonstrates the potential of distributed architectures in building scalable and fault-tolerant systems. By combining the principles of ADS and SOA, this project lays the groundwork for more complex applications in critical environments. The final system not only performs arithmetic operations efficiently but also provides a robust framework for future enhancements and applications.</p>
+
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2018-12-01T00:00:00.000Z">
+    <span>Last updated on</span>
+    Dec 1, 2018</time>
+
+      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+        
+        <div class="max-w-prose print:hidden">
+  
+  
+
+  
+
+<div class="flex justify-center">
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/projects/">Projects</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/architecture/">Architecture</a>
+  
+</div>
+
+
+  
+<section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://twitter.com/intent/tweet?url=http%3A%2F%2Flocalhost%3A1313%2Fproject%2Fadsoa%2F&amp;text=Calculator&#43;with&#43;Autonomous&#43;Decentralized&#43;Service-Oriented&#43;Architecture"
+    title="X"
+    aria-label="X"
+    id="share-link-x"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Flocalhost%3A1313%2Fproject%2Fadsoa%2F&amp;t=Calculator&#43;with&#43;Autonomous&#43;Decentralized&#43;Service-Oriented&#43;Architecture"
+    title="Facebook"
+    aria-label="Facebook"
+    id="share-link-facebook"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+    
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="mailto:?subject=Calculator%20with%20Autonomous%20Decentralized%20Service-Oriented%20Architecture&amp;body=http%3A%2F%2Flocalhost%3A1313%2Fproject%2Fadsoa%2F"
+    title="Email"
+    aria-label="Email"
+    id="share-link-email"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Flocalhost%3A1313%2Fproject%2Fadsoa%2F&amp;title=Calculator&#43;with&#43;Autonomous&#43;Decentralized&#43;Service-Oriented&#43;Architecture"
+    title="LinkedIn"
+    aria-label="LinkedIn"
+    id="share-link-linkedin"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="whatsapp://send?text=Calculator&#43;with&#43;Autonomous&#43;Decentralized&#43;Service-Oriented&#43;Architecture%20http%3A%2F%2Flocalhost%3A1313%2Fproject%2Fadsoa%2F"
+    title="WhatsApp"
+    aria-label="WhatsApp"
+    id="share-link-whatsapp"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m187.58 144.84-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40 88.1 88.1 0 0 0 88 88 40 40 0 0 0 40-40 8 8 0 0 0-4.42-7.16ZM152 176a72.08 72.08 0 0 1-72-72 24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51 56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74 23 11.48A24 24 0 0 1 152 176ZM128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24Zm0 192a87.87 87.87 0 0 1-44.06-11.81 8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216Z"/></svg>
+  </a>
+  
+</section>
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+
+<div class="flex pt-12 pb-4">
+  
+  
+  <img
+    class="mr-4 h-24 w-24 rounded-full"
+    width="96"
+    height="96"
+    alt="Andrei Noguera"
+  src="/author/andrei-noguera/avatar_hu7763003100627620888.jpeg"
+  loading="lazy"
+  />
+  
+  <div class="place-self-center">
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Authors
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      <a href="http://localhost:1313/" class="no-underline">
+      Andrei Noguera
+      </a>
+    </div>
+
+    
+    <div class="text-sm font-bold text-neutral-700 dark:text-neutral-300">
+    Data Scientist
+    </div>
+    
+
+
+    
+
+    <div class="text-2xl sm:text-lg pt-1">
+
+      
+<div class="flex flex-wrap text-neutral-500 dark:text-neutral-300">
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://github.com/Andnog"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/Github"
+    ><svg style="height: 1em;" fill="currentColor" viewBox="3 3 18 18"><path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="https://www.linkedin.com/in/andrei-ng/"
+      target="_blank" rel="noopener" rel="me noopener noreferrer"
+      aria-label="Brands/Linkedin"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+      
+      
+    
+<div class="pt-1 no-prose w-full">
+  <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+  <div class="flex flex-col md:flex-row flex-nowrap justify-between gap-5 pt-2">
+    <div class="">
+      
+        <a class="group flex no-underline" href="/project/research/">
+          <span
+            class="mt-[-0.3rem] me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline rtl:hidden">&larr;</span></span>
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico</span>
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                Sep 1, 2021
+              
+            </span>
+          </span>
+        </a>
+      
+    </div>
+    <div class="">
+      
+    </div>
+  </div>
+</div>
+
+
+
+  
+
+
+  
+
+
+
+</div>
+
+      </div>
+
+    </main>
+  </article>
+</div>
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2024. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
