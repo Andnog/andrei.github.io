@@ -18,7 +18,7 @@ In this tutorial, we’ll implement **Q-Learning**, a foundational reinforcement
 
 {{% callout note %}}
 
-**Complete Code:** [Taxi V3 full code](https://github.com/Andnog/Tutorials-Resources/blob/main/Reinforcement_learning/Q-Learning_Python/taxiv3.py)
+**Complete Code:** <a href="https://github.com/Andnog/Tutorials-Resources/blob/main/Reinforcement_learning/Q-Learning_Python/taxiv3.py" target="blank">Taxi V3 full code</a>
 
 {{%/ callout %}}
 
