@@ -7,7 +7,7 @@ tags:
 autors:
   - Andrei Noguera
 ---
-## Overview of the ADSOA Calculator Project
+## Overview
 
 The **ADSOA Calculator Project** is an implementation of the Autonomous Decentralized Service-Oriented Architecture (ADSOA) to create a system capable of handling arithmetic operations. The project is built to demonstrate the principles of distributed systems, fault tolerance, and service-oriented architecture, applying these to a simple yet robust calculator application.
 
@@ -42,7 +42,7 @@ ADSOA combines two key architectural paradigms:
 </div>
 
 {{% callout note %}}
-<a href="https://link.springer.com/chapter/10.1007/978-3-030-33749-0_15">Architecture Paper of ADSOA</a>
+<a href="https://link.springer.com/chapter/10.1007/978-3-030-33749-0_15" target="blank">Architecture Paper of ADSOA</a>
 {{%/ callout %}}
 
 ---
