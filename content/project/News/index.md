@@ -3,6 +3,7 @@ title: Automated News Analysis with GCP
 date: 2021-09-01
 tags:
   - Projects
+  - NLP
 autors:
   - Andrei Noguera
   - Miguel Bernal

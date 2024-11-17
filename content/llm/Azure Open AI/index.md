@@ -9,6 +9,7 @@ tags:
   - LLM
   - Azure Open AI
   - ChatGPT
+  - NLP
 image:
   caption: 'Azure Open AI'
 ---

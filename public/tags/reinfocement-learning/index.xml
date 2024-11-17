@@ -521,6 +521,12 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
       <guid>http://localhost:1313/reinforcement_learning/q-leaning-python/</guid>
       <description>&lt;h2 id=&#34;-introduction&#34;&gt;🚀 Introduction&lt;/h2&gt;
 &lt;p&gt;In this tutorial, we’ll implement &lt;strong&gt;Q-Learning&lt;/strong&gt;, a foundational reinforcement learning algorithm, in Python using the &lt;strong&gt;OpenAI Gym&lt;/strong&gt; library. Q-Learning is a popular method for training agents to make decisions in environments with discrete states and actions. Our agent will learn to maximize its rewards by exploring and exploiting different strategies over time.&lt;/p&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;&lt;strong&gt;Complete Code:&lt;/strong&gt;&lt;/span&gt;
+&lt;/div&gt;
 &lt;h3 id=&#34;what-is-q-learning&#34;&gt;What is Q-Learning?&lt;/h3&gt;
 &lt;p&gt;Q-Learning is a type of &lt;strong&gt;model-free, off-policy algorithm&lt;/strong&gt; that uses a &lt;strong&gt;Q-Table&lt;/strong&gt; to store information about the expected future rewards of different actions in each state. The agent updates this table iteratively based on the rewards it receives, gradually improving its understanding of which actions yield the highest rewards.&lt;/p&gt;
 &lt;p&gt;Q-Learning is ideal for discrete environments like OpenAI Gym’s &lt;strong&gt;Taxi-v3&lt;/strong&gt; environment, where an agent (the taxi) learns to navigate a grid, pick up passengers, and drop them off at specified locations. The algorithm’s simplicity and flexibility make it a great starting point for understanding reinforcement learning.&lt;/p&gt;
@@ -580,12 +586,6 @@ V(s) = \sum_{a \in A} \pi(a | s) \sum_{s&#39; \in S} P(s&#39; | s, a) \left[ R(s
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The agent’s goal is to maximize its cumulative reward by successfully completing pickup and drop-off tasks while minimizing penalties for illegal actions.&lt;/p&gt;
-&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-0&#34;&gt;
-  &lt;summary class=&#34;cursor-pointer&#34;&gt;Complete Code&lt;/summary&gt;
-  &lt;div class=&#34;rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2&#34;&gt;
-    Link:
-  &lt;/div&gt;
-&lt;/details&gt;
 &lt;p&gt;Let’s start by importing Gym and setting up our environment:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;gymnasium&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;gym&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
