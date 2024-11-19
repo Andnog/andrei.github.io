@@ -29,12 +29,20 @@ To develop a deep learning model capable of generating speeches, trained on data
 ### Deep Learning
 Deep learning is a subset of machine learning that utilizes neural networks with multiple layers to simulate human brain behavior. These networks are designed to process and analyze large datasets, enabling predictions and classifications.
 
-![DL](resources/deeplearning_chart.png)
+<div class="text-center">
+
+![DL](resources/deeplearning_chart.png "AI, ML & DL Diagram")
+
+</div>
 
 ### Transformers
 Transformers are neural network architectures that excel in sequence-to-sequence tasks, such as language translation, text generation, and speech-to-text transformation. Unlike recurrent neural networks (RNNs), transformers leverage self-attention mechanisms to identify contextual relationships between words, allowing for faster and more parallelizable computations.
 
-![Transformers](resources/transformers.png)
+<div class="text-center">
+
+![Transformers](resources/transformers.png "Transformer Architecture")
+
+</div>
 
 ---
 
@@ -64,7 +72,11 @@ The project followed the CRISP-DM methodology, consisting of:
 4. **Modeling**: Evaluating deep learning frameworks (`PyTorch`, `TensorFlow`) and using pretrained transformer models.
 5. **Evaluation**: Measuring model performance using metrics like loss and manual inspection of generated text.
 
-![Methodology](resources/CRISP-DM.png)
+<div class="text-center">
+
+![Methodology](resources/CRISP-DM.png "CRISP-DM Methodology Diagram")
+
+</div>
 
 ---
 
@@ -127,7 +139,11 @@ The **Discurselo** playground provides an interactive interface for generating s
 4. **Action Button**:
    - A single button (*"Generar Discurso"*) triggers the generation process, making it simple and intuitive for users.
 
-![Playground](resources/Playgroud.png)
+<div class="text-center">
+
+![Playground](resources/Playgroud.png "Web Playground")
+
+</div>
 
 ### Sample Outputs
 

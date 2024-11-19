@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security | Andrei Noguera</title>
+    <link>http://localhost:1313/tags/security/</link>
+      <atom:link href="http://localhost:1313/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <description>Security</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 May 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu14089566703181701121.png</url>
+      <title>Security</title>
+      <link>http://localhost:1313/tags/security/</link>
+    </image>
+    
+    <item>
+      <title>Secure Chat Application with Cryptography</title>
+      <link>http://localhost:1313/project/security-chat/</link>
+      <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/security-chat/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;Secure Chat Application&lt;/strong&gt; is an advanced messaging system built in Java, designed to demonstrate the practical application of cryptographic techniques in ensuring secure communication. The project includes a client-server architecture, a Public Key Infrastructure (PKI) for certificate and key management, and multiple encryption methods for message confidentiality, integrity, and authenticity.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;goals&#34;&gt;Goals&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Enable secure communication between users.&lt;/li&gt;
+&lt;li&gt;Implement cryptographic protocols to safeguard messages.&lt;/li&gt;
+&lt;li&gt;Develop a comprehensive PKI for managing public keys and digital certificates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;key-features-of-the-secure-chat-application&#34;&gt;Key Features of the Secure Chat Application&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Cryptographic Techniques
+The project implements the following encryption methods:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Plaintext Messages&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Messages sent without any encryption (for demonstration purposes only).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Symmetric Encryption&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizes a shared secret key to encrypt and decrypt messages.&lt;/li&gt;
+&lt;li&gt;Keys are exchanged securely using the PKI.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Asymmetric Encryption&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Messages are encrypted with the sender&amp;rsquo;s private key and decrypted using the recipient&amp;rsquo;s public key.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Digital Signatures&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensures message authenticity and integrity by hashing the message and encrypting the hash with the sender&amp;rsquo;s private key.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Digital Envelopes&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Combines symmetric encryption for message content and asymmetric encryption for the symmetric key.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Public Key Infrastructure (PKI)
+The PKI acts as the backbone for managing cryptographic keys and certificates. It includes:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Certificate Authority (CA)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Issues and manages digital certificates.&lt;/li&gt;
+&lt;li&gt;Associates public keys with user identities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Key Management&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stores and updates public/private key pairs.&lt;/li&gt;
+&lt;li&gt;Facilitates secure key exchanges between users.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Client Application
+The client application supports the following features:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;User Registration&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Registers user information along with their public/private key pairs.&lt;/li&gt;
+&lt;li&gt;Generates digital certificates for authentication.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Messaging&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sends and receives messages with options to select encryption levels.&lt;/li&gt;
+&lt;li&gt;Validates digital signatures and decrypts messages using appropriate methods.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Contact Management&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Allows users to add and manage contacts securely.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Session Initialization&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Uses a secure authentication protocol with two-factor authentication.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Server Component
+The central server manages client connections and facilitates secure communication. Its responsibilities include:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Storing and forwarding messages.&lt;/li&gt;
+&lt;li&gt;Maintaining user data and certificates.&lt;/li&gt;
+&lt;li&gt;Interfacing with the PKI for key retrieval and validation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;implementation-details&#34;&gt;Implementation Details&lt;/h2&gt;
+&lt;h3 id=&#34;technologies-used&#34;&gt;Technologies Used&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Programming Language&lt;/strong&gt;: Java.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Networking&lt;/strong&gt;: Sockets and threads for client-server communication.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Database&lt;/strong&gt;: Embedded databases for storing user credentials, messages, and certificates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;protocols-and-security-mechanisms&#34;&gt;Protocols and Security Mechanisms&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Authentication Protocol (PFS)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensures secure user authentication with two factors.&lt;/li&gt;
+&lt;li&gt;Prevents unauthorized access to the system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Message Structure&lt;/strong&gt;:
+Each message is an object containing:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Content code (indicates the type of service).&lt;/li&gt;
+&lt;li&gt;Sender and receiver identifiers.&lt;/li&gt;
+&lt;li&gt;Message content (encrypted or plain).&lt;/li&gt;
+&lt;li&gt;Event ID for tracking and validation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;cryptography-in-action&#34;&gt;Cryptography in Action&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Key Exchange&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Public/private key pairs are generated during user registration.&lt;/li&gt;
+&lt;li&gt;Keys are securely shared using the PKI.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Message Encryption&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Symmetric Encryption&lt;/strong&gt;: Fast and efficient for large messages.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Asymmetric Encryption&lt;/strong&gt;: Adds security for key exchange and digital signatures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Digital Signatures&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Ensures that the sender is authenticated.&lt;/li&gt;
+&lt;li&gt;Detects any tampering with the message content.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Digital Envelopes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Combines the speed of symmetric encryption with the security of asymmetric encryption.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;system-advantages&#34;&gt;System Advantages&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Security&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Messages are encrypted end-to-end.&lt;/li&gt;
+&lt;li&gt;PKI ensures authenticity and prevents key spoofing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Flexibility&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users can select the desired encryption level for each message.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Scalability&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Designed to support multiple clients and secure message exchanges simultaneously.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The &lt;strong&gt;Secure Chat Application&lt;/strong&gt; demonstrates the effective use of cryptographic principles in modern communication systems. By combining client-server architecture with advanced cryptographic techniques and a robust PKI, the project highlights the importance of encryption in protecting sensitive information. This application serves as a foundation for building even more secure and scalable messaging systems.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
