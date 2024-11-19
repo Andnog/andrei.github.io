@@ -1137,10 +1137,10 @@ Each message is an object containing:&lt;/p&gt;
 &lt;figure  id=&#34;figure-chat-interface&#34;&gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Chat Interface&#34; srcset=&#34;
-               /project/security-chat/resources/chat_2_hu13166477537207398698.webp 400w,
-               /project/security-chat/resources/chat_2_hu16692176948681299869.webp 760w,
+               /project/security-chat/resources/chat_2_hu14522937598662925373.webp 400w,
+               /project/security-chat/resources/chat_2_hu15587754032953365981.webp 760w,
                /project/security-chat/resources/chat_2_hu16916528555308137231.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/security-chat/resources/chat_2_hu13166477537207398698.webp&#34;
+               src=&#34;http://localhost:1313/project/security-chat/resources/chat_2_hu14522937598662925373.webp&#34;
                width=&#34;760&#34;
                height=&#34;393&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
