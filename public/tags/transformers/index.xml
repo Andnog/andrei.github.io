@@ -31,6 +31,7 @@
 &lt;h2 id=&#34;theoretical-framework&#34;&gt;Theoretical Framework&lt;/h2&gt;
 &lt;h3 id=&#34;deep-learning&#34;&gt;Deep Learning&lt;/h3&gt;
 &lt;p&gt;Deep learning is a subset of machine learning that utilizes neural networks with multiple layers to simulate human brain behavior. These networks are designed to process and analyze large datasets, enabling predictions and classifications.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
 &lt;p&gt;
 
 
@@ -47,7 +48,7 @@
 
 
 
-&lt;figure  &gt;
+&lt;figure  id=&#34;figure-ai-ml--dl-diagram&#34;&gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;DL&#34; srcset=&#34;
                /project/speech-generator/resources/deeplearning_chart_hu2373431881331503144.webp 400w,
@@ -57,10 +58,14 @@
                width=&#34;426&#34;
                height=&#34;412&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      AI, ML &amp;amp; DL Diagram
+    &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
+&lt;/div&gt;
 &lt;h3 id=&#34;transformers&#34;&gt;Transformers&lt;/h3&gt;
 &lt;p&gt;Transformers are neural network architectures that excel in sequence-to-sequence tasks, such as language translation, text generation, and speech-to-text transformation. Unlike recurrent neural networks (RNNs), transformers leverage self-attention mechanisms to identify contextual relationships between words, allowing for faster and more parallelizable computations.&lt;/p&gt;
+&lt;div class=&#34;text-center&#34;&gt;
 &lt;p&gt;
 
 
@@ -77,7 +82,7 @@
 
 
 
-&lt;figure  &gt;
+&lt;figure  id=&#34;figure-transformer-architecture&#34;&gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Transformers&#34; srcset=&#34;
                /project/speech-generator/resources/transformers_hu16626568564970676515.webp 400w,
@@ -87,8 +92,11 @@
                width=&#34;624&#34;
                height=&#34;760&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Transformer Architecture
+    &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
+&lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;business-case&#34;&gt;Business Case&lt;/h2&gt;
 &lt;p&gt;Natural Language Processing (NLP) is integral to Artificial Intelligence (AI), enabling machines to work with unstructured text data. Text generation, a challenging NLP application, has widespread utility in customer service (chatbots) and journalism (automated reporting). This project aimed to leverage transformers to create a tool capable of generating coherent speeches in Spanish, tailored to the dataset&amp;rsquo;s context.&lt;/p&gt;
@@ -110,6 +118,7 @@
 &lt;li&gt;&lt;strong&gt;Modeling&lt;/strong&gt;: Evaluating deep learning frameworks (&lt;code&gt;PyTorch&lt;/code&gt;, &lt;code&gt;TensorFlow&lt;/code&gt;) and using pretrained transformer models.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Evaluation&lt;/strong&gt;: Measuring model performance using metrics like loss and manual inspection of generated text.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
 &lt;p&gt;
 
 
@@ -126,7 +135,7 @@
 
 
 
-&lt;figure  &gt;
+&lt;figure  id=&#34;figure-crisp-dm-methodology-diagram&#34;&gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Methodology&#34; srcset=&#34;
                /project/speech-generator/resources/CRISP-DM_hu12083214195692133757.webp 400w,
@@ -136,8 +145,11 @@
                width=&#34;555&#34;
                height=&#34;550&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      CRISP-DM Methodology Diagram
+    &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
+&lt;/div&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;models-implemented&#34;&gt;Models Implemented&lt;/h2&gt;
 &lt;h3 id=&#34;model-1-pytorch&#34;&gt;Model 1: PyTorch&lt;/h3&gt;
@@ -204,6 +216,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;div class=&#34;text-center&#34;&gt;
 &lt;p&gt;
 
 
@@ -220,7 +233,7 @@
 
 
 
-&lt;figure  &gt;
+&lt;figure  id=&#34;figure-web-playground&#34;&gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Playground&#34; srcset=&#34;
                /project/speech-generator/resources/Playgroud_hu14645128099872404743.webp 400w,
@@ -230,8 +243,11 @@
                width=&#34;760&#34;
                height=&#34;395&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Web Playground
+    &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
+&lt;/div&gt;
 &lt;h3 id=&#34;sample-outputs&#34;&gt;Sample Outputs&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Prompt&lt;/strong&gt;: &amp;ldquo;El grave problema de inseguridad de México es&amp;rdquo;&lt;/li&gt;
