@@ -2,8 +2,8 @@
 title: Secure Chat Application with Cryptography
 date: 2019-05-01
 tags:
+  - Cybersecurity
   - Projects
-  - Security
 autors:
   - Andrei Noguera
 ---

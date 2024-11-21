@@ -2,9 +2,9 @@
 title: Speech Generator with Transformers
 date: 2021-12-01
 tags:
-  - Projects
-  - NLP
   - Transformers
+  - NLP
+  - Projects
 autors:
   - Andrei Noguera
   - Miguel Bernal

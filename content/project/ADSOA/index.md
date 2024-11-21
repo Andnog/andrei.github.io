@@ -2,8 +2,8 @@
 title: Calculator with Autonomous Decentralized Service-Oriented Architecture
 date: 2018-12-01
 tags:
+  - Software Architecture
   - Projects
-  - Architecture
 autors:
   - Andrei Noguera
 ---
