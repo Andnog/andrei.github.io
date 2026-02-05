@@ -5,12 +5,291 @@
     <link>http://localhost:1313/project/</link>
       <atom:link href="http://localhost:1313/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:1313/media/icon_hu14089566703181701121.png</url>
       <title>Projects</title>
       <link>http://localhost:1313/project/</link>
     </image>
+    
+    <item>
+      <title>Labor Concilation Chatbot</title>
+      <link>http://localhost:1313/project/chatbot-labor/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/chatbot-labor/</guid>
+      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
+&lt;p&gt;This project showcases the development of a chatbot designed to assist users with labor-related queries, including conciliation processes, workers&amp;rsquo; rights, employer responsibilities, and conciliator training. It was developed in &lt;strong&gt;two phases&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Phase 1&lt;/strong&gt;: A traditional chatbot utilizing cosine similarity for response generation and a static menu structure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phase 2&lt;/strong&gt;: A sophisticated solution leveraging local large language models (LLMs), retrieval-augmented generation (RAG), and ChromaDB for advanced conversational capabilities.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;objectives&#34;&gt;Objectives&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Create an intuitive and interactive chatbot for labor information.&lt;/li&gt;
+&lt;li&gt;Compare traditional and modern chatbot development approaches.&lt;/li&gt;
+&lt;li&gt;Demonstrate the practical use of local LLMs in a retrieval-augmented framework.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;traditional-chatbot-with-cosine-similarity&#34;&gt;Traditional Chatbot with Cosine Similarity&lt;/h2&gt;
+&lt;p&gt;The first phase implements a chatbot using cosine similarity and a static menu-driven structure. The goal was to provide a foundational chatbot that could match user queries to predefined patterns using vector similarity.&lt;/p&gt;
+&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Static Menu Navigation&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Users navigate through predefined categories to select questions.&lt;/li&gt;
+&lt;li&gt;Categories include labor conciliation, workers&amp;rsquo; rights, employer responsibilities, and conciliator training.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cosine Similarity Matching&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SpaCy’s &lt;code&gt;es_core_news_sm&lt;/code&gt; model processes and embeds query patterns as vectors.&lt;/li&gt;
+&lt;li&gt;User input is cleaned, embedded into a vector, and compared with the dataset using cosine similarity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Threshold-Based Responses&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Only patterns with similarity scores above a certain threshold are considered valid.&lt;/li&gt;
+&lt;li&gt;If no match is found, the user is notified to refine their query.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Gradio-Based Interface&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A user-friendly browser interface facilitates chatbot interaction.&lt;/li&gt;
+&lt;li&gt;Includes options to clear conversation history and reset navigation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;technology-stack&#34;&gt;Technology Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Python Libraries&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nltk&lt;/code&gt;, &lt;code&gt;spacy&lt;/code&gt;, and &lt;code&gt;numpy&lt;/code&gt; for natural language processing.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pandas&lt;/code&gt; for managing the dataset.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Gradio&lt;/code&gt; for the chatbot interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;limitations&#34;&gt;Limitations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rigid Structure&lt;/strong&gt;: The menu-driven navigation can be cumbersome for users.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dependency on Predefined Patterns&lt;/strong&gt;: Matching accuracy depends on the completeness and quality of the dataset.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Limited Context Understanding&lt;/strong&gt;: The chatbot cannot handle conversational queries or multi-turn interactions effectively.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-chatbot-with-cosine-similarity&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Chat Interface&#34; srcset=&#34;
+               /project/chatbot-labor/resources/chatbot_1_hu1845087552925616499.webp 400w,
+               /project/chatbot-labor/resources/chatbot_1_hu12406454739983322329.webp 760w,
+               /project/chatbot-labor/resources/chatbot_1_hu12527776035029760045.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/chatbot-labor/resources/chatbot_1_hu1845087552925616499.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Chatbot with Cosine Similarity
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;advanced-chatbot-with-local-llms-and-rag&#34;&gt;Advanced Chatbot with Local LLMs and RAG&lt;/h2&gt;
+&lt;p&gt;The second phase focuses on modernizing the chatbot by incorporating advanced NLP techniques, including retrieval-augmented generation (RAG) and locally deployed large language models (LLMs).&lt;/p&gt;
+&lt;h3 id=&#34;key-features-1&#34;&gt;Key Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Local LLMs&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Models &lt;code&gt;phi3.5&lt;/code&gt; and &lt;code&gt;llama3.2&lt;/code&gt; are deployed locally using &lt;strong&gt;Ollama&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Inference is performed using an &lt;strong&gt;NVIDIA GTX 1070 GPU (8 GB VRAM)&lt;/strong&gt; for efficient local processing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Retrieval-Augmented Generation (RAG)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Integrates ChromaDB to store and retrieve relevant knowledge based on user input.&lt;/li&gt;
+&lt;li&gt;Enhances the LLM’s ability to generate precise, contextually relevant responses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ChromaDB Vector Store&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stores vector embeddings of labor-related data using &lt;code&gt;OllamaEmbeddings&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Enables fast and accurate retrieval of context during queries.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;LangChain Integration&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Manages conversational chains with memory capabilities, ensuring the chatbot can handle multi-turn interactions.&lt;/li&gt;
+&lt;li&gt;Uses &lt;strong&gt;ConversationBufferMemory&lt;/strong&gt; to maintain the flow of the conversation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prompt Engineering&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Custom prompts enforce concise, professional, and contextually relevant responses.&lt;/li&gt;
+&lt;li&gt;The chatbot focuses on labor information and avoids irrelevant or ambiguous answers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Gradio Interface&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A modern, visually appealing user interface supports conversational interactions.&lt;/li&gt;
+&lt;li&gt;Dynamic features such as retry, undo, and clear enhance usability.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;embedded-information-for-rag&#34;&gt;Embedded Information for RAG&lt;/h2&gt;
+&lt;p&gt;As part of the &lt;strong&gt;RAG (Retrieval-Augmented Generation)&lt;/strong&gt; implementation, labor-related data was embedded into &lt;strong&gt;ChromaDB&lt;/strong&gt; for efficient retrieval. Below are examples of the embedded information used in the chatbot:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;Category: La Conciliación Laboral&lt;/h3&gt;
+&lt;b&gt;Question:&lt;/b&gt; ¿Dónde puedo recibir asesoría legal gratuita sobre mis derechos en casos de conflicto laboral?
+&lt;b&gt;Answer:&lt;/b&gt; Las conciliaciones locales deben brindar asesoría legal gratuita a quienes busquen orientación sobre sus derechos en casos de conflicto laboral. Para comenzar tu trámite, acércate a tu Centro de Conciliación para que te expliquen a detalle y presenta la solicitud.&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Question:&lt;/b&gt; ¿Cuándo se acude a la audiencia de conciliación?
+&lt;b&gt;Answer:&lt;/b&gt; La Reforma Laboral exige que trabajadores y empleadores acudan a una audiencia de conciliación antes de iniciar algún juicio ante los Tribunales Laborales. La conciliación se hace antes de ir a juicio; es un proceso gratuito, imparcial, y confidencial.&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Question:&lt;/b&gt; ¿Qué debo hacer para iniciar el trámite de conciliación?
+&lt;b&gt;Answer:&lt;/b&gt; Las conciliaciones locales ...
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;technology-stack-1&#34;&gt;Technology Stack&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Python Libraries&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;langchain&lt;/code&gt; for chain management and memory handling.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Chroma&lt;/code&gt; for vector storage and retrieval.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;OllamaEmbeddings&lt;/code&gt; for creating vector embeddings.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Gradio&lt;/code&gt; for the chatbot interface.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;advantages&#34;&gt;Advantages&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Context-Aware Responses&lt;/strong&gt;: The chatbot dynamically retrieves relevant context and generates accurate responses.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scalability&lt;/strong&gt;: New knowledge can be easily added to the vector store.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sophistication&lt;/strong&gt;: The chatbot adapts to complex queries and handles multi-turn conversations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;text-center&#34;&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-chatbot-with-rag-and-llm&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Chat Interface&#34; srcset=&#34;
+               /project/chatbot-labor/resources/chatbot_2_hu6639230350865969708.webp 400w,
+               /project/chatbot-labor/resources/chatbot_2_hu6513916970832106916.webp 760w,
+               /project/chatbot-labor/resources/chatbot_2_hu1970816489121974614.webp 1200w&#34;
+               src=&#34;http://localhost:1313/project/chatbot-labor/resources/chatbot_2_hu6639230350865969708.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;705&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Chatbot with RAG and LLM
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;comparison&#34;&gt;Comparison&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Feature&lt;/th&gt;
+          &lt;th&gt;Cosine Similarity&lt;/th&gt;
+          &lt;th&gt;Advanced LLM with RAG&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Architecture&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Traditional menu-driven design&lt;/td&gt;
+          &lt;td&gt;Modern retrieval-augmented model&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Response Generation&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Cosine similarity-based matching&lt;/td&gt;
+          &lt;td&gt;Contextual generation using LLMs&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Technology&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Static embeddings with SpaCy&lt;/td&gt;
+          &lt;td&gt;Dynamic embeddings with ChromaDB&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Interface&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Basic Gradio interface&lt;/td&gt;
+          &lt;td&gt;Advanced Gradio with memory and controls&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Scalability&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Limited to predefined patterns&lt;/td&gt;
+          &lt;td&gt;Easily scalable with new data and context&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Flexibility&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Rigid navigation and responses&lt;/td&gt;
+          &lt;td&gt;Dynamic, context-aware interaction&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Hardware Requirements&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Minimal (CPU)&lt;/td&gt;
+          &lt;td&gt;GPU for LLM inference&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;results-and-insights&#34;&gt;Results and Insights&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Cosine Similarity&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Provides a simple, lightweight chatbot with basic functionality.&lt;/li&gt;
+&lt;li&gt;Suitable for straightforward applications with predefined datasets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Advanced LLM with RAG&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Offers a sophisticated, context-aware chatbot capable of handling complex queries.&lt;/li&gt;
+&lt;li&gt;Suitable for advance applications with user friendly experience.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This project demonstrates the evolution of chatbot technology, highlighting the shift from traditional static methods to advanced conversational AI using local LLMs and RAG. The comparison between the two phases illustrates the benefits and trade-offs of each approach, providing a blueprint for future chatbot development in labor information and other domains.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Github</title>
@@ -301,279 +580,6 @@ Hoy, se encuentra con la búsqueda de la gente, pues llegamos a los nuevos derec
 &lt;li&gt;Create topic-specific models to improve contextual relevance.&lt;/li&gt;
 &lt;li&gt;Experiment with multilingual datasets for broader applicability.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;colaborations&#34;&gt;Colaborations&lt;/h3&gt;
-&lt;p&gt;This project is a colaboration with Miguel Ángel Bernal&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Automated News Analysis with GCP</title>
-      <link>http://localhost:1313/project/chatbot-labor/</link>
-      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/project/chatbot-labor/</guid>
-      <description>&lt;h2 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h2&gt;
-&lt;p&gt;This project, developed as a part of the &amp;ldquo;Cloud Computing&amp;rdquo; course in the Master&amp;rsquo;s in Data Science program, demonstrates an automated news analysis system using various Google Cloud Platform (GCP) services. The objective was to create a scalable, serverless solution for extracting, processing, and analyzing news articles from popular media outlets.&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;summary&#34; srcset=&#34;
-               /project/chatbot-labor/resources/SUMMARY_hu12549796095115031286.webp 400w,
-               /project/chatbot-labor/resources/SUMMARY_hu15405875428751627949.webp 760w,
-               /project/chatbot-labor/resources/SUMMARY_hu10514249569512975497.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/chatbot-labor/resources/SUMMARY_hu12549796095115031286.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;282&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h3 id=&#34;goals&#34;&gt;Goals&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Implement a cloud-based solution for a real-world problem.&lt;/li&gt;
-&lt;li&gt;Develop a data science project deployable on the cloud.&lt;/li&gt;
-&lt;li&gt;Utilize Google Cloud Platform tools to streamline the process.&lt;/li&gt;
-&lt;li&gt;Propose an innovative solution that could benefit companies needing media monitoring.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;business-use-case&#34;&gt;Business Use Case&lt;/h3&gt;
-&lt;p&gt;Many organizations rely on press monitoring services to track relevant news about their sector, evaluate brand presence, and adjust communication strategies. Despite the availability of electronic solutions, many still depend on manual methods, leading to time and resource inefficiencies.&lt;/p&gt;
-&lt;h3 id=&#34;solution-requirements&#34;&gt;Solution Requirements&lt;/h3&gt;
-&lt;p&gt;The solution needed to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Extract HTML and XML files from news sites.&lt;/li&gt;
-&lt;li&gt;Automate processes using Google Cloud Platform.&lt;/li&gt;
-&lt;li&gt;Perform text extraction, cleaning, and storage in a structured database.&lt;/li&gt;
-&lt;li&gt;Implement Natural Language Processing (NLP) techniques to identify and analyze key entities.&lt;/li&gt;
-&lt;li&gt;Visualize the insights on a user-friendly dashboard.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;gcp-tools-utilized&#34;&gt;GCP Tools Utilized&lt;/h2&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
-               /project/chatbot-labor/resources/techs_used_hu3207473179810059638.webp 400w,
-               /project/chatbot-labor/resources/techs_used_hu11090296454670846713.webp 760w,
-               /project/chatbot-labor/resources/techs_used_hu13988790560792156940.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/chatbot-labor/resources/techs_used_hu3207473179810059638.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;341&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Cloud Scheduler&lt;/strong&gt;: Schedules tasks to initiate news extraction twice daily.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cloud Functions&lt;/strong&gt;: Runs serverless code to extract headlines, publish dates, links, and full text.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cloud Pub/Sub&lt;/strong&gt;: Manages messaging between services, ensuring that extracted data flows smoothly through each stage.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cloud Storage&lt;/strong&gt;: Stores the raw HTML content for historical and backup purposes.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BigQuery&lt;/strong&gt;: Acts as the structured data warehouse for processed news data.&lt;/li&gt;
-&lt;li&gt;**Looker **: Creates an interactive dashboard for visualizing analysis results.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Google Kubernetes Engine (GKE)&lt;/strong&gt;: Runs NLP models for entity recognition and text analysis.
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;:  Used to containerize the application, ensuring consistency and portability.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cloud Run&lt;/strong&gt;: Deploys serverless containers for additional NLP tasks.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cloud Logging&lt;/strong&gt;: Monitors service performance and logs events for troubleshooting.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;data-science-workflow&#34;&gt;Data Science Workflow&lt;/h2&gt;
-&lt;p&gt;The data science model focuses on processing raw news text to identify essential information. Key techniques include:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Tokenization and Normalization&lt;/strong&gt;: Prepares text for analysis.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Frequency Analysis&lt;/strong&gt;: Highlights recurring terms.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;N-grams Analysis&lt;/strong&gt;: Uses unigrams, bigrams, trigrams, and quadrigrams for text insights with NLTK.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Named Entity Recognition (NER)&lt;/strong&gt;: Identifies named entities such as people, places, and organizations using spaCy.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The results of these analyses are stored in BigQuery for structured, queryable storage, and later visualized in Looker Studio.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;data-schema&#34;&gt;Data Schema&lt;/h2&gt;
-&lt;h3 id=&#34;key-tables&#34;&gt;Key Tables&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Notes Table&lt;/strong&gt;: Stores metadata and processed content for each news article.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Frequency Table&lt;/strong&gt;: Tracks the frequency of each word in the processed content.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;N-grams Table&lt;/strong&gt;: Stores n-gram counts for further analysis.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NER Table&lt;/strong&gt;: Contains recognized entities (e.g., persons, places, organizations) with occurrence counts.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;tech used&#34; srcset=&#34;
-               /project/chatbot-labor/resources/DatabaseTables_hu4798455910153866583.webp 400w,
-               /project/chatbot-labor/resources/DatabaseTables_hu11442089575251380754.webp 760w,
-               /project/chatbot-labor/resources/DatabaseTables_hu6677739929682999115.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/chatbot-labor/resources/DatabaseTables_hu4798455910153866583.webp&#34;
-               width=&#34;621&#34;
-               height=&#34;301&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;architecture-and-workflow&#34;&gt;Architecture and Workflow&lt;/h2&gt;
-&lt;p&gt;The system architecture is designed to be fully decoupled, serverless, and scalable. The core workflows are:&lt;/p&gt;
-&lt;h3 id=&#34;workflow-1-news-extraction&#34;&gt;Workflow 1: News Extraction&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Cloud Scheduler triggers news extraction at specific intervals.&lt;/li&gt;
-&lt;li&gt;Cloud Functions extract key details (title, date, link) from each news source.&lt;/li&gt;
-&lt;li&gt;Extracted data is preprocessed and stored in Cloud Storage and BigQuery.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;workflow-2-news-analysis&#34;&gt;Workflow 2: News Analysis&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;Cloud Scheduler triggers NLP analysis at scheduled times.&lt;/li&gt;
-&lt;li&gt;The NLP model processes each article, performing frequency analysis and entity recognition.&lt;/li&gt;
-&lt;li&gt;The results are stored in BigQuery and visualized in Looker Studio.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Project Flow&#34; srcset=&#34;
-               /project/chatbot-labor/resources/ProjectFlow_hu9113544765233447762.webp 400w,
-               /project/chatbot-labor/resources/ProjectFlow_hu14180865519119572243.webp 760w,
-               /project/chatbot-labor/resources/ProjectFlow_hu17822350382704724148.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/chatbot-labor/resources/ProjectFlow_hu9113544765233447762.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;174&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h3 id=&#34;architecture-diagram&#34;&gt;Architecture Diagram&lt;/h3&gt;
-&lt;p&gt;The architecture includes Cloud Functions for individual tasks, Pub/Sub for message passing, BigQuery for data storage, and Looker Studio for the dashboard, enabling easy monitoring and analysis.&lt;/p&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Architecture Diagram&#34; srcset=&#34;
-               /project/chatbot-labor/resources/achitecture_hu13726830871476572889.webp 400w,
-               /project/chatbot-labor/resources/achitecture_hu12699138953719192983.webp 760w,
-               /project/chatbot-labor/resources/achitecture_hu8169087343203014867.webp 1200w&#34;
-               src=&#34;http://localhost:1313/project/chatbot-labor/resources/achitecture_hu13726830871476572889.webp&#34;
-               width=&#34;760&#34;
-               height=&#34;432&#34;
-               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;dashboard&#34;&gt;Dashboard&lt;/h2&gt;
-&lt;p&gt;A Looker Studio dashboard was set up to present the analysis results. Key features include:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Page 1&lt;/strong&gt;: Overview of collected news with filters by source, date, and keywords.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Page 2&lt;/strong&gt;: Word frequency and n-grams analysis.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Page 3&lt;/strong&gt;: Advanced n-grams and word cloud visualizations.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Page 4&lt;/strong&gt;: Named Entity Recognition (NER) analysis, including breakdowns by persons, places, and organizations.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;figure  &gt;
-  &lt;div class=&#34;flex justify-center	&#34;&gt;
-    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;resources/Looker%20Studio.png&#34; alt=&#34;Looker Studio&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
-  &lt;/div&gt;&lt;/figure&gt;
-&lt;/p&gt;
-&lt;h3 id=&#34;pdf-example-report&#34;&gt;PDF Example Report&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;resources/Report_Dashboard.pdf&#34; target=&#34;blank&#34;&gt;
-  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
-    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9&#34;/&gt;&lt;/svg&gt;
-  &lt;/span&gt; Dashboard Report PDF&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This cloud-based solution for news analysis offers:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Speed&lt;/strong&gt;: Efficiently automates tasks with minimal latency.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reliability&lt;/strong&gt;: Scheduled jobs ensure consistent performance.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cost-Effectiveness&lt;/strong&gt;: Serverless infrastructure reduces costs.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Usability&lt;/strong&gt;: Provides actionable insights through data-driven visualizations.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;future-improvements&#34;&gt;Future Improvements&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Integrating additional media sources for broader coverage.&lt;/li&gt;
-&lt;li&gt;Expanding the NLP model to analyze more variables.&lt;/li&gt;
-&lt;li&gt;Enhancing indexing and database relationships for richer analysis.&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h3 id=&#34;colaborations&#34;&gt;Colaborations&lt;/h3&gt;
 &lt;p&gt;This project is a colaboration with Miguel Ángel Bernal&lt;/p&gt;
 </description>

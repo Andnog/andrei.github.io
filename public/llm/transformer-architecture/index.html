@@ -1,0 +1,2891 @@
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: February 5, 2026 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="generator" content="Hugo Blox Builder 0.2.0" />
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Andrei Noguera" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Understanding the transformer architecture from scratch" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/llm/transformer-architecture/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/emerald.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+    
+    <link href="/css/custom.min.a22b6f6167abd6bd5246f9e3878a595effffe6cac9db5fd9c2671d9d7dd38d26.css" rel="stylesheet" />
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu2973964795487018635.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu13746399112698998448.png" />
+
+  <link rel="canonical" href="http://localhost:1313/llm/transformer-architecture/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Andrei Noguera" />
+  <meta property="og:url" content="http://localhost:1313/llm/transformer-architecture/" />
+  <meta property="og:title" content="Transformer Architecture | Andrei Noguera" />
+  <meta property="og:description" content="Understanding the transformer architecture from scratch" /><meta property="og:image" content="http://localhost:1313/llm/transformer-architecture/featured.png" />
+    <meta property="twitter:image" content="http://localhost:1313/llm/transformer-architecture/featured.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2026-02-01T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2026-02-01T00:00:00&#43;00:00">
+  
+
+  
+
+
+
+  
+
+
+  <title>Transformer Architecture | Andrei Noguera</title>
+
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let element = document.getElementById('search');
+    let trigger = document.getElementById('search_toggle');
+
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        element.classList.toggle('hidden');
+        element.querySelector("input").value = ""
+        element.querySelector("input").focus()
+
+        if (!element.classList.contains('hidden')) {
+          let clear_trigger = document.querySelector('.pagefind-ui__search-clear');
+
+          if (clear_trigger && !clear_trigger.hasAttribute('listenerOnClick')) {
+            clear_trigger.setAttribute('listenerOnClick', 'true');
+
+            clear_trigger.addEventListener('click', () => {
+              element.classList.toggle('hidden');
+            });
+          }
+        }
+
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link type="text/css" rel="stylesheet" href="/dist/lib/katex/katex.min.505d5f829022bb7b4f24dfee0aa1141cd7bba67afe411d1240335f820960b5c3.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr&#43;QR0SQDNfgglgtcM=" />
+  
+  
+  <script defer src="/dist/lib/katex/katex.min.dc84b296ec3e884de093158f760fd9d45b6c7abe58b5381557f4e138f46a58ae.js" integrity="sha256-3ISyluw&#43;iE3gkxWPdg/Z1Ftser5YtTgVV/ThOPRqWK4="></script>
+  
+  
+  
+  
+  <script defer src="/js/katex-renderer.6579ec9683211cfb952064aedf3a3baea5eeb17a061775b32b70917474637c80.js" integrity="sha256-ZXnsloMhHPuVIGSu3zo7rqXusXoGF3WzK3CRdHRjfIA="></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.js"
+    integrity=""
+  ></script>
+
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+      
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+      
+    
+  
+
+
+
+
+</head>
+
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
+        
+        
+        
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="Andrei Noguera">
+        Andrei N
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
+
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Bio</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/experience/"
+        >Experience</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/certificates/"
+        >Certificates</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/skills/"
+        >Skills &amp; Tools</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/projects/"
+        >Projects</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/teaching/"
+        >Tutorials</a
+        >
+      </li>
+      
+      
+      
+    </ul>
+
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
+
+      
+      
+      
+      <button
+        aria-label="search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        id="search_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+      </button>
+      
+
+      
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+
+      
+      
+
+      
+      
+    </div>
+  </nav>
+</header>
+
+
+<div id="search" class="hidden p-3"></div>
+
+
+        
+      
+    </div>
+    <div class="page-body  my-10">
+      <div class="mx-auto flex max-w-screen-xl">
+  
+
+  
+  <div class="hb-sidebar-mobile-menu fixed inset-0 z-10 bg-white dark:bg-black/80 hidden"></div>
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:sticky">
+  
+  <div class="px-4 pt-4 lg:hidden">
+    
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/"
+    
+  >Recent &amp; Upcoming Talks
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/event/example/"
+    
+  >Example Talk
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/"
+    
+  >Llms
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/azure-open-ai/"
+    
+  >Introduction to Azure OpenAI
+    </a>
+              
+            </li><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/llm/transformer-architecture/"
+    
+  >Transformer Architecture
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#-general-description"
+                class="hb-docs-link"
+              >📝 General Description</a>
+            </li>
+          <li>
+              <a
+                href="#-what-is-a-transformer"
+                class="hb-docs-link"
+              >🤖 What is a Transformer?</a>
+            </li>
+          <li>
+              <a
+                href="#-embeddings--positional-encoding"
+                class="hb-docs-link"
+              >📚 Embeddings &amp;amp; Positional Encoding</a>
+            </li>
+          <li>
+              <a
+                href="#-the-self-attention-mechanism"
+                class="hb-docs-link"
+              >🧠 The Self-Attention Mechanism</a>
+            </li>
+          <li>
+              <a
+                href="#-multi-head-attention"
+                class="hb-docs-link"
+              >🐙 Multi-Head Attention</a>
+            </li>
+          <li>
+              <a
+                href="#-feed-forward-networks-ffn"
+                class="hb-docs-link"
+              >🏗️ Feed-Forward Networks (FFN)</a>
+            </li>
+          <li>
+              <a
+                href="#-layer-normalization"
+                class="hb-docs-link"
+              >⚖️ Layer Normalization</a>
+            </li>
+          <li>
+              <a
+                href="#-residual-connections-add--norm"
+                class="hb-docs-link"
+              >➕ Residual Connections (Add &amp;amp; Norm)</a>
+            </li>
+          <li>
+              <a
+                href="#-the-transformer-block-putting-it-together"
+                class="hb-docs-link"
+              >🧱 The Transformer Block: Putting it Together</a>
+            </li>
+          <li>
+              <a
+                href="#-the-architecture-encoder-vs-decoder"
+                class="hb-docs-link"
+              >🏛️ The Architecture: Encoder vs. Decoder</a>
+            </li>
+          <li>
+              <a
+                href="#-the-secret-of-the-decoder-masked-attention"
+                class="hb-docs-link"
+              >🎭 The Secret of the Decoder: Masked Attention</a>
+            </li>
+          <li>
+              <a
+                href="#-encoder-decoder-attention-the-bridge"
+                class="hb-docs-link"
+              >🔗 Encoder-Decoder Attention (The Bridge)</a>
+            </li>
+          <li>
+              <a
+                href="#-the-final-step-from-math-to-words"
+                class="hb-docs-link"
+              >🚀 The Final Step: From Math to Words</a>
+            </li>
+          <li>
+              <a
+                href="#-example-of-text-generation"
+                class="hb-docs-link"
+              >💬 Example of text generation</a>
+            </li>
+          <li>
+              <a
+                href="#-resources"
+                class="hb-docs-link"
+              >📘 Resources</a>
+            </li>
+          </ul>
+  
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/prompt-engineering/"
+    
+  >Prompt Engineering
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/"
+    
+  >Reinforcement_learnings
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/intro/"
+    
+  >Foundations and Key Concepts
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/reinforcement_learning/q-leaning-python/"
+    
+  > Q-Learning in Python
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/chatbot-labor/"
+    
+  >Labor Concilation Chatbot
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/github/"
+    
+  >Github
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/speech-generator/"
+    
+  >Speech Generator with Transformers
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/news/"
+    
+  >Automated News Analysis with GCP
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/research/"
+    
+  >Sentiment Analysis on Twitter About COVID-19 Vaccination in Mexico
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/security-chat/"
+    
+  >Secure Chat Application with Cryptography
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/adsoa/"
+    
+  >Calculator with Autonomous Decentralized Service-Oriented Architecture
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/certificates/"
+    
+  >Certificates
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/experience/"
+    
+  >Experience
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/skills/"
+    
+  >Skills and Tools
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/projects/"
+    
+  >Projects
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Blog
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/get-started/"
+    
+  >🎉 Easily create your own simple yet highly customizable blog
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/second-brain/"
+    
+  >🧠 Sharpen your thinking with a second brain
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/data-visualization/"
+    
+  >📈 Communicate your results effectively with the best data visualizations
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/teach-courses/"
+    
+  >👩🏼‍🏫 Teach academic courses
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/project-management/"
+    
+  >✅ Manage your projects
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/"
+    
+  >Publications
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/preprint/"
+    
+  >An example preprint / working paper
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/journal-article/"
+    
+  >An example journal article
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/publication/conference-paper/"
+    
+  >An example conference paper
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/admin/"
+    
+  >
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/teaching/"
+    
+  >Tutorials
+    </a></li>
+    </ul>
+
+    <ul class="flex flex-col gap-1 max-lg:hidden">
+        
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/azure-open-ai/"
+    
+  >Introduction to Azure OpenAI
+    </a></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/llm/transformer-architecture/"
+    
+  >Transformer Architecture
+    </a></li>
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/llm/prompt-engineering/"
+    
+  >Prompt Engineering
+    </a></li>
+        
+      </ul>
+    </div>
+
+</aside>
+  
+
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-general-description">📝 General Description</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-what-is-a-transformer">🤖 What is a Transformer?</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-general-structure">🛠️ General Structure</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-embeddings--positional-encoding">📚 Embeddings &amp; Positional Encoding</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#input-embeddings">Input Embeddings</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#positional-encoding">Positional Encoding</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-practical-demo">💻 Practical Demo</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-the-self-attention-mechanism">🧠 The Self-Attention Mechanism</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#what-is-self-attention">What is Self-Attention?</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-practical-demo-1">💻 Practical Demo</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-multi-head-attention">🐙 Multi-Head Attention</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#why-one-head-isnt-enough">Why One “Head” Isn’t Enough</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#the-strategy-split-and-conquer">The Strategy: Split and Conquer</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-feed-forward-networks-ffn">🏗️ Feed-Forward Networks (FFN)</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-layer-normalization">⚖️ Layer Normalization</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-residual-connections-add--norm">➕ Residual Connections (Add &amp; Norm)</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-the-transformer-block-putting-it-together">🧱 The Transformer Block: Putting it Together</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-the-architecture-encoder-vs-decoder">🏛️ The Architecture: Encoder vs. Decoder</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#1-the-encoder-the-reader">1. The Encoder (The Reader)</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#2-the-decoder-the-writer">2. The Decoder (The Writer)</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-the-secret-of-the-decoder-masked-attention">🎭 The Secret of the Decoder: Masked Attention</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-encoder-decoder-attention-the-bridge">🔗 Encoder-Decoder Attention (The Bridge)</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-the-final-step-from-math-to-words">🚀 The Final Step: From Math to Words</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-example-of-text-generation">💬 Example of text generation</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#-resources">📘 Resources</a>
+      </li></ul>
+
+  
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="flex w-full min-w-0 min-h-[calc(100vh-var(--navbar-height))] justify-center break-words pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="prose prose-slate lg:prose-xl dark:prose-invert w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+      <div class="mb-1">
+        <div class="mt-1.5 flex items-center gap-1 overflow-hidden text-sm text-gray-500 dark:text-gray-400">
+      <div class="whitespace-nowrap transition-colors min-w-[24px] overflow-hidden text-ellipsis hover:text-gray-900 dark:hover:text-gray-100">
+        <a href="http://localhost:1313/llm/">Llms</a>
+      </div><svg class="w-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m8.25 4.5l7.5 7.5l-7.5 7.5"/></svg><div class="whitespace-nowrap font-medium text-gray-700 dark:text-gray-100">Transformer Architecture</div>
+</div>
+
+      </div>
+
+      <div class="content text-base">
+        <h1>Transformer Architecture</h1>
+        <h2 id="-general-description">📝 General Description</h2>
+<p>Welcome to this comprehensive guide on understanding the <strong>Transformer architecture</strong> from scratch and in depth.</p>
+<p>In this tutorial, we will break down the core components of the Transformer model, including self-attention, multi-head attention, positional encoding, encoder-decoder structure, and more. Each part of the architecture will be demonstrated step-by-step in Python, ensuring you gain practical experience with hands-on code examples. To further reinforce your understanding of how Transformers process and generate language, we will also provide visual aids, diagrams, and external resources.</p>
+<p>By the end of this guide, you’ll not only grasp how modern language models like GPT and BERT are structured, but you’ll also be able to implement the essential parts yourself. This will give you practical insight into one of the most significant breakthroughs in AI.</p>
+<p>Let&rsquo;s embark on this journey to demystify Transformers—one piece and one line of code at a time!</p>
+<hr>
+<h2 id="-what-is-a-transformer">🤖 What is a Transformer?</h2>
+<p>In simple terms, a Transformer is a deep learning architecture specifically created to handle sequential data such as text, but unlike traditional models like RNNs or LSTMs which process data step by step, <strong>Transformers introduce a groundbreaking mechanism: they process all elements of the input sequence simultaneously.</strong></p>
+<p><strong>The Old Way (RNNs/LSTMs) vs. The Transformer Way</strong></p>
+<ul>
+<li>
+<p>RNNs (Sequential): Imagine reading a sentence one word at a time through a small hole in a piece of paper. You have to remember the first word by the time you reach the last. If the sentence is long, you forget the context. This is slow (cannot be parallelized).</p>
+</li>
+<li>
+<p>Transformers (Parallel): Imagine looking at the whole sentence at once. You can instantly see how the first word relates to the last word. This allows for massive parallelization (speed) and retaining long-term context (accuracy).</p>
+</li>
+</ul>
+<h3 id="-general-structure">🛠️ General Structure</h3>
+<p><strong>The Secret Sauce:</strong></p>
+<p>➡️ The core mechanism that makes this work is <strong>Self-Attention.</strong></p>
+<p>It allows the model to look at every word in a sentence simultaneously and decide which words are important relative to the current word.</p>
+<blockquote>
+<p>Example: &ldquo;The animal didn&rsquo;t cross the street because it was too tired.&rdquo;</p>
+</blockquote>
+<p>When the model processes the word &ldquo;it&rdquo;, Self-Attention tells the model:</p>
+<ol>
+<li>Pay high attention to &ldquo;animal&rdquo; (because &ldquo;it&rdquo; refers to the animal).</li>
+<li>Pay low attention to &ldquo;street&rdquo;.</li>
+</ol>
+<p>❗Without attention, the computer wouldn&rsquo;t know if &ldquo;it&rdquo; meant the street or the animal.</p>
+<p><strong>Encoder and Decoder:</strong></p>
+<p>The original Transformer (from the &ldquo;Attention Is All You Need&rdquo; paper) has two distinct stacks:</p>
+<ul>
+<li><strong>Encoder</strong>: It takes the English text, processes it, and <strong>compresses it into a purely mathematical (Numerical Matrix) understanding of the meaning (context)</strong>.</li>
+<li><strong>Decoder</strong>: It takes that mathematical meaning and generates the translated text (e.g., into Spanish), <strong>predicting one word at a time based  on the Encoder&rsquo;s context</strong>.</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/transformer_concept_hu13590817372613579977.webp 400w,
+               /llm/transformer-architecture/resources/transformer_concept_hu14795457127671594151.webp 760w,
+               /llm/transformer-architecture/resources/transformer_concept_hu547167985283537225.webp 1200w"
+               src="/llm/transformer-architecture/resources/transformer_concept_hu13590817372613579977.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+Visual example</p>
+<hr>
+<h2 id="-embeddings--positional-encoding">📚 Embeddings &amp; Positional Encoding</h2>
+<h3 id="input-embeddings">Input Embeddings</h3>
+<p><strong>Computers can&rsquo;t read text.</strong> We assign every word in our vocabulary a specific index (e.g., &ldquo;AI&rdquo; = 42). However, indices don&rsquo;t capture meaning.
+An <strong>Embedding Layer</strong> turns that index into a vector of size $d_{model}$ (usually 512). This vector is learned during training so that words with similar meanings end up mathematically close to each other.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/embedding_layer_hu4186720938799445220.webp 400w,
+               /llm/transformer-architecture/resources/embedding_layer_hu2875798853724190316.webp 760w,
+               /llm/transformer-architecture/resources/embedding_layer_hu15207531913584300792.webp 1200w"
+               src="/llm/transformer-architecture/resources/embedding_layer_hu4186720938799445220.webp"
+               width="760"
+               height="415"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+Example of basic embedding word and similar meaning representation</p>
+<blockquote>
+🎁 BONUS: How Embeddings Learn Meaning 🎁 <hr class="m-0-imp"> 
+<br>
+At the very beginning, the embedding for "Cat", "Dog", and "Apple" are just random numbers.
+<p>The model learns meaning through Context (The Distributional Hypothesis).</p>
+<ol>
+<li>
+<p>The Task: Imagine giving the model thousands of sentences like:</p>
+<ul>
+<li>&ldquo;I went to the park to walk my ____.&rdquo;</li>
+<li>&ldquo;The ____ barked at the mailman.&rdquo;</li>
+</ul>
+</li>
+<li>
+<p>The Error: If the model guesses &ldquo;Apple&rdquo; for the blank, the error is high. If it guesses &ldquo;Dog&rdquo;, the error is low.</p>
+</li>
+<li>
+<p>The Update: To reduce error, the model mathematically nudges the numbers for &ldquo;Dog&rdquo; closer to the numbers for &ldquo;walk&rdquo; and &ldquo;bark&rdquo;.</p>
+</li>
+<li>
+<p>The Result: Since &ldquo;Cat&rdquo; and &ldquo;Dog&rdquo; appear in very similar surroundings (pets, fur, walking), their numbers eventually become almost identical. &ldquo;Apple&rdquo; appears in sentences about eating or trees, so its numbers move to a completely different part of the mathematical space.</p>
+</li>
+</ol>
+<p><strong>In short:</strong> Words that share <strong>neighbors</strong> become <strong>neighbors</strong> in the vector space.</p>
+</blockquote>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/tokenizing_embedding_hu10415173284626036590.webp 400w,
+               /llm/transformer-architecture/resources/tokenizing_embedding_hu9987745253542596664.webp 760w,
+               /llm/transformer-architecture/resources/tokenizing_embedding_hu2420994885899930179.webp 1200w"
+               src="/llm/transformer-architecture/resources/tokenizing_embedding_hu10415173284626036590.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+<strong>Tokenizing</strong> simply chops text into pieces (IDs). <strong>Embedding</strong> maps those IDs into a vector space, literally &ldquo;embedding&rdquo; discrete words into a continuous mathematical dimension to <strong>capture meaning</strong>.</p>
+<h3 id="positional-encoding">Positional Encoding</h3>
+<p>This is the clever part. Because the <strong>Transformer looks at all words at once, it has no idea that &ldquo;The&rdquo; comes before &ldquo;End&rdquo;.</strong> It sees them purely as a &ldquo;bag of words.&rdquo;</p>
+<p>We must inject information about the <strong>position</strong> of each word into the embedding vector.</p>
+<p><strong>The Strategy:</strong> We add a constant vector to each embedding vector. This specific vector follows a specific wave pattern (Sine and Cosine functions) based on the position.</p>
+<p>The formula used in the paper is:
+</p>
+$$PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{model}})$$$$PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{model}})$$<ul>
+<li>PE: Position encoding.</li>
+<li>pos: The position of the word in the sentence.</li>
+<li>i: The dimension index of the embedding vector.</li>
+</ul>
+<h3 id="-practical-demo">💻 Practical Demo</h3>
+<p>Before building the complex Transformer, we must prove that a computer can learn semantic meaning (e.g., that &ldquo;Cat&rdquo; is similar to &ldquo;Dog&rdquo;) purely from math.</p>
+<p>In this script, we will:</p>
+<ol>
+<li>
+<p>Create a tiny dataset of few sentences.</p>
+</li>
+<li>
+<p>Train a simple Neural Network to predict the next word.</p>
+</li>
+<li>
+<p>Visualize the result to see &ldquo;Animals&rdquo; and &ldquo;Fruits&rdquo; separate into different clusters.</p>
+</li>
+</ol>
+<p><em>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="currentColor"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+  </span> Example:</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 0. SET SEED (For consistent results)</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 1. The Dataset ---</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># We strip it down to pure concepts to avoid &#34;Stopword Noise&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;cat strolls&#34;</span><span class="p">,</span> <span class="s2">&#34;cat eats&#34;</span><span class="p">,</span> <span class="s2">&#34;cat walks&#34;</span><span class="p">,</span> <span class="s2">&#34;cat runs&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;dog runs&#34;</span><span class="p">,</span> <span class="s2">&#34;dog eats&#34;</span><span class="p">,</span> <span class="s2">&#34;dog likes&#34;</span><span class="p">,</span> <span class="s2">&#34;dog walks&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;apple fruit&#34;</span><span class="p">,</span> <span class="s2">&#34;apple sweet&#34;</span><span class="p">,</span> <span class="s2">&#34;apple kitchen&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;banana fruit&#34;</span><span class="p">,</span> <span class="s2">&#34;banana ripe&#34;</span><span class="p">,</span> <span class="s2">&#34;banana kitchen&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Vocabulary</span>
+</span></span><span class="line"><span class="cl"><span class="n">words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Sorting ensures index 0 is always the same word every time we run</span>
+</span></span><span class="line"><span class="cl"><span class="n">word2idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">words</span><span class="p">)))}</span>
+</span></span><span class="line"><span class="cl"><span class="n">idx2word</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word2idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl"><span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 2. The Model (Prediction based) ---</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">WordPredictionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">WordPredictionModel</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 3. Training Data ---</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputs_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">targets_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">w</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># &#34;cat&#34; -&gt; &#34;strolls&#34; AND &#34;strolls&#34; -&gt; &#34;cat&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputs_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">targets_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputs_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">targets_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">inputs_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">targets</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">targets_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 4. Training ---</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Training...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">: Loss </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 5. NUMERICAL PROOF (The Missing Part) ---</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_vec</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">embed</span><span class="o">.</span><span class="n">weight</span><span class="p">[</span><span class="n">word2idx</span><span class="p">[</span><span class="n">word</span><span class="p">]]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span> <span class="o">+</span> <span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">40</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;     NUMERICAL PROOF&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;=&#34;</span><span class="o">*</span><span class="mi">40</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># A. Raw Vectors</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">[A] Raw Vector Values (2 Dimensions):&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&#34;cat&#34;</span><span class="p">,</span> <span class="s2">&#34;dog&#34;</span><span class="p">,</span> <span class="s2">&#34;apple&#34;</span><span class="p">,</span> <span class="s2">&#34;banana&#34;</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v</span> <span class="o">=</span> <span class="n">get_vec</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  </span><span class="si">{</span><span class="n">w</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2">: [</span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">]&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># B. Similarity Scores</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">[B] Cosine Similarity (1.0 = Same, -1.0 = Opposite):&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">print_sim</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v1</span> <span class="o">=</span> <span class="n">get_vec</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">v2</span> <span class="o">=</span> <span class="n">get_vec</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sim</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;  </span><span class="si">{</span><span class="n">w1</span><span class="si">}</span><span class="s2"> &lt;-&gt; </span><span class="si">{</span><span class="n">w2</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sim</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">print_sim</span><span class="p">(</span><span class="s2">&#34;cat&#34;</span><span class="p">,</span> <span class="s2">&#34;dog&#34;</span><span class="p">)</span>       <span class="c1"># Should be HIGH (e.g., &gt; 0.9)</span>
+</span></span><span class="line"><span class="cl"><span class="n">print_sim</span><span class="p">(</span><span class="s2">&#34;apple&#34;</span><span class="p">,</span> <span class="s2">&#34;banana&#34;</span><span class="p">)</span>  <span class="c1"># Should be HIGH (e.g., &gt; 0.9)</span>
+</span></span><span class="line"><span class="cl"><span class="n">print_sim</span><span class="p">(</span><span class="s2">&#34;cat&#34;</span><span class="p">,</span> <span class="s2">&#34;apple&#34;</span><span class="p">)</span>     <span class="c1"># Should be LOW (e.g., &lt; 0.5 or negative)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 6. VISUALIZATION ---</span>
+</span></span><span class="line"><span class="cl"><span class="n">vectors</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">vectors</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">vectors</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Invisible anchors</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">idx2word</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">vectors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Color logic: Animals=Blue, Food=Red, Actions=Green</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">]:</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]:</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Final Learned Embeddings&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Training...
+</span></span><span class="line"><span class="cl">Epoch 0: Loss 2.7137
+</span></span><span class="line"><span class="cl">Epoch 100: Loss 1.0664
+</span></span><span class="line"><span class="cl">Epoch 200: Loss 0.9315
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">========================================
+</span></span><span class="line"><span class="cl">     NUMERICAL PROOF
+</span></span><span class="line"><span class="cl">========================================
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[A] Raw Vector Values (2 Dimensions):
+</span></span><span class="line"><span class="cl">  cat       : [-1.4200, 3.3785]
+</span></span><span class="line"><span class="cl">  dog       : [-3.2353, 1.6622]
+</span></span><span class="line"><span class="cl">  apple     : [-3.3249, -1.6699]
+</span></span><span class="line"><span class="cl">  banana    : [-1.7500, -3.6377]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[B] Cosine Similarity (1.0 = Same, -1.0 = Opposite):
+</span></span><span class="line"><span class="cl">  cat &lt;-&gt; dog: 0.7659
+</span></span><span class="line"><span class="cl">  apple &lt;-&gt; banana: 0.7919
+</span></span><span class="line"><span class="cl">  cat &lt;-&gt; apple: -0.0675
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/result_embedding_hu10914364705933704915.webp 400w,
+               /llm/transformer-architecture/resources/result_embedding_hu4870744457442124038.webp 760w,
+               /llm/transformer-architecture/resources/result_embedding_hu1363994179074165530.webp 1200w"
+               src="/llm/transformer-architecture/resources/result_embedding_hu10914364705933704915.webp"
+               width="760"
+               height="628"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h2 id="-the-self-attention-mechanism">🧠 The Self-Attention Mechanism</h2>
+<h3 id="what-is-self-attention">What is Self-Attention?</h3>
+<p>In the previous section, we learned that Embeddings give words meaning. However, <strong>Embeddings are static</strong>. The word &ldquo;Bank&rdquo; has the same embedding vector whether we say &ldquo;I sat by the river bank&rdquo; or &ldquo;I deposited money in the bank&rdquo;.</p>
+<p><strong>Self-Attention</strong> is the mechanism that gives words <strong>context</strong>. It allows every word in a sentence to look at every other word and decide: &ldquo;How much does this other word matter to me?&rdquo;</p>
+<p><strong>Solution: Query, Key, and Value</strong>
+To achieve this, we don&rsquo;t just use the word embedding directly. We create three new vectors for every word using three separate linear layers (weights):</p>
+<ol>
+<li>
+<p>Query (Q): What the token is looking for. (e.g., &ldquo;I am &lsquo;it&rsquo;, I am looking for the noun I refer to.&rdquo;)</p>
+</li>
+<li>
+<p>Key (K): What the token identifies as. (e.g., &ldquo;I am &lsquo;cat&rsquo;, I am a noun/animal.&rdquo;)</p>
+</li>
+<li>
+<p>Value (V): The actual information the token contains.</p>
+</li>
+</ol>
+<blockquote>
+💡 The Analogy: The Filing System
+Imagine you are in a library.
+<ul>
+<li>
+<p>Query: The sticky note you have that says &ldquo;Biology&rdquo;.</p>
+</li>
+<li>
+<p>Key: The label on the spine of every book on the shelf (&ldquo;History&rdquo;, &ldquo;Math&rdquo;, &ldquo;Biology&rdquo;).</p>
+</li>
+<li>
+<p>Value: The content inside the book.</p>
+</li>
+</ul>
+<p>-&gt; You match your Query against the Keys. When you find a match (High Similarity), you take the Value (content) and add it to your knowledge.</p>
+</blockquote>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/example_key_query_value_hu2971030785117115933.webp 400w,
+               /llm/transformer-architecture/resources/example_key_query_value_hu6818874640916875808.webp 760w,
+               /llm/transformer-architecture/resources/example_key_query_value_hu8570061649169907944.webp 1200w"
+               src="/llm/transformer-architecture/resources/example_key_query_value_hu2971030785117115933.webp"
+               width="760"
+               height="415"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><strong>👩‍🔬 Formula:</strong></p>
+<p>How do we calculate &ldquo;similarity&rdquo; between a Query and a Key? We use the <strong>Dot Product</strong>.</p>
+<p>The formula for Scaled Dot-Product Attention is:</p>
+$$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$<ol>
+<li>$QK^T$: Multiply Queries by Keys to get a score matrix (Similarity).</li>
+<li>$\sqrt{d_k}$: Scale down the numbers so gradients remain stable (hence &ldquo;Scaled&rdquo;).</li>
+<li>Softmax: Convert scores into probabilities (0 to 1). If the score is high, this becomes near 1 (pay attention!). If low, near 0 (ignore).</li>
+<li>$\times V$: Multiply the probability by the Values. We keep the information of relevant words and drown out the irrelevant ones.</li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/attention_hu8278941250233834431.webp 400w,
+               /llm/transformer-architecture/resources/attention_hu17403298798223444305.webp 760w,
+               /llm/transformer-architecture/resources/attention_hu10142588206115387101.webp 1200w"
+               src="/llm/transformer-architecture/resources/attention_hu8278941250233834431.webp"
+               width="760"
+               height="415"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h3 id="-practical-demo-1">💻 Practical Demo</h3>
+<p>To prove Self-Attention works, we need a problem that cannot be solved by looking at just one word. We need context ambiguity.</p>
+<p>Task: &ldquo;Ambiguous Pairs&rdquo;</p>
+<p>We will train a model to classify 2-word phrases.</p>
+<ul>
+<li><strong>&ldquo;Fruit Fly&rdquo;</strong> -&gt; Class: <strong>Insect</strong></li>
+<li><strong>&ldquo;Fruit Salad&rdquo;</strong> -&gt; Class: <strong>Food</strong></li>
+<li><strong>&ldquo;Iron Man&rdquo;</strong> -&gt; Class: <strong>Hero</strong></li>
+<li><strong>&ldquo;Iron Gate&rdquo;</strong> -&gt; Class: <strong>Metal</strong></li>
+</ul>
+<p><strong>The Trick:</strong>
+We will force the model to make the prediction using <strong>ONLY the vector of the first word</strong> (e.g., &ldquo;Fruit&rdquo;).</p>
+<ul>
+<li>By itself, &ldquo;Fruit&rdquo; could be Insect or Food. It doesn&rsquo;t know.</li>
+<li>To solve this, the Self-Attention mechanism <strong>MUST</strong> learn to &ldquo;look&rdquo; at the second word (&ldquo;Fly&rdquo; or &ldquo;Salad&rdquo;) and copy that information back to the first word.</li>
+</ul>
+<p>If the Attention Map shows the first word looking at the second, we have proven it works.</p>
+<p><em>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="currentColor"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+  </span> Example:</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 0. SET SEED</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 1. DATASET: AMBIGUOUS PAIRS ---</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Sentences with labels</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;fruit fly&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>   <span class="c1"># 0 = Insect</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;fruit salad&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># 1 = Food</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;iron man&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>    <span class="c1"># 2 = Hero</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;iron gate&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>    <span class="c1"># 3 = Metal</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Build Vocabulary</span>
+</span></span><span class="line"><span class="cl"><span class="n">words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">words</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">word2idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">words</span><span class="p">)))}</span>
+</span></span><span class="line"><span class="cl"><span class="n">idx2word</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word2idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl"><span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Prepare Tensors</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Convert &#34;fruit fly&#34; -&gt; [ID_fruit, ID_fly]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>  <span class="c1"># Shape: (4, 2)</span>
+</span></span><span class="line"><span class="cl"><span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>  <span class="c1"># Shape: (4)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 2. THE MODEL WITH SELF-ATTENTION ---</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TinyTransformer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">d_model</span> <span class="o">=</span> <span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># A. Embeddings (The Meaning)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># B. Self-Attention (The Context)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># We produce Queries, Keys, and Values</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_q</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_k</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_v</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># C. Classifier</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># 4 Classes</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1. Embed: (Batch, Seq_Len, d_model)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># e.g., &#34;fruit fly&#34; -&gt; [Vector_Fruit, Vector_Fly]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2. Compute Q, K, V</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_q</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_k</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_v</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 3. Dot Product Similarity (The &#34;Match&#34;)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Score = Q * K_transpose</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d_model</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 4. Attention Weights (Softmax)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># 5. Weighted Sum (The Transfer of Info)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">context</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">attn_weights</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># --- THE CONSTRAINT ---</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># We ONLY use the vector of the FIRST word (Index 0) to classify.</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># This forces the first word to &#34;attend&#34; to the second word to get the answer.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">first_word_context</span> <span class="o">=</span> <span class="n">context</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> 
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">first_word_context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">attn_weights</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialize</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">TinyTransformer</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 3. TRAINING LOOP ---</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Training: Teaching &#39;Fruit&#39; to look at &#39;Fly&#39;...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">predictions</span><span class="p">,</span> <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2"> | Loss: </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 4. VISUALIZATION ---</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Let&#39;s see what the model learned!</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Testing: Does &#39;Iron&#39; look at &#39;Man&#39;?&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Pass &#34;iron man&#34; through the trained model</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_sentence</span> <span class="o">=</span> <span class="s2">&#34;iron man&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_in</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">test_sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">_</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">test_in</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot the Attention Matrix</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Shape of weights: (1, 2, 2) -&gt; We take the first batch</span>
+</span></span><span class="line"><span class="cl"><span class="n">matrix</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">labels</span> <span class="o">=</span> <span class="n">test_sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&#34;Reds&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">xticklabels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Attention Intensity&#39;</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Attention Weights for &#39;</span><span class="si">{</span><span class="n">test_sentence</span><span class="si">}</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">Check the first row!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Key (Looking at...)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;Query (Word from...)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Training: Teaching &#39;Fruit&#39; to look at &#39;Fly&#39;...
+</span></span><span class="line"><span class="cl">Epoch 0 | Loss: 1.4035
+</span></span><span class="line"><span class="cl">Epoch 50 | Loss: 0.0023
+</span></span><span class="line"><span class="cl">Epoch 100 | Loss: 0.0008
+</span></span><span class="line"><span class="cl">Epoch 150 | Loss: 0.0005
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Testing: Does &#39;Iron&#39; look at &#39;Man&#39;?
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/result_attention_hu18104905942050004082.webp 400w,
+               /llm/transformer-architecture/resources/result_attention_hu10227578524184780646.webp 760w,
+               /llm/transformer-architecture/resources/result_attention_hu4683639549724038298.webp 1200w"
+               src="/llm/transformer-architecture/resources/result_attention_hu18104905942050004082.webp"
+               width="529"
+               height="491"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>🔍 <strong>How to Read the Result</strong></p>
+<ol>
+<li>Look at the <strong>First Row</strong> (labeled &ldquo;iron&rdquo;).</li>
+<li>The model is trying to classify the phrase based <em>only</em> on this position.</li>
+<li><strong>Self-Attention:</strong> If the box for <strong>&ldquo;iron&rdquo;  &ldquo;iron&rdquo;</strong> is light (low number) and <strong>&ldquo;iron&rdquo;  &ldquo;man&rdquo;</strong> is dark red (high number, like 0.8 or 0.9), <strong>it worked.</strong></li>
+<li>It proves the word &ldquo;Iron&rdquo; stopped looking at itself and paid attention to &ldquo;Man&rdquo; to understand that the context is &ldquo;Hero&rdquo;.</li>
+</ol>
+<p><strong>Why did Dot Product do this?</strong>
+During training, the dot product between &ldquo;Iron&rdquo; (Query) and &ldquo;Man&rdquo; (Key) was the only mathematical path to lower the error. The model adjusted the weights until those two vectors pointed in the same direction, maximizing their similarity score.</p>
+<h2 id="-multi-head-attention">🐙 Multi-Head Attention</h2>
+<h3 id="why-one-head-isnt-enough">Why One &ldquo;Head&rdquo; Isn&rsquo;t Enough</h3>
+<p>In the previous section, our model successfully connected &ldquo;Iron&rdquo; to &ldquo;Man&rdquo;. But language is rarely that simple. A single word often has multiple simultaneous relationships.</p>
+<p>Consider the sentence:</p>
+<blockquote>
+<p>The animal didn&rsquo;t cross the street because it was too tired.</p>
+</blockquote>
+<p>When the model looks at <strong>&ldquo;it&rdquo;</strong>, it needs to understand two things at once:</p>
+<ol>
+<li><strong>Grammar:</strong> &ldquo;it&rdquo; is the subject of &ldquo;was&rdquo;.</li>
+<li><strong>Meaning:</strong> &ldquo;it&rdquo; refers to &ldquo;animal&rdquo; (not &ldquo;street&rdquo;).</li>
+</ol>
+<p>A single Attention mechanism (one &ldquo;Head&rdquo;) might get overwhelmed trying to do both. <strong>Multi-Head Attention</strong> gives the model multiple &ldquo;brains&rdquo; to focus on different things simultaneously.</p>
+<ul>
+<li><strong>Head 1:</strong> Focuses on <strong>Who</strong> (connects &ldquo;it&rdquo; to &ldquo;animal&rdquo;).</li>
+<li><strong>Head 2:</strong> Focuses on <strong>Action</strong> (connects &ldquo;it&rdquo; to &ldquo;cross&rdquo;).</li>
+<li><strong>Head 3:</strong> Focuses on <strong>Punctuation</strong> (connects &ldquo;it&rdquo; to &ldquo;.&rdquo;).</li>
+</ul>
+<h3 id="the-strategy-split-and-conquer">The Strategy: Split and Conquer</h3>
+<p>Instead of one giant matrix of size 512, we split it into smaller matrices (e.g., 8 heads of size 64).</p>
+<ol>
+<li><strong>Split:</strong> Divide the embedding into  parts.</li>
+<li><strong>Attend:</strong> Run Self-Attention on each part independently (in parallel).</li>
+<li><strong>Concatenate:</strong> Glue the results back together.</li>
+<li><strong>Mix:</strong> Pass through a final Linear Layer to Combine the insights.</li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/multihead_attention_hu11872912059695208517.webp 400w,
+               /llm/transformer-architecture/resources/multihead_attention_hu11489328839540854870.webp 760w,
+               /llm/transformer-architecture/resources/multihead_attention_hu6728798650567412487.webp 1200w"
+               src="/llm/transformer-architecture/resources/multihead_attention_hu11872912059695208517.webp"
+               width="760"
+               height="415"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p><em>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" fill="currentColor"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+  </span> Example:</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 0. SET SEED (For consistent initialization)</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 1. DATASET ---</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;fruit&#34;</span><span class="p">,</span> <span class="s2">&#34;?&#34;</span><span class="p">],</span> <span class="s2">&#34;apple&#34;</span><span class="p">),</span>     
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="s2">&#34;yellow&#34;</span><span class="p">,</span> <span class="s2">&#34;fruit&#34;</span><span class="p">,</span> <span class="s2">&#34;?&#34;</span><span class="p">],</span> <span class="s2">&#34;banana&#34;</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;vehicle&#34;</span><span class="p">,</span> <span class="s2">&#34;?&#34;</span><span class="p">],</span> <span class="s2">&#34;ferrari&#34;</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">([</span><span class="s2">&#34;yellow&#34;</span><span class="p">,</span> <span class="s2">&#34;vehicle&#34;</span><span class="p">,</span> <span class="s2">&#34;?&#34;</span><span class="p">],</span> <span class="s2">&#34;bus&#34;</span><span class="p">),</span>  
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Vocabulary</span>
+</span></span><span class="line"><span class="cl"><span class="n">words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">seq</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">words</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">words</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">word2idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">words</span><span class="p">)))}</span>
+</span></span><span class="line"><span class="cl"><span class="n">idx2word</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">word2idx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</span></span><span class="line"><span class="cl"><span class="n">vocab_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">]</span> <span class="k">for</span> <span class="n">seq</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">targets</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">word2idx</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">data</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 2. MODEL ---</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">RegularizedMultiHead</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">d_model</span> <span class="o">=</span> <span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span> <span class="o">=</span> <span class="n">num_heads</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span> <span class="o">=</span> <span class="n">d_model</span> <span class="o">//</span> <span class="n">num_heads</span> 
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">embed</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_q</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_k</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_v</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_o</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Split Heads</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_q</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_k</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_v</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_heads</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Attention</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d_k</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">context</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">attn_weights</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">context</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1"># Classification (Only on last token)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">final_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_o</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">final_output</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">attn_weights</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">RegularizedMultiHead</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">d_model</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 3. TRAINING WITH REGULARIZATION ---</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Training with Disagreement Penalty...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">preds</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># A. Classification Loss</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cls_loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># B. Disagreement Penalty (The Magic Trick)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># We take the attention weights of Head 0 and Head 1</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># We multiply them. If both are high (overlap), the result is high.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># We want to MINIMIZE this overlap.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Focus on the last token&#39;s attention (index 2) looking at input words</span>
+</span></span><span class="line"><span class="cl">    <span class="n">head0</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># (Batch, Seq)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">head1</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># (Batch, Seq)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">overlap</span> <span class="o">=</span> <span class="p">(</span><span class="n">head0</span> <span class="o">*</span> <span class="n">head1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># Total Loss = Learn Task + Don&#39;t Overlap</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total_loss</span> <span class="o">=</span> <span class="n">cls_loss</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">overlap</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">total_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">targets</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2"> | Loss: </span><span class="si">{</span><span class="n">total_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> | Acc: </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># --- 4. VISUALIZATION ---</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_seq</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;red&#34;</span><span class="p">,</span> <span class="s2">&#34;vehicle&#34;</span><span class="p">,</span> <span class="s2">&#34;?&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_in</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">word2idx</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">test_seq</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">_</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">test_in</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract attention for the &#34;?&#34; token (Query index 2)</span>
+</span></span><span class="line"><span class="cl"><span class="n">h1</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">h2</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Set up the figure</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">tokens</span> <span class="o">=</span> <span class="n">test_seq</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot Head 1</span>
+</span></span><span class="line"><span class="cl"><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tokens</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">h1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&#34;Reds&#34;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Added &#39;pad=20&#39; for vertical spacing between title and plot</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Head 1 Focus</span><span class="se">\n</span><span class="s2">(Looking at &#39;</span><span class="si">{</span><span class="n">tokens</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">h1</span><span class="p">)]</span><span class="si">}</span><span class="s2">&#39;)&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot Head 2</span>
+</span></span><span class="line"><span class="cl"><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">tokens</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">h2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&#34;Blues&#34;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Added &#39;pad=20&#39; for vertical spacing between title and plot</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Head 2 Focus</span><span class="se">\n</span><span class="s2">(Looking at &#39;</span><span class="si">{</span><span class="n">tokens</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">h2</span><span class="p">)]</span><span class="si">}</span><span class="s2">&#39;)&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Adjust &#39;y&#39; to move the main title higher</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&#34;Specialization via Loss Function&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use tight_layout with a top margin to prevent titles from crashing</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><blockquote>
+
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+  </span> Output: <hr class="m-0-imp"> 
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Training with Disagreement Penalty...
+</span></span><span class="line"><span class="cl">Epoch 0 | Loss: 2.8449 | Acc: 25%
+</span></span><span class="line"><span class="cl">Epoch 50 | Loss: 0.0000 | Acc: 100%
+</span></span><span class="line"><span class="cl">Epoch 100 | Loss: 0.0000 | Acc: 100%
+</span></span><span class="line"><span class="cl">Epoch 150 | Loss: 0.0000 | Acc: 100%
+</span></span><span class="line"><span class="cl">Epoch 200 | Loss: 0.0000 | Acc: 100%
+</span></span><span class="line"><span class="cl">Epoch 250 | Loss: 0.0000 | Acc: 100%
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/result_multihead_attention_hu9428966094919652434.webp 400w,
+               /llm/transformer-architecture/resources/result_multihead_attention_hu3856885143078245491.webp 760w,
+               /llm/transformer-architecture/resources/result_multihead_attention_hu114291655595443914.webp 1200w"
+               src="/llm/transformer-architecture/resources/result_multihead_attention_hu9428966094919652434.webp"
+               width="760"
+               height="431"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h2 id="-feed-forward-networks-ffn">🏗️ Feed-Forward Networks (FFN)</h2>
+<p>While Multi-Head Attention routes information between tokens, it doesn&rsquo;t actually &ldquo;process&rdquo; that information. The <strong>Feed-Forward Network</strong> acts as a localized processor for every single word in the sequence.</p>
+<p>Think of Multi-Head Attention as a group of people in a meeting sharing notes. The Feed-Forward Network is like each person going back to their desk to think deeply about the notes they just received.</p>
+<ul>
+<li><strong>Independent Processing:</strong> The FFN is applied to each word position separately and identically. It has no idea what the other words are doing; it only focuses on the rich context vector it just received from the attention layer.</li>
+<li><strong>Expansion &amp; Contraction:</strong> Internally, this layer usually projects the data into a much higher dimension (e.g., from 512 to 2048) using a ReLU activation, and then projects it back down. This &ldquo;stretching&rdquo; of the data allows the model to learn complex non-linear patterns.</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/feed_forward_networks_hu7932775021083033263.webp 400w,
+               /llm/transformer-architecture/resources/feed_forward_networks_hu10113374900878069676.webp 760w,
+               /llm/transformer-architecture/resources/feed_forward_networks_hu4369510888323494480.webp 1200w"
+               src="/llm/transformer-architecture/resources/feed_forward_networks_hu7932775021083033263.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<hr>
+<h2 id="-layer-normalization">⚖️ Layer Normalization</h2>
+<p>Deep neural networks are notoriously difficult to train because numbers can grow exponentially large or shrink to zero as they pass through many layers (the vanishing/exploding gradient problem). <strong>Layer Normalization</strong> is the &ldquo;stabilizer.&rdquo;</p>
+<p>It ensures that the output of each layer has a consistent mean and variance. By keeping the mathematical values within a healthy range, the model trains much faster and is less likely to &ldquo;break&rdquo; during the learning process.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/layer_normalization_hu14582291749025346051.webp 400w,
+               /llm/transformer-architecture/resources/layer_normalization_hu1931139504323445583.webp 760w,
+               /llm/transformer-architecture/resources/layer_normalization_hu11095272291675123191.webp 1200w"
+               src="/llm/transformer-architecture/resources/layer_normalization_hu14582291749025346051.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<hr>
+<h2 id="-residual-connections-add--norm">➕ Residual Connections (Add &amp; Norm)</h2>
+<p>You will often see the term &ldquo;Add &amp; Norm&rdquo; in Transformer diagrams. This refers to <strong>Residual Connections</strong> (also called Skip Connections).</p>
+<p>Instead of just passing the output of a layer to the next, we <strong>add</strong> the original input back to the output of the layer:</p>
+<p><strong>Why do this?</strong></p>
+<ul>
+<li><strong>Information Highway:</strong> It allows the original signal to flow through the network without being distorted by every single layer.</li>
+<li><strong>Easier Training:</strong> It helps gradients flow backward during training, preventing the model from &ldquo;forgetting&rdquo; the initial input as the network gets deeper.</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/add_norm_hu7078449140342287604.webp 400w,
+               /llm/transformer-architecture/resources/add_norm_hu16340516080249453788.webp 760w,
+               /llm/transformer-architecture/resources/add_norm_hu11453389778874616098.webp 1200w"
+               src="/llm/transformer-architecture/resources/add_norm_hu7078449140342287604.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<hr>
+<h2 id="-the-transformer-block-putting-it-together">🧱 The Transformer Block: Putting it Together</h2>
+<p>At this point, we have all the ingredients for a single <strong>Transformer Block</strong>. A full model (like GPT or BERT) is simply a stack of these blocks (often 6, 12, or even 96 layers deep).</p>
+<p><strong>The flow of one block looks like this:</strong></p>
+<ol>
+<li><strong>Input</strong> arrives (as embeddings + positional encodings).</li>
+<li><strong>Multi-Head Attention</strong> looks for relationships.</li>
+<li><strong>Add &amp; Norm</strong> stabilizes the attention output.</li>
+<li><strong>Feed-Forward Network</strong> processes the information at each position.</li>
+<li><strong>Add &amp; Norm</strong> stabilizes the final result before passing it to the next block.</li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/transformer_block_hu7393580380787476626.webp 400w,
+               /llm/transformer-architecture/resources/transformer_block_hu8850301230399668888.webp 760w,
+               /llm/transformer-architecture/resources/transformer_block_hu1145802508181261550.webp 1200w"
+               src="/llm/transformer-architecture/resources/transformer_block_hu7393580380787476626.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h2 id="-the-architecture-encoder-vs-decoder">🏛️ The Architecture: Encoder vs. Decoder</h2>
+<p>The original Transformer was designed for translation (e.g., English to Spanish). To do this, it uses two distinct &ldquo;teams&rdquo; working together.</p>
+<h3 id="1-the-encoder-the-reader">1. The Encoder (The Reader)</h3>
+<p>The Encoder’s job is to understand the input sentence. It looks at the whole English sentence at once and creates a high-level mathematical representation of its meaning.</p>
+<ul>
+<li><strong>Bi-directional:</strong> It can look at words to the left and right of any given word to get full context.</li>
+<li><strong>Output:</strong> A set of vectors that represent the &ldquo;essence&rdquo; of the input.</li>
+</ul>
+<h3 id="2-the-decoder-the-writer">2. The Decoder (The Writer)</h3>
+<p>The Decoder’s job is to generate the output sentence one word at a time. It is slightly more complex than the Encoder because it has to look at two things:</p>
+<ol>
+<li>What has already been written (to maintain the flow of the new sentence).</li>
+<li>The Encoder&rsquo;s output (to make sure the translation is accurate).</li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/decoder_encoder_hu919431874728229917.webp 400w,
+               /llm/transformer-architecture/resources/decoder_encoder_hu10737938231024801742.webp 760w,
+               /llm/transformer-architecture/resources/decoder_encoder_hu5298604993103895107.webp 1200w"
+               src="/llm/transformer-architecture/resources/decoder_encoder_hu919431874728229917.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<hr>
+<h2 id="-the-secret-of-the-decoder-masked-attention">🎭 The Secret of the Decoder: Masked Attention</h2>
+<p>There is a major difference in how the Decoder &ldquo;thinks.&rdquo; When the Decoder is predicting the next word, it is <strong>not allowed</strong> to see the future.</p>
+<p>Imagine you are translating &ldquo;The cat&rdquo; into &ldquo;El gato.&rdquo;</p>
+<ul>
+<li>When the model is predicting &ldquo;El&rdquo;, it shouldn&rsquo;t be able to see that the next word is &ldquo;gato.&rdquo;</li>
+<li>If it could see the future, it would just copy the answer instead of learning how to translate.</li>
+</ul>
+<p>To prevent this, we use <strong>Masked Multi-Head Attention</strong>. We mathematically &ldquo;mask&rdquo; (hide) all words that come after the current position by setting their attention scores to negative infinity (). This ensures the model only learns from the past.</p>
+<blockquote>
+<p><strong>Example: Masking in Transformer Prediction</strong></p>
+<p>Suppose the Decoder is predicting the next word in the sequence:<br>
+<code>&quot;The cat sat ___&quot;</code></p>
+<p>The model should only be able to &ldquo;see&rdquo; the words up to the blank (including the blank), not the words that come after it. To enforce this restriction, a <strong>mask</strong> is applied to the attention scores so that each position can only attend to previous (or current) positions, never to future positions.</p>
+<p>Here&rsquo;s what a simple mask would look like when predicting 4 positions (visualized as a matrix where 0 = allowed, -inf = masked):</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>w1</th>
+          <th>w2</th>
+          <th>w3</th>
+          <th>w4</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>w1</strong></td>
+          <td>0</td>
+          <td>-∞</td>
+          <td>-∞</td>
+          <td>-∞</td>
+      </tr>
+      <tr>
+          <td><strong>w2</strong></td>
+          <td>0</td>
+          <td>0</td>
+          <td>-∞</td>
+          <td>-∞</td>
+      </tr>
+      <tr>
+          <td><strong>w3</strong></td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>-∞</td>
+      </tr>
+      <tr>
+          <td><strong>w4</strong></td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+      </tr>
+  </tbody>
+</table>
+<p>When predicting the third word (&ldquo;w3&rdquo;), for example, the model CANNOT &ldquo;see&rdquo; w4. In code, this is achieved by adding a mask (typically a matrix filled with <code>-inf</code> above the diagonal) so the softmax output ignores future positions.</p>
+<p><strong>PyTorch Example:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">seq_len</span> <span class="o">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">seq_len</span><span class="p">,</span> <span class="n">seq_len</span><span class="p">),</span> <span class="n">diagonal</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;-inf&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+</span></span></code></pre></div><p>This produces:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tensor([[0., -inf, -inf, -inf],
+</span></span><span class="line"><span class="cl">        [0.,   0., -inf, -inf],
+</span></span><span class="line"><span class="cl">        [0.,   0.,   0., -inf],
+</span></span><span class="line"><span class="cl">        [0.,   0.,   0.,   0.]])
+</span></span></code></pre></div><p>This mask ensures truly &ldquo;auto-regressive&rdquo; prediction—each token is generated only with knowledge of tokens before it.</p>
+</blockquote>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/mask_attention_hu13326714094617202070.webp 400w,
+               /llm/transformer-architecture/resources/mask_attention_hu12377111514978049530.webp 760w,
+               /llm/transformer-architecture/resources/mask_attention_hu8987449170237472195.webp 1200w"
+               src="/llm/transformer-architecture/resources/mask_attention_hu13326714094617202070.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<hr>
+<h2 id="-encoder-decoder-attention-the-bridge">🔗 Encoder-Decoder Attention (The Bridge)</h2>
+<p>The Decoder has an extra layer called <strong>Encoder-Decoder Attention</strong>.</p>
+<p>In this layer:</p>
+<ul>
+<li><strong>Queries</strong> come from the Decoder (What is the next Spanish word?).</li>
+<li><strong>Keys and Values</strong> come from the Encoder (What was the original English meaning?).</li>
+</ul>
+<p>This is the specific moment where the model &ldquo;looks back&rdquo; at the source text to decide which word to generate next. For example, when writing &ldquo;gato,&rdquo; this layer tells the model to pay high attention to the English word &ldquo;cat.&rdquo;</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/bridge_hu15640716914429463748.webp 400w,
+               /llm/transformer-architecture/resources/bridge_hu16182243404150423695.webp 760w,
+               /llm/transformer-architecture/resources/bridge_hu7964558497028567581.webp 1200w"
+               src="/llm/transformer-architecture/resources/bridge_hu15640716914429463748.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<hr>
+<h2 id="-the-final-step-from-math-to-words">🚀 The Final Step: From Math to Words</h2>
+<p>Once the data passes through the last Decoder block, it goes through two final stages:</p>
+<ol>
+<li><strong>Linear Layer:</strong> A simple layer that expands the data to the size of your entire vocabulary (e.g., 50,000 words).</li>
+<li><strong>Softmax:</strong> This turns those numbers into <strong>probabilities</strong>.</li>
+</ol>
+<p>The word with the highest probability (e.g., &ldquo;gato&rdquo; at 92%) is chosen as the next word in the sequence. This process repeats—feeding the new word back into the Decoder—until the model generates an <code>&lt;End of Sentence&gt;</code> token.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image" srcset="
+               /llm/transformer-architecture/resources/steps_hu17162020966117777792.webp 400w,
+               /llm/transformer-architecture/resources/steps_hu4442929907104872604.webp 760w,
+               /llm/transformer-architecture/resources/steps_hu16685086656370777209.webp 1200w"
+               src="/llm/transformer-architecture/resources/steps_hu17162020966117777792.webp"
+               width="760"
+               height="424"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h2 id="-example-of-text-generation">💬 Example of text generation</h2>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="flex justify-center	">
+    <div class="w-100" ><img alt="image"
+           src="/llm/transformer-architecture/resources/text_generation.gif"
+           loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h2 id="-resources">📘 Resources</h2>
+<ul>
+<li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">The Illustrated Transformer (by Jay Alammar)</a></li>
+<li><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Attention Is All You Need (original paper)</a></li>
+<li><a href="https://www.youtube.com/watch?v=4Bdc55j80l8" target="_blank" rel="noopener">Transformer Model Animation</a></li>
+</ul>
+
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2026-02-01T00:00:00.000Z">
+    <span>Last updated on</span>
+    Feb 1, 2026</time>
+      
+      
+  
+    
+    
+    
+      
+      
+    
+<div class="pt-1 no-prose w-full">
+  <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+  <div class="flex flex-col md:flex-row flex-nowrap justify-between gap-5 pt-2">
+    <div class="">
+      
+        <a class="group flex no-underline" href="/llm/azure-open-ai/">
+          <span
+            class="mt-[-0.3rem] me-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline rtl:hidden">&larr;</span></span>
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Introduction to Azure OpenAI</span>
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                Feb 19, 2024
+              
+            </span>
+          </span>
+        </a>
+      
+    </div>
+    <div class="">
+      
+        <a class="group flex text-right no-underline" href="/llm/prompt-engineering/">
+          <span class="flex flex-col">
+            <span
+              class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+            >Prompt Engineering</span
+            >
+            <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+              
+                Feb 27, 2024
+              
+            </span>
+          </span>
+          <span
+            class="mt-[-0.3rem] ms-2 text-neutral-700 transition-transform group-hover:-translate-x-[2px] group-hover:text-primary-600 dark:text-neutral dark:group-hover:text-primary-400"
+          ><span class="ltr:inline">&rarr;</span></span>
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+      
+
+
+
+    </main>
+  </article>
+</div>
+
+    </div>
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by text-center">
+    © 2026. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by text-center">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+
+</footer>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -4,7 +4,7 @@ summary: "Guide to Prompt Engineering: Crafting Effective Prompts for AI Models"
 date: 2024-02-27
 type: docs
 math: false
-weight: 2
+weight: 3
 tags:
   - LLM
   - Azure Open AI
